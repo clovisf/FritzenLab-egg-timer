@@ -1676,20 +1676,10 @@
 		)
 	)
 	(junction
-		(at 138.43 52.07)
+		(at 138.43 46.99)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "d2b76925-272d-4d2c-931e-1a08580ee643")
-	)
-	(wire
-		(pts
-			(xy 119.38 52.07) (xy 124.46 52.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0f169363-ee87-45f6-8e36-e9ea1ec97fcf")
+		(uuid "23cfa229-cfff-4e2a-a395-7eca94bc53cd")
 	)
 	(wire
 		(pts
@@ -1713,6 +1703,26 @@
 	)
 	(wire
 		(pts
+			(xy 138.43 29.21) (xy 138.43 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "30b93130-5c54-4aa5-bc00-736173d8e29d")
+	)
+	(wire
+		(pts
+			(xy 119.38 29.21) (xy 119.38 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "38e807c3-31b4-4884-9253-75e167272669")
+	)
+	(wire
+		(pts
 			(xy 172.72 44.45) (xy 172.72 52.07)
 		)
 		(stroke
@@ -1723,53 +1733,63 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 34.29) (xy 138.43 34.29)
+			(xy 119.38 46.99) (xy 119.38 52.07)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "771b6b72-6a60-4429-b682-5c3649309ea8")
+		(uuid "5203cd22-698c-45e7-9c2a-7d38725faea5")
 	)
 	(wire
 		(pts
-			(xy 138.43 34.29) (xy 138.43 52.07)
+			(xy 134.62 29.21) (xy 138.43 29.21)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a9ffeefe-5dba-433f-838f-27453f6f97a8")
+		(uuid "711d8d4e-6cc7-4b48-874f-28cc13d03f97")
 	)
 	(wire
 		(pts
-			(xy 138.43 52.07) (xy 138.43 55.88)
+			(xy 124.46 46.99) (xy 119.38 46.99)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "bd35b155-e549-47c6-809c-413f82443519")
+		(uuid "8dabf42a-2845-4de8-94b9-a98d6fd1536d")
 	)
 	(wire
 		(pts
-			(xy 134.62 52.07) (xy 138.43 52.07)
+			(xy 124.46 29.21) (xy 119.38 29.21)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c34ff4c1-3d16-4a7c-bded-2e4b643d06f9")
+		(uuid "95a2a960-69d2-4d58-9c28-a781ed087f61")
 	)
 	(wire
 		(pts
-			(xy 119.38 34.29) (xy 124.46 34.29)
+			(xy 134.62 46.99) (xy 138.43 46.99)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e2426c80-5fe0-4e9f-a89c-9fc338ba720c")
+		(uuid "bb3a28ea-9c6f-4025-836a-c1be72f51257")
+	)
+	(wire
+		(pts
+			(xy 138.43 46.99) (xy 138.43 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c6bbb63b-85c7-4986-992a-c0a9cbc6cddb")
 	)
 	(global_label "PGC"
 		(shape input)
