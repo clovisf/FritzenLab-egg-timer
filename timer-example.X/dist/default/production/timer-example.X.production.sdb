@@ -1,0 +1,56 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 12F675 ]
+[d frameptr 0 ]
+"10 D:\Installations\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 D:\Installations\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 D:\Installations\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"16 C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\timer-example.X\main.c
+[v _ISR ISR `II(v  1 e 1 0 ]
+"28
+[v _main main `(v  1 e 1 0 ]
+"72 D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
+[v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
+[s S27 . 1 `uc 1 GP0 1 0 :1:0 
+`uc 1 GP1 1 0 :1:1 
+`uc 1 GP2 1 0 :1:2 
+`uc 1 GP3 1 0 :1:3 
+`uc 1 GP4 1 0 :1:4 
+`uc 1 GP5 1 0 :1:5 
+]
+"241
+[s S34 . 1 `uc 1 GPIO0 1 0 :1:0 
+`uc 1 GPIO1 1 0 :1:1 
+`uc 1 GPIO2 1 0 :1:2 
+`uc 1 GPIO3 1 0 :1:3 
+`uc 1 GPIO4 1 0 :1:4 
+`uc 1 GPIO5 1 0 :1:5 
+]
+[u S41 . 1 `S27 1 . 1 0 `S34 1 . 1 0 ]
+[v _GPIObits GPIObits `VES41  1 e 1 @5 ]
+"326
+[v _INTCON INTCON `VEuc  1 e 1 @11 ]
+"727
+[v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
+"797
+[v _TRISIO TRISIO `VEuc  1 e 1 @133 ]
+"1733
+[v _TMR0IF TMR0IF `VEb  1 e 0 @90 ]
+"14 C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\timer-example.X\main.c
+[v _cnt cnt `ui  1 e 2 0 ]
+"28
+[v _main main `(v  1 e 1 0 ]
+{
+"52
+} 0
+"16
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"26
+} 0

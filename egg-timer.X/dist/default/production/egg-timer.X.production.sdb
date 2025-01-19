@@ -1,0 +1,40 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 12F675 ]
+[d frameptr 0 ]
+"10 D:\Installations\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 D:\Installations\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 D:\Installations\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"29 C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer.X\main-egg-timer.c
+[v _main main `(i  1 e 2 0 ]
+"72 D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
+[v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
+"326
+[v _INTCON INTCON `VEuc  1 e 1 @11 ]
+"564
+[v _CMCON CMCON `VEuc  1 e 1 @25 ]
+"727
+[v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
+"797
+[v _TRISIO TRISIO `VEuc  1 e 1 @133 ]
+"929
+[v _OSCCAL OSCCAL `VEuc  1 e 1 @144 ]
+"989
+[v _WPU WPU `VEuc  1 e 1 @149 ]
+"1404
+[v _ANSEL ANSEL `VEuc  1 e 1 @159 ]
+"1604
+[v _GP5 GP5 `VEb  1 e 0 @45 ]
+"1709
+[v _T0IF T0IF `VEb  1 e 0 @90 ]
+"29 C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer.X\main-egg-timer.c
+[v _main main `(i  1 e 2 0 ]
+{
+"44
+} 0
