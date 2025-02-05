@@ -24,8 +24,10 @@ volatile int reading= 0;
 volatile int voltageX10= 0;
 void driveLED(int i);
 volatile int enableCounter= 0;
+volatile int activateBuzzer= 0;
+volatile int buzzerCount= 0;
 
-void __interrupt() isr()//interrupt vector, +/- 65ms
+void __interrupt() isr()//interrupt vector, +/- 65ms (or 47,67ms?)
 {   
     counter++;
     if(enableCounter == 1){
@@ -45,7 +47,10 @@ void __interrupt() isr()//interrupt vector, +/- 65ms
         }else if(voltageX10 > 100 && voltageX10 <= 500){
            driveLED(0);
            enableCounter= 0;
-           Buzzer= 0;
+           if(Buzzer == 0){
+            activateBuzzer= 0;
+           }
+           
         }else{
             
         }
@@ -54,13 +59,25 @@ void __interrupt() isr()//interrupt vector, +/- 65ms
             
         
     }
-    if(timerminutes == 100){
+    if(timerminutes == 1258){
         driveLED(0);
         enableCounter= 0;
         timerminutes= 0;
-        Buzzer= 1;
+        activateBuzzer= 1;
     }
     
+    if(activateBuzzer == 1){
+        buzzerCount++;
+        if(buzzerCount < 15){
+            Buzzer= 1;
+        }else if(buzzerCount < 30){
+            Buzzer= 0;
+        }else{
+            buzzerCount= 0;
+        }
+    }else{
+        
+    }
     TMR0IF = 0;//  clear timer0 interrupt flag
     TMR0 = 0;// zeroes timer 0 counting, so that it couts from 256 down to 0 again
 }

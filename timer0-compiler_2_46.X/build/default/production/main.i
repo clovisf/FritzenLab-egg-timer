@@ -1360,6 +1360,8 @@ volatile int reading= 0;
 volatile int voltageX10= 0;
 void driveLED(int i);
 volatile int enableCounter= 0;
+volatile int activateBuzzer= 0;
+volatile int buzzerCount= 0;
 
 void __attribute__((picinterrupt(("")))) isr()
 {
@@ -1381,7 +1383,10 @@ void __attribute__((picinterrupt(("")))) isr()
         }else if(voltageX10 > 100 && voltageX10 <= 500){
            driveLED(0);
            enableCounter= 0;
-           GP2= 0;
+           if(GP2 == 0){
+            activateBuzzer= 0;
+           }
+
         }else{
 
         }
@@ -1390,13 +1395,25 @@ void __attribute__((picinterrupt(("")))) isr()
 
 
     }
-    if(timerminutes == 100){
+    if(timerminutes == 1258){
         driveLED(0);
         enableCounter= 0;
         timerminutes= 0;
-        GP2= 1;
+        activateBuzzer= 1;
     }
 
+    if(activateBuzzer == 1){
+        buzzerCount++;
+        if(buzzerCount < 15){
+            GP2= 1;
+        }else if(buzzerCount < 30){
+            GP2= 0;
+        }else{
+            buzzerCount= 0;
+        }
+    }else{
+
+    }
     TMR0IF = 0;
     TMR0 = 0;
 }
