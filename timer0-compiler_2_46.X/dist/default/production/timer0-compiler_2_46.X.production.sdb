@@ -15,9 +15,9 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "28 C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\timer0-compiler_2_46.X\main.c
 [v _isr isr `II(v  1 e 1 0 ]
-"67
+"68
 [v _driveLED driveLED `(v  1 e 1 0 ]
-"78
+"79
 [v _main main `(v  1 e 1 0 ]
 "72 D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
@@ -61,21 +61,21 @@
 [v _voltageX10 voltageX10 `VEi  1 e 2 0 ]
 "26
 [v _enableCounter enableCounter `VEi  1 e 2 0 ]
-"78
+"79
 [v _main main `(v  1 e 1 0 ]
 {
-"99
+"100
 } 0
 "28
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"65
+"66
 } 0
-"67
+"68
 [v _driveLED driveLED `(v  1 e 1 0 ]
 {
 [v driveLED@i i `i  1 p 2 0 ]
-"75
+"76
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]

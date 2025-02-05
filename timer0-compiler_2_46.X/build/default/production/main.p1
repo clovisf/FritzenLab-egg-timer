@@ -195,14 +195,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `i
 ]
 "26
-[; ;main.c: 26:            GP2= ~GP2;
+[; ;main.c: 26:            driveLED(0);
 [v _enableCounter `Vi ~T0 @X0 1 e ]
 [i _enableCounter
 -> 0 `i
 ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
 "28
-[; ;main.c: 28:            enableCounter= 0;
+[; ;main.c: 28:            GP2= 0;
 [v _isr `(v ~T1 @X0 1 ef ]
 "29
 [; ;main.c: 29:         }else{
@@ -244,47 +244,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 40:         timerminutes= 0;
 [e = _voltageX10 * _reading -> 5 `i ]
 "42
-[; ;main.c: 42: 
+[; ;main.c: 42:     }
 [e $ ! > _voltageX10 -> 500 `i 93  ]
 {
 "43
-[; ;main.c: 43:     TMR0IF = 0;
+[; ;main.c: 43: 
 [e ( _driveLED (1 -> 1 `i ]
 "44
-[; ;main.c: 44:     TMR0 = 0;
+[; ;main.c: 44:     TMR0IF = 0;
 [e = _enableCounter -> 1 `i ]
 "45
-[; ;main.c: 45: }
+[; ;main.c: 45:     TMR0 = 0;
 }
 [e $U 94  ]
 [e :U 93 ]
 [e $ ! && > _voltageX10 -> 100 `i <= _voltageX10 -> 500 `i 95  ]
 {
 "46
-[; ;main.c: 46: 
-[e = _GP2 -> ~ -> _GP2 `ui `b ]
-"47
-[; ;main.c: 47: void driveLED(int i){
+[; ;main.c: 46: }
 [e ( _driveLED (1 -> 0 `i ]
-"48
-[; ;main.c: 48:     if(i == 0){
+"47
+[; ;main.c: 47: 
 [e = _enableCounter -> 0 `i ]
+"48
+[; ;main.c: 48: void driveLED(int i){
+[e = _GP2 -> -> 0 `i `b ]
 "49
-[; ;main.c: 49:         GP5= 0;
+[; ;main.c: 49:     if(i == 0){
 }
 [e $U 96  ]
 [e :U 95 ]
 {
 "51
-[; ;main.c: 51:         GP5= 1;
+[; ;main.c: 51:     }else if(i == 1){
 }
 [e :U 96 ]
 [e :U 94 ]
 "52
-[; ;main.c: 52:     }else{
+[; ;main.c: 52:         GP5= 1;
 [e = _counter -> -> 0 `i `uc ]
 "56
-[; ;main.c: 56: 
+[; ;main.c: 56: }
 }
 [e :U 89 ]
 "57
@@ -292,108 +292,111 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> _timerminutes `ui -> -> 100 `i `ui 97  ]
 {
 "58
-[; ;main.c: 58: void main(void) {
+[; ;main.c: 58: 
 [e ( _driveLED (1 -> 0 `i ]
 "59
-[; ;main.c: 59:     TRISIO = 0b00000001;
+[; ;main.c: 59: void main(void) {
 [e = _enableCounter -> 0 `i ]
 "60
-[; ;main.c: 60:     CMCON = 7;
+[; ;main.c: 60:     TRISIO = 0b00000001;
 [e = _timerminutes -> -> 0 `i `us ]
 "61
-[; ;main.c: 61:     ANSEL = 0b00010001;
+[; ;main.c: 61:     CMCON = 7;
+[e = _GP2 -> -> 1 `i `b ]
+"62
+[; ;main.c: 62:     ANSEL = 0b00010001;
 }
 [e :U 97 ]
-"63
-[; ;main.c: 63:     ADON=1;
-[e = _TMR0IF -> -> 0 `i `b ]
 "64
-[; ;main.c: 64:     WPU = 0X00;
-[e = _TMR0 -> -> 0 `i `uc ]
+[; ;main.c: 64:     ADON=1;
+[e = _TMR0IF -> -> 0 `i `b ]
 "65
-[; ;main.c: 65:     TMR0 = 0;
+[; ;main.c: 65:     WPU = 0X00;
+[e = _TMR0 -> -> 0 `i `uc ]
+"66
+[; ;main.c: 66:     TMR0 = 0;
 [e :UE 87 ]
 }
-"67
-[; ;main.c: 67:     OPTION_REG = 0b10000111;
+"68
+[; ;main.c: 68:     OPTION_REG = 0b10000111;
 [v _driveLED `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _driveLED ]
 [v _i `i ~T0 @X0 1 r1 ]
 [f ]
-"68
-[; ;main.c: 68:     INTCON = 0b11100000;
+"69
+[; ;main.c: 69:     INTCON = 0b11100000;
 [e $ ! == _i -> 0 `i 99  ]
 {
-"69
-[; ;main.c: 69: 
-[e = _GP5 -> -> 0 `i `b ]
 "70
-[; ;main.c: 70:     GP2= 0;
+[; ;main.c: 70: 
+[e = _GP5 -> -> 0 `i `b ]
+"71
+[; ;main.c: 71:     GP2= 0;
 }
 [e $U 100  ]
 [e :U 99 ]
 [e $ ! == _i -> 1 `i 101  ]
 {
-"71
-[; ;main.c: 71:     GP5= 0;
-[e = _GP5 -> -> 1 `i `b ]
 "72
-[; ;main.c: 72: 
+[; ;main.c: 72:     GP5= 0;
+[e = _GP5 -> -> 1 `i `b ]
+"73
+[; ;main.c: 73: 
 }
 [e $U 102  ]
 [e :U 101 ]
 {
-"74
-[; ;main.c: 74:     {
+"75
+[; ;main.c: 75:     {
 }
 [e :U 102 ]
 [e :U 100 ]
-"75
-[; ;main.c: 75: 
+"76
+[; ;main.c: 76: 
 [e :UE 98 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"78
-[; ;main.c: 78: 
+"79
+[; ;main.c: 79: 
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"79
-[; ;main.c: 79: }
-[e = _TRISIO -> -> 1 `i `uc ]
 "80
-[e = _CMCON -> -> 7 `i `uc ]
+[; ;main.c: 80: }
+[e = _TRISIO -> -> 1 `i `uc ]
 "81
-[e = _ANSEL -> -> 17 `i `uc ]
+[e = _CMCON -> -> 7 `i `uc ]
 "82
-[e = _ADCON0 -> -> 128 `i `uc ]
+[e = _ANSEL -> -> 17 `i `uc ]
 "83
-[e = _ADON -> -> 1 `i `b ]
+[e = _ADCON0 -> -> 128 `i `uc ]
 "84
-[e = _WPU -> -> 0 `i `uc ]
+[e = _ADON -> -> 1 `i `b ]
 "85
-[e = _TMR0 -> -> 0 `i `uc ]
+[e = _WPU -> -> 0 `i `uc ]
 "86
-[e = _OSCCAL -> -> 255 `i `uc ]
+[e = _TMR0 -> -> 0 `i `uc ]
 "87
-[e = _OPTION_REG -> -> 135 `i `uc ]
+[e = _OSCCAL -> -> 255 `i `uc ]
 "88
+[e = _OPTION_REG -> -> 135 `i `uc ]
+"89
 [e = _INTCON -> -> 224 `i `uc ]
-"90
-[e = _GP2 -> -> 0 `i `b ]
 "91
+[e = _GP2 -> -> 0 `i `b ]
+"92
 [e = _GP5 -> -> 0 `i `b ]
-"93
-[e :U 105 ]
 "94
+[e :U 105 ]
+"95
 {
-"97
+"98
 }
 [e :U 104 ]
 [e $U 105  ]
 [e :U 106 ]
-"99
+"100
 [e :UE 103 ]
 }

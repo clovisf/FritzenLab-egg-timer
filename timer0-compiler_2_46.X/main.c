@@ -43,9 +43,9 @@ void __interrupt() isr()//interrupt vector, +/- 65ms
             driveLED(1);
             enableCounter= 1;
         }else if(voltageX10 > 100 && voltageX10 <= 500){
-           Buzzer= ~Buzzer;
            driveLED(0);
            enableCounter= 0;
+           Buzzer= 0;
         }else{
             
         }
@@ -58,6 +58,7 @@ void __interrupt() isr()//interrupt vector, +/- 65ms
         driveLED(0);
         enableCounter= 0;
         timerminutes= 0;
+        Buzzer= 1;
     }
     
     TMR0IF = 0;//  clear timer0 interrupt flag

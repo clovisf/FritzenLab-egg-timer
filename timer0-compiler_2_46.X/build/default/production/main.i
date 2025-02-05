@@ -1379,9 +1379,9 @@ void __attribute__((picinterrupt(("")))) isr()
             driveLED(1);
             enableCounter= 1;
         }else if(voltageX10 > 100 && voltageX10 <= 500){
-           GP2= ~GP2;
            driveLED(0);
            enableCounter= 0;
+           GP2= 0;
         }else{
 
         }
@@ -1394,6 +1394,7 @@ void __attribute__((picinterrupt(("")))) isr()
         driveLED(0);
         enableCounter= 0;
         timerminutes= 0;
+        GP2= 1;
     }
 
     TMR0IF = 0;
