@@ -1,12 +1,28 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"643 D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
-[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 643: extern volatile unsigned char ADCON0 __attribute__((address(0x01F)));
-[v _ADCON0 `Vuc ~T0 @X0 0 e@31 ]
-[v F485 `(v ~T0 @X0 1 tf1`ul ]
-"20 D:\Installations\pic\include\builtins.h
-[v __delay `JF485 ~T0 @X0 0 e ]
-[p i __delay ]
-"623 D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
+"649 D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
+[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 649:     struct {
+[s S43 :1 `uc 1 :1 `uc 1 :2 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S43 . ADON GO_nDONE CHS . VCFG ADFM ]
+"657
+[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 657:     struct {
+[s S44 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S44 . . GO_DONE CHS0 CHS1 ]
+"663
+[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 663:     struct {
+[s S45 :1 `uc 1 :1 `uc 1 ]
+[n S45 . . nDONE ]
+"667
+[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 667:     struct {
+[s S46 :1 `uc 1 :1 `uc 1 ]
+[n S46 . . GO ]
+"648
+[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 648: typedef union {
+[u S42 `S43 1 `S44 1 `S45 1 `S46 1 ]
+[n S42 . . . . . ]
+"672
+[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 672: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0x01F)));
+[v _ADCON0bits `VS42 ~T0 @X0 0 e@31 ]
+"623
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 623: extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
 [v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
 "1384
@@ -23,9 +39,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "72
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 72: extern volatile unsigned char TMR0 __attribute__((address(0x001)));
 [v _TMR0 `Vuc ~T0 @X0 0 e@1 ]
-"1562
-[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1562: extern volatile __bit CMIF __attribute__((address(0x63)));
-[v _CMIF `Vb ~T0 @X0 0 e@99 ]
 [p mainexit ]
 "564
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 564: extern volatile unsigned char CMCON __attribute__((address(0x019)));
@@ -33,6 +46,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1404
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1404: extern volatile unsigned char ANSEL __attribute__((address(0x09F)));
 [v _ANSEL `Vuc ~T0 @X0 0 e@159 ]
+"643
+[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 643: extern volatile unsigned char ADCON0 __attribute__((address(0x01F)));
+[v _ADCON0 `Vuc ~T0 @X0 0 e@31 ]
 "989
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 989: extern volatile unsigned char WPU __attribute__((address(0x095)));
 [v _WPU `Vuc ~T0 @X0 0 e@149 ]
@@ -45,9 +61,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "326
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 326: extern volatile unsigned char INTCON __attribute__((address(0x00B)));
 [v _INTCON `Vuc ~T0 @X0 0 e@11 ]
-"1559
-[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1559: extern volatile __bit CMIE __attribute__((address(0x463)));
-[v _CMIE `Vb ~T0 @X0 0 e@1123 ]
 "797
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 797: extern volatile unsigned char TRISIO __attribute__((address(0x085)));
 [v _TRISIO `Vuc ~T0 @X0 0 e@133 ]
@@ -147,253 +160,355 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1406
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
-"15 main.c
-[; ;main.c: 15: 
+"19 main.c
 [p x FOSC  =  INTRCIO ]
-"16
-[; ;main.c: 16: void __attribute__((picinterrupt(("")))) ISR()
-[p x WDTE  =  OFF        ]
-"17
-[; ;main.c: 17:  {
-[p x PWRTE  =  OFF       ]
-"18
-[; ;main.c: 18:     if(T0IF)
-[p x MCLRE  =  OFF      ]
-"19
-[; ;main.c: 19:     {
-[p x BOREN  =  OFF       ]
 "20
-[; ;main.c: 20: 
-[p x CP  =  OFF          ]
+[p x WDTE  =  OFF        ]
 "21
-[; ;main.c: 21:         fortyms++;
-[p x CPD  =  OFF         ]
+[p x PWRTE  =  OFF       ]
+"22
+[p x MCLRE  =  OFF      ]
 "23
+[p x BOREN  =  OFF       ]
+"24
+[p x CP  =  OFF          ]
+"25
+[p x CPD  =  OFF         ]
+"27
 [v _tempo_led `l ~T0 @X0 1 e ]
 [i _tempo_led
 -> -> 0 `i `l
 ]
-"24
+"28
 [v _buttonpressed `i ~T0 @X0 1 e ]
 [i _buttonpressed
 -> 0 `i
 ]
-"26
-[v _fortyms `i ~T0 @X0 1 e ]
-[i _fortyms
--> 0 `i
-]
-"27
-[v _start `i ~T0 @X0 1 e ]
-[i _start
--> 0 `i
-]
-"28
-[v _stop `i ~T0 @X0 1 e ]
-[i _stop
--> 0 `i
-]
-"29
-[v _adc_value `i ~T0 @X0 1 e ]
-[i _adc_value
+"30
+[v _ledtimer `Vi ~T0 @X0 1 e ]
+[i _ledtimer
 -> 0 `i
 ]
 "31
-[v _Read_Adc `(i ~T0 @X0 1 ef ]
+[v _buttonstimer `Vi ~T0 @X0 1 e ]
+[i _buttonstimer
+-> 0 `i
+]
+"32
+[v _start `Vi ~T0 @X0 1 e ]
+[i _start
+-> 0 `i
+]
+"33
+[v _startbutton `Vi ~T0 @X0 1 e ]
+[i _startbutton
+-> 0 `i
+]
+"34
+[v _adc_value `Vui ~T0 @X0 1 e ]
+[i _adc_value
+-> -> 0 `i `ui
+]
+"35
+[v _canstartblinking `Vi ~T0 @X0 1 e ]
+[i _canstartblinking
+-> 0 `i
+]
+"36
+[v _processbuttonclicks `Vi ~T0 @X0 1 e ]
+[i _processbuttonclicks
+-> 0 `i
+]
+"37
+[v _buttonclicks `Vi ~T0 @X0 1 e ]
+[i _buttonclicks
+-> 0 `i
+]
+"38
+[v _enterbuttontimercounter `Vi ~T0 @X0 1 e ]
+[i _enterbuttontimercounter
+-> 0 `i
+]
+"39
+[v _buttontimercounter `Vi ~T0 @X0 1 e ]
+[i _buttontimercounter
+-> 0 `i
+]
+"41
+[v _supercounter `i ~T0 @X0 1 e ]
+[i _supercounter
+-> 0 `i
+]
+"50
+[; ;main.c: 50: unsigned int Read_Adc(void) {
+[v _Read_Adc `(ui ~T0 @X0 1 ef ]
 {
 [e :U _Read_Adc ]
 [f ]
-"32
-[e =| _ADCON0 -> -> 2 `i `Vuc ]
-"33
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"34
+"51
+[; ;main.c: 51:     ADCON0bits.GO_nDONE = 1;
+[e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
+"52
+[; ;main.c: 52:     while (ADCON0bits.GO_nDONE);
 [e $U 88  ]
 [e :U 89 ]
-{
-}
 [e :U 88 ]
-[e $ != & -> _ADCON0 `i -> 2 `i -> 0 `i 89  ]
+[e $ != -> . . _ADCON0bits 0 1 `i -> 0 `i 89  ]
 [e :U 90 ]
-"36
-[e ) | << -> _ADRESH `i -> 8 `i -> _ADRESL `i ]
+"53
+[; ;main.c: 53:     return ((unsigned int)ADRESH << 8) | ADRESL;
+[e ) | << -> _ADRESH `ui -> 8 `i -> _ADRESL `ui ]
 [e $UE 87  ]
-"37
+"54
+[; ;main.c: 54: }
 [e :UE 87 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"39
+"56
+[; ;main.c: 56: void __attribute__((picinterrupt(("")))) ISR()
 [v _ISR `(v ~T1 @X0 1 ef ]
-"40
+"57
+[; ;main.c: 57:  {
 {
 [e :U _ISR ]
 [f ]
-"41
+"58
+[; ;main.c: 58:     if(T0IF)
 [e $ ! _T0IF 92  ]
-"42
-{
-"44
-[e ++ _fortyms -> 1 `i ]
-"53
-[; ;main.c: 53:         if(start == 1){
-[e $ ! == _start -> 1 `i 93  ]
-{
-"54
-[; ;main.c: 54:             GP5= 1;
-[e = _GP5 -> -> 1 `i `b ]
-"55
-[; ;main.c: 55:         }else if(start== 0){
-}
-[e $U 94  ]
-[e :U 93 ]
-[e $ ! == _start -> 0 `i 95  ]
-{
-"56
-[; ;main.c: 56:             GP5= 0;
-[e = _GP5 -> -> 0 `i `b ]
-"57
-[; ;main.c: 57:         }else{
-}
-[e $U 96  ]
-[e :U 95 ]
-{
 "59
-[; ;main.c: 59:         }
-}
-[e :U 96 ]
-[e :U 94 ]
-"60
-[; ;main.c: 60:         T0IF = 0;
-[e = _T0IF -> -> 0 `i `b ]
+[; ;main.c: 59:     {
+{
 "61
-[; ;main.c: 61:         TMR0 = 6;
-[e = _TMR0 -> -> 6 `i `uc ]
+[; ;main.c: 61:         ledtimer++;
+[e ++ _ledtimer -> -> 1 `i `Vi ]
 "62
-[; ;main.c: 62:     }
-}
-[e :U 92 ]
-"63
-[; ;main.c: 63:     if(CMIF)
-[e $ ! _CMIF 97  ]
-"64
-[; ;main.c: 64:     {
+[; ;main.c: 62:         buttonstimer++;
+[e ++ _buttonstimer -> -> 1 `i `Vi ]
+"65
+[; ;main.c: 65:         if(ledtimer >= 200 && processbuttonclicks != 0 && canstartblinking == 1){
+[e $ ! && && >= _ledtimer -> 200 `i != _processbuttonclicks -> 0 `i == _canstartblinking -> 1 `i 93  ]
 {
 "66
-[; ;main.c: 66:          CMIF =0;
-[e = _CMIF -> -> 0 `i `b ]
+[; ;main.c: 66:             processbuttonclicks--;
+[e -- _processbuttonclicks -> -> 1 `i `Vi ]
 "67
-[; ;main.c: 67:     }
+[; ;main.c: 67:             if(start == 1){
+[e $ ! == _start -> 1 `i 94  ]
+{
+"68
+[; ;main.c: 68:                 start= 0;
+[e = _start -> 0 `i ]
+"69
+[; ;main.c: 69:             }else{
+}
+[e $U 95  ]
+[e :U 94 ]
+{
+"70
+[; ;main.c: 70:               start= 1;
+[e = _start -> 1 `i ]
+"71
+[; ;main.c: 71:             }
+}
+[e :U 95 ]
+"72
+[; ;main.c: 72:             ledtimer= 0;
+[e = _ledtimer -> 0 `i ]
+"73
+[; ;main.c: 73:         }else if(processbuttonclicks <= 0 && canstartblinking == 1){
+}
+[e $U 96  ]
+[e :U 93 ]
+[e $ ! && <= _processbuttonclicks -> 0 `i == _canstartblinking -> 1 `i 97  ]
+{
+"74
+[; ;main.c: 74:             processbuttonclicks= 0;
+[e = _processbuttonclicks -> 0 `i ]
+"75
+[; ;main.c: 75:             canstartblinking= 0;
+[e = _canstartblinking -> 0 `i ]
+"76
+[; ;main.c: 76:         }
 }
 [e :U 97 ]
-"68
-[; ;main.c: 68:  }
+[e :U 96 ]
+"77
+[; ;main.c: 77:         if(start == 1){
+[e $ ! == _start -> 1 `i 98  ]
+{
+"78
+[; ;main.c: 78:             GP5= 1;
+[e = _GP5 -> -> 1 `i `b ]
+"79
+[; ;main.c: 79:         }else if(start== 0){
+}
+[e $U 99  ]
+[e :U 98 ]
+[e $ ! == _start -> 0 `i 100  ]
+{
+"80
+[; ;main.c: 80:             GP5= 0;
+[e = _GP5 -> -> 0 `i `b ]
+"81
+[; ;main.c: 81:         }else{
+}
+[e $U 101  ]
+[e :U 100 ]
+{
+"83
+[; ;main.c: 83:         }
+}
+[e :U 101 ]
+[e :U 99 ]
+"84
+[; ;main.c: 84:         T0IF = 0;
+[e = _T0IF -> -> 0 `i `b ]
+"85
+[; ;main.c: 85:         TMR0 = 6;
+[e = _TMR0 -> -> 6 `i `uc ]
+"86
+[; ;main.c: 86:     }
+}
+[e :U 92 ]
+"92
+[; ;main.c: 92:  }
 [e :UE 91 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"73
-[; ;main.c: 73: void main(void) {
+"97
+[; ;main.c: 97: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"74
-[; ;main.c: 74:     CMCON = 2;
-[e = _CMCON -> -> 2 `i `uc ]
-"75
-[; ;main.c: 75:     ANSEL = 0b0010001;
-[e = _ANSEL -> -> 17 `i `uc ]
-"76
-[; ;main.c: 76:     ADCON0 = 0b10000001;
-[e = _ADCON0 -> -> 129 `i `uc ]
-"77
-[; ;main.c: 77:     WPU = 0X00;
-[e = _WPU -> -> 0 `i `uc ]
-"78
-[; ;main.c: 78:     TMR0 = 0;
-[e = _TMR0 -> -> 0 `i `uc ]
-"79
-[; ;main.c: 79:     OSCCAL = 0XFF;
-[e = _OSCCAL -> -> 255 `i `uc ]
-"80
-[; ;main.c: 80:     OPTION_REG = 0X81;
-[e = _OPTION_REG -> -> 129 `i `uc ]
-"81
-[; ;main.c: 81:     INTCON = 0XE0;
-[e = _INTCON -> -> 224 `i `uc ]
-"82
-[; ;main.c: 82:     CMIE = 1;
-[e = _CMIE -> -> 1 `i `b ]
-"83
-[; ;main.c: 83:     TRISIO = 0X03;
-[e = _TRISIO -> -> 3 `i `uc ]
-"86
-[; ;main.c: 86:     for(;;)
-{
-[e :U 99 ]
-"87
-[; ;main.c: 87:     {
-{
-"88
-[; ;main.c: 88:        if(fortyms == 40){
-[e $ ! == _fortyms -> 40 `i 102  ]
-{
-"89
-[; ;main.c: 89:            fortyms= 0;
-[e = _fortyms -> 0 `i ]
-"90
-[; ;main.c: 90:            _delay((unsigned long)((5)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"91
-[; ;main.c: 91:            adc_value = Read_Adc();
-[e = _adc_value ( _Read_Adc ..  ]
-"92
-[; ;main.c: 92:            _delay((unsigned long)((5)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"93
-[; ;main.c: 93:            if(adc_value > 300 && adc_value < 450){
-[e $ ! && > _adc_value -> 300 `i < _adc_value -> 450 `i 103  ]
-{
-"95
-[; ;main.c: 95:                start= 0;
-[e = _start -> 0 `i ]
-"96
-[; ;main.c: 96:                stop= 1;
-[e = _stop -> 1 `i ]
-"97
-[; ;main.c: 97:            }else if(adc_value > 451){
-}
-[e $U 104  ]
-[e :U 103 ]
-[e $ ! > _adc_value -> 451 `i 105  ]
-{
+"98
+[; ;main.c: 98:     CMCON = 0x07;
+[e = _CMCON -> -> 7 `i `uc ]
 "99
-[; ;main.c: 99:                stop= 0;
-[e = _stop -> 0 `i ]
+[; ;main.c: 99:     ANSEL = 0b0010001;
+[e = _ANSEL -> -> 17 `i `uc ]
 "100
-[; ;main.c: 100:                start=1;
-[e = _start -> 1 `i ]
+[; ;main.c: 100:     ADCON0 = 0b10000001;
+[e = _ADCON0 -> -> 129 `i `uc ]
 "101
-[; ;main.c: 101:            }else{
-}
-[e $U 106  ]
-[e :U 105 ]
-{
+[; ;main.c: 101:     WPU = 0X00;
+[e = _WPU -> -> 0 `i `uc ]
+"102
+[; ;main.c: 102:     TMR0 = 0;
+[e = _TMR0 -> -> 0 `i `uc ]
 "103
-[; ;main.c: 103:            }
+[; ;main.c: 103:     OSCCAL = 0XFF;
+[e = _OSCCAL -> -> 255 `i `uc ]
+"104
+[; ;main.c: 104:     OPTION_REG = 0X81;
+[e = _OPTION_REG -> -> 129 `i `uc ]
+"105
+[; ;main.c: 105:     INTCON = 0XE0;
+[e = _INTCON -> -> 224 `i `uc ]
+"107
+[; ;main.c: 107:     TRISIO = 0X03;
+[e = _TRISIO -> -> 3 `i `uc ]
+"110
+[; ;main.c: 110:     for(;;)
+{
+[e :U 103 ]
+"111
+[; ;main.c: 111:     {
+{
+"112
+[; ;main.c: 112:        if(buttonstimer >= 300){
+[e $ ! >= _buttonstimer -> 300 `i 106  ]
+{
+"113
+[; ;main.c: 113:            buttonstimer= 0;
+[e = _buttonstimer -> 0 `i ]
+"115
+[; ;main.c: 115:            adc_value = Read_Adc();
+[e = _adc_value ( _Read_Adc ..  ]
+"117
+[; ;main.c: 117:            if(adc_value > 90 && adc_value <= 1023 && canstartblinking == 0){
+[e $ ! && && > _adc_value -> -> 90 `i `ui <= _adc_value -> -> 1023 `i `ui == _canstartblinking -> 0 `i 107  ]
+{
+"118
+[; ;main.c: 118:                buttonclicks++;
+[e ++ _buttonclicks -> -> 1 `i `Vi ]
+"119
+[; ;main.c: 119:                if(buttonclicks == 1){
+[e $ ! == _buttonclicks -> 1 `i 108  ]
+{
+"120
+[; ;main.c: 120:                    enterbuttontimercounter= 1;
+[e = _enterbuttontimercounter -> 1 `i ]
+"121
+[; ;main.c: 121:                }else if(buttonclicks > 4){
+}
+[e $U 109  ]
+[e :U 108 ]
+[e $ ! > _buttonclicks -> 4 `i 110  ]
+{
+"122
+[; ;main.c: 122:                    buttonclicks= 4;
+[e = _buttonclicks -> 4 `i ]
+"123
+[; ;main.c: 123:                }else{
+}
+[e $U 111  ]
+[e :U 110 ]
+{
+"125
+[; ;main.c: 125:                }
+}
+[e :U 111 ]
+[e :U 109 ]
+"126
+[; ;main.c: 126:            }
+}
+[e :U 107 ]
+"128
+[; ;main.c: 128:            if(enterbuttontimercounter == 1){
+[e $ ! == _enterbuttontimercounter -> 1 `i 112  ]
+{
+"129
+[; ;main.c: 129:                buttontimercounter++;
+[e ++ _buttontimercounter -> -> 1 `i `Vi ]
+"130
+[; ;main.c: 130:                if(buttontimercounter > 10){
+[e $ ! > _buttontimercounter -> 10 `i 113  ]
+{
+"131
+[; ;main.c: 131:                    enterbuttontimercounter= 0;
+[e = _enterbuttontimercounter -> 0 `i ]
+"132
+[; ;main.c: 132:                    buttontimercounter= 0;
+[e = _buttontimercounter -> 0 `i ]
+"133
+[; ;main.c: 133:                    processbuttonclicks= 2 * buttonclicks;
+[e = _processbuttonclicks * -> 2 `i _buttonclicks ]
+"134
+[; ;main.c: 134:                    buttonclicks= 0;
+[e = _buttonclicks -> 0 `i ]
+"135
+[; ;main.c: 135:                    canstartblinking= 1;
+[e = _canstartblinking -> 1 `i ]
+"136
+[; ;main.c: 136:                }
+}
+[e :U 113 ]
+"137
+[; ;main.c: 137:            }
+}
+[e :U 112 ]
+"143
+[; ;main.c: 143:         }
 }
 [e :U 106 ]
+"144
+[; ;main.c: 144:     }
+}
+[e $U 103  ]
 [e :U 104 ]
-"104
-[; ;main.c: 104:        }
 }
-[e :U 102 ]
-"105
-[; ;main.c: 105:     }
-}
-[e $U 99  ]
-[e :U 100 ]
-}
-"107
-[; ;main.c: 107: }
-[e :UE 98 ]
+"146
+[; ;main.c: 146: }
+[e :UE 102 ]
 }

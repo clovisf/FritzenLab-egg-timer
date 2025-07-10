@@ -23,44 +23,78 @@ volatile uint16_t timerminutes= 0;
 volatile int reading= 0;
 volatile int voltageX10= 0;
 void driveLED(int i);
+void blinkLed (int j);
 volatile int enableCounter= 0;
 volatile int activateBuzzer= 0;
 volatile int buzzerCount= 0;
+volatile int ledBlinkCounter= 0;
+volatile int buttonCounter= 0;
+volatile int buttonPressed= 0;
+volatile int firstPass= 1;
+volatile int enableButtonCounter= 0;
+volatile int previousClick= 0;
+volatile int selectedTime= 3;
+volatile int enable= 0;
 
 void __interrupt() isr()//interrupt vector, +/- 65ms (or 47,67ms?)
 {   
-    counter++;
-    if(enableCounter == 1){
-       timerminutes++; 
+    
+    buttonCounter++;
+    if(enableCounter == 1){ // if start button was pressed
+       timerminutes++; // start counting time from first press
+       firstPass= 1; // variable to identify the first pass after start pressed
+    }
+    if(enableButtonCounter == 1){ // if start was pressed and is now zero
+        enableButtonCounter= 0;
+        buttonPressed++; // increment the button pressed counter
+        
     }
     
-    
-    if(counter == 1){
-        GO_nDONE= 1;        
-        while(GO_nDONE);
-        reading = ((ADRESH<<8)+ADRESL); 
-        voltageX10= reading * 5; 
-        
-        if(voltageX10 > 500){
-            driveLED(1);
-            enableCounter= 1;
-        }else if(voltageX10 > 100 && voltageX10 <= 500){
-           driveLED(0);
-           enableCounter= 0;
-           if(Buzzer == 0){
-            activateBuzzer= 0;
-           }
-           
-        }else{
-            
+    if(buttonCounter > 46){ // after 3 seconds of the first button press, blink the LED accordingly
+        enable= 1;
+        activateBuzzer= 1;
+        buttonCounter= 0;
+        if(buttonPressed == 1){
+            selectedTime= 20;
+        }else if(buttonPressed == 2){
+            selectedTime= 40;
+        }else if(buttonPressed == 3){
+            selectedTime= 60;
+        }else if(buttonPressed == 4){
+            selectedTime= 80;
         }
-        counter= 0;
-        
-            
-        
     }
-    if(timerminutes == 1258){
-        driveLED(0);
+    
+    
+    GO_nDONE= 1;        
+    while(GO_nDONE);
+    reading = ((ADRESH<<8)+ADRESL); 
+    voltageX10= reading * 5; 
+
+    if(voltageX10 > 500){ // start pressed
+        //driveLED(1);
+        enableCounter= 1;
+        previousClick= 1;
+    }else if(voltageX10 > 100 && voltageX10 <= 500){ // reset pressed
+       driveLED(0);
+       enableCounter= 0;
+       if(Buzzer == 0){
+        activateBuzzer= 0;
+       }
+
+    }else{ // no button pressed
+        if(previousClick == 1){ // if start was pressed in the previous iteration
+            enableButtonCounter= 1; // start was pressed and is now zero
+            /*if(firstPass == 1){
+                firstPass= 0;
+            }*/
+        }
+        previousClick= 0;
+    }
+      
+    if(timerminutes == selectedTime && enable == 1){ // after the main time has passed
+        enable= 0;
+        driveLED(1);
         enableCounter= 0;
         timerminutes= 0;
         activateBuzzer= 1;
@@ -70,8 +104,10 @@ void __interrupt() isr()//interrupt vector, +/- 65ms (or 47,67ms?)
         buzzerCount++;
         if(buzzerCount < 15){
             Buzzer= 1;
+            driveLED(1);
         }else if(buzzerCount < 30){
             Buzzer= 0;
+            driveLED(0);
         }else{
             buzzerCount= 0;
         }

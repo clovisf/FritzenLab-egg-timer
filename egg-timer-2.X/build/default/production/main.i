@@ -10,6 +10,10 @@
 
 
 
+
+
+
+
 # 1 "D:\\Installations\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -180,7 +184,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 4 "main.c" 2
+# 8 "main.c" 2
 
 # 1 "D:\\Installations\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "D:\\Installations\\pic\\include\\c99\\stdlib.h" 3
@@ -257,7 +261,7 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 5 "main.c" 2
+# 9 "main.c" 2
 
 # 1 "D:\\Installations\\pic\\include\\xc.h" 1 3
 # 18 "D:\\Installations\\pic\\include\\xc.h" 3
@@ -1338,8 +1342,8 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "D:\\Installations\\pic\\include\\xc.h" 2 3
-# 6 "main.c" 2
-# 15 "main.c"
+# 10 "main.c" 2
+# 19 "main.c"
 #pragma config FOSC = INTRCIO
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -1351,17 +1355,23 @@ extern __bank0 __bit __timeout;
 long tempo_led=0;
 int buttonpressed= 0;
 
-int fortyms= 0;
-int start= 0;
-int stop= 0;
-int adc_value= 0;
+volatile int ledtimer= 0;
+volatile int buttonstimer= 0;
+volatile int start= 0;
+volatile int startbutton= 0;
+volatile unsigned int adc_value= 0;
+volatile int canstartblinking= 0;
+volatile int processbuttonclicks= 0;
+volatile int buttonclicks= 0;
+volatile int enterbuttontimercounter= 0;
+volatile int buttontimercounter= 0;
 
-int Read_Adc(void) {
-    ADCON0 |= 0x02;
-    _delay((unsigned long)((5)*(4000000/4000000.0)));
-    while (ADCON0 & 0x02){};
-
-    return (ADRESH << 8) | ADRESL;
+int supercounter= 0;
+# 50 "main.c"
+unsigned int Read_Adc(void) {
+    ADCON0bits.GO_nDONE = 1;
+    while (ADCON0bits.GO_nDONE);
+    return ((unsigned int)ADRESH << 8) | ADRESL;
 }
 
 void __attribute__((picinterrupt(("")))) ISR()
@@ -1369,8 +1379,22 @@ void __attribute__((picinterrupt(("")))) ISR()
     if(T0IF)
     {
 
-        fortyms++;
-# 53 "main.c"
+        ledtimer++;
+        buttonstimer++;
+
+
+        if(ledtimer >= 200 && processbuttonclicks != 0 && canstartblinking == 1){
+            processbuttonclicks--;
+            if(start == 1){
+                start= 0;
+            }else{
+              start= 1;
+            }
+            ledtimer= 0;
+        }else if(processbuttonclicks <= 0 && canstartblinking == 1){
+            processbuttonclicks= 0;
+            canstartblinking= 0;
+        }
         if(start == 1){
             GP5= 1;
         }else if(start== 0){
@@ -1381,18 +1405,18 @@ void __attribute__((picinterrupt(("")))) ISR()
         T0IF = 0;
         TMR0 = 6;
     }
-    if(CMIF)
-    {
 
-         CMIF =0;
-    }
+
+
+
+
  }
 
 
 
 
 void main(void) {
-    CMCON = 2;
+    CMCON = 0x07;
     ANSEL = 0b0010001;
     ADCON0 = 0b10000001;
     WPU = 0X00;
@@ -1400,29 +1424,44 @@ void main(void) {
     OSCCAL = 0XFF;
     OPTION_REG = 0X81;
     INTCON = 0XE0;
-    CMIE = 1;
+
     TRISIO = 0X03;
 
 
     for(;;)
     {
-       if(fortyms == 40){
-           fortyms= 0;
-           _delay((unsigned long)((5)*(4000000/4000000.0)));
+       if(buttonstimer >= 300){
+           buttonstimer= 0;
+
            adc_value = Read_Adc();
-           _delay((unsigned long)((5)*(4000000/4000000.0)));
-           if(adc_value > 300 && adc_value < 450){
 
-               start= 0;
-               stop= 1;
-           }else if(adc_value > 451){
+           if(adc_value > 90 && adc_value <= 1023 && canstartblinking == 0){
+               buttonclicks++;
+               if(buttonclicks == 1){
+                   enterbuttontimercounter= 1;
+               }else if(buttonclicks > 4){
+                   buttonclicks= 4;
+               }else{
 
-               stop= 0;
-               start=1;
-           }else{
-
+               }
            }
-       }
+
+           if(enterbuttontimercounter == 1){
+               buttontimercounter++;
+               if(buttontimercounter > 10){
+                   enterbuttontimercounter= 0;
+                   buttontimercounter= 0;
+                   processbuttonclicks= 2 * buttonclicks;
+                   buttonclicks= 0;
+                   canstartblinking= 1;
+               }
+           }
+
+
+
+
+
+        }
     }
 
 }

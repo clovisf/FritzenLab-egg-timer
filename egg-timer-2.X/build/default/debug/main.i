@@ -1339,14 +1339,7 @@ extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "D:\\Installations\\pic\\include\\xc.h" 2 3
 # 6 "main.c" 2
-
-
-
-
-
-
-
-
+# 15 "main.c"
 #pragma config FOSC = INTRCIO
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -1359,13 +1352,16 @@ long tempo_led=0;
 int buttonpressed= 0;
 
 int fortyms= 0;
+int twohundredms= 0;
 int start= 0;
+int startbutton= 0;
 int stop= 0;
 int adc_value= 0;
 
-unsigned int Read_Adc() {
+int Read_Adc(void) {
     ADCON0 |= 0x02;
-    while (ADCON0 & 0x02);
+    _delay((unsigned long)((5)*(4000000/4000000.0)));
+    while (ADCON0 & 0x02){};
 
     return (ADRESH << 8) | ADRESL;
 }
@@ -1376,13 +1372,29 @@ void __attribute__((picinterrupt(("")))) ISR()
     {
 
         fortyms++;
+        twohundredms++;
+
+        if(fortyms == 1000 && startbutton == 0){
+            start= 0;
+            fortyms= 0;
+
+        }else if(fortyms == 1000 && startbutton == 1){
+            if(start == 1){
+                start= 0;
+            }else{
+              start= 1;
+            }
+            fortyms= 0;
+        }
         if(start == 1){
             GP5= 1;
-        }else{
+        }else if(start== 0){
             GP5= 0;
+        }else{
+
         }
         T0IF = 0;
-        TMR0 = 231;
+        TMR0 = 6;
     }
     if(CMIF)
     {
@@ -1397,6 +1409,7 @@ void __attribute__((picinterrupt(("")))) ISR()
 void main(void) {
     CMCON = 2;
     ANSEL = 0b0010001;
+    ADCON0 = 0b10000001;
     WPU = 0X00;
     TMR0 = 0;
     OSCCAL = 0XFF;
@@ -1405,19 +1418,24 @@ void main(void) {
     CMIE = 1;
     TRISIO = 0X03;
 
+
     for(;;)
     {
-       if(fortyms > 40){
-           fortyms= 0;
+       if(twohundredms == 200){
+           twohundredms= 0;
+           _delay((unsigned long)((5)*(4000000/4000000.0)));
            adc_value = Read_Adc();
-           if(adc_value > 350 && adc_value < 450){
+           _delay((unsigned long)((5)*(4000000/4000000.0)));
+           if(adc_value > 300 && adc_value <= 450){
 
-               start= 0;
+               startbutton= 0;
                stop= 1;
-           }else if(adc_value > 451){
+           }else if(adc_value <= 300 || adc_value > 450){
 
                stop= 0;
-               start=1;
+               startbutton=1;
+           }else{
+
            }
        }
     }

@@ -2,7 +2,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "643 D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 643: extern volatile unsigned char ADCON0 __attribute__((address(0x01F)));
 [v _ADCON0 `Vuc ~T0 @X0 0 e@31 ]
-"623
+[v F485 `(v ~T0 @X0 1 tf1`ul ]
+"20 D:\Installations\pic\include\builtins.h
+[v __delay `JF485 ~T0 @X0 0 e ]
+[p i __delay ]
+"623 D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 623: extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
 [v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
 "1384
@@ -143,224 +147,312 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1406
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
-"14 main.c
-[; ;main.c: 14: 
+"15 main.c
+[; ;main.c: 15:     return (ADRESH << 8) | ADRESL;
 [p x FOSC  =  INTRCIO ]
-"15
-[; ;main.c: 15: void __attribute__((picinterrupt(("")))) ISR()
-[p x WDTE  =  OFF        ]
 "16
-[; ;main.c: 16:  {
-[p x PWRTE  =  OFF       ]
+[; ;main.c: 16: }
+[p x WDTE  =  OFF        ]
 "17
-[; ;main.c: 17:     if(T0IF)
-[p x MCLRE  =  OFF      ]
+[; ;main.c: 17: 
+[p x PWRTE  =  OFF       ]
 "18
-[; ;main.c: 18:     {
-[p x BOREN  =  OFF       ]
+[; ;main.c: 18: void __attribute__((picinterrupt(("")))) ISR()
+[p x MCLRE  =  OFF      ]
 "19
-[; ;main.c: 19: 
-[p x CP  =  OFF          ]
+[; ;main.c: 19:  {
+[p x BOREN  =  OFF       ]
 "20
-[; ;main.c: 20:         fortyms++;
+[; ;main.c: 20:     if(T0IF)
+[p x CP  =  OFF          ]
+"21
+[; ;main.c: 21:     {
 [p x CPD  =  OFF         ]
-"22
-[; ;main.c: 22:             GP5= 1;
+"23
+[; ;main.c: 23:         fortyms++;
 [v _tempo_led `l ~T0 @X0 1 e ]
 [i _tempo_led
 -> -> 0 `i `l
 ]
-"23
-[; ;main.c: 23:         }else{
+"24
+[; ;main.c: 24:         twohundredms++;
 [v _buttonpressed `i ~T0 @X0 1 e ]
 [i _buttonpressed
 -> 0 `i
 ]
-"25
-[; ;main.c: 25:         }
+"26
+[; ;main.c: 26:         if(fortyms == 1000 && startbutton == 0){
 [v _fortyms `i ~T0 @X0 1 e ]
 [i _fortyms
 -> 0 `i
 ]
-"26
-[; ;main.c: 26:         T0IF = 0;
+"27
+[; ;main.c: 27:             start= 0;
+[v _twohundredms `i ~T0 @X0 1 e ]
+[i _twohundredms
+-> 0 `i
+]
+"28
+[; ;main.c: 28:             fortyms= 0;
 [v _start `i ~T0 @X0 1 e ]
 [i _start
 -> 0 `i
 ]
-"27
-[; ;main.c: 27:         TMR0 = 231;
+"29
+[; ;main.c: 29: 
+[v _startbutton `i ~T0 @X0 1 e ]
+[i _startbutton
+-> 0 `i
+]
+"30
+[; ;main.c: 30:         }else if(fortyms == 1000 && startbutton == 1){
 [v _stop `i ~T0 @X0 1 e ]
 [i _stop
 -> 0 `i
 ]
-"28
-[; ;main.c: 28:     }
+"31
+[; ;main.c: 31:             if(start == 1){
 [v _adc_value `i ~T0 @X0 1 e ]
 [i _adc_value
 -> 0 `i
 ]
-"30
-[; ;main.c: 30:     {
-[v _Read_Adc `(ui ~T0 @X0 1 ef ]
+"33
+[; ;main.c: 33:             }else{
+[v _Read_Adc `(i ~T0 @X0 1 ef ]
 {
 [e :U _Read_Adc ]
 [f ]
-"31
-[; ;main.c: 31: 
+"34
+[; ;main.c: 34:               start= 1;
 [e =| _ADCON0 -> -> 2 `i `Vuc ]
-"32
-[; ;main.c: 32:          CMIF =0;
+"35
+[; ;main.c: 35:             }
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+"36
+[; ;main.c: 36:             fortyms= 0;
 [e $U 88  ]
 [e :U 89 ]
+{
+}
 [e :U 88 ]
 [e $ != & -> _ADCON0 `i -> 2 `i -> 0 `i 89  ]
 [e :U 90 ]
-"34
-[; ;main.c: 34:  }
-[e ) -> | << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
+"38
+[; ;main.c: 38:         if(start == 1){
+[e ) | << -> _ADRESH `i -> 8 `i -> _ADRESL `i ]
 [e $UE 87  ]
-"35
-[; ;main.c: 35: 
+"39
+[; ;main.c: 39:             GP5= 1;
 [e :UE 87 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"37
-[; ;main.c: 37: 
+"41
+[; ;main.c: 41:             GP5= 0;
 [v _ISR `(v ~T1 @X0 1 ef ]
-"38
-[; ;main.c: 38: 
+"42
+[; ;main.c: 42:         }else{
 {
 [e :U _ISR ]
 [f ]
-"39
-[; ;main.c: 39: void main(void) {
-[e $ ! _T0IF 92  ]
-"40
-[; ;main.c: 40:     CMCON = 2;
-{
-"42
-[; ;main.c: 42:     WPU = 0X00;
-[e ++ _fortyms -> 1 `i ]
 "43
-[; ;main.c: 43:     TMR0 = 0;
-[e $ ! == _start -> 1 `i 93  ]
-{
+[; ;main.c: 43: 
+[e $ ! _T0IF 92  ]
 "44
-[; ;main.c: 44:     OSCCAL = 0XFF;
-[e = _GP5 -> -> 1 `i `b ]
-"45
-[; ;main.c: 45:     OPTION_REG = 0X81;
+[; ;main.c: 44:         }
+{
+"46
+[; ;main.c: 46:         TMR0 = 6;
+[e ++ _fortyms -> 1 `i ]
+"47
+[; ;main.c: 47:     }
+[e ++ _twohundredms -> 1 `i ]
+"49
+[; ;main.c: 49:     {
+[e $ ! && == _fortyms -> 1000 `i == _startbutton -> 0 `i 93  ]
+{
+"50
+[; ;main.c: 50: 
+[e = _start -> 0 `i ]
+"51
+[; ;main.c: 51:          CMIF =0;
+[e = _fortyms -> 0 `i ]
+"53
+[; ;main.c: 53:  }
 }
 [e $U 94  ]
 [e :U 93 ]
-{
-"46
-[; ;main.c: 46:     INTCON = 0XE0;
-[e = _GP5 -> -> 0 `i `b ]
-"47
-[; ;main.c: 47:     CMIE = 1;
-}
-[e :U 94 ]
-"48
-[; ;main.c: 48:     TRISIO = 0X03;
-[e = _T0IF -> -> 0 `i `b ]
-"49
-[; ;main.c: 49: 
-[e = _TMR0 -> -> 231 `i `uc ]
-"50
-[; ;main.c: 50:     for(;;)
-}
-[e :U 92 ]
-"51
-[; ;main.c: 51:     {
-[e $ ! _CMIF 95  ]
-"52
-[; ;main.c: 52:        if(fortyms > 40){
+[e $ ! && == _fortyms -> 1000 `i == _startbutton -> 1 `i 95  ]
 {
 "54
-[; ;main.c: 54:            adc_value = Read_Adc();
-[e = _CMIF -> -> 0 `i `b ]
+[; ;main.c: 54: 
+[e $ ! == _start -> 1 `i 96  ]
+{
 "55
-[; ;main.c: 55:            if(adc_value > 350 && adc_value < 450){
-}
-[e :U 95 ]
+[; ;main.c: 55: 
+[e = _start -> 0 `i ]
 "56
 [; ;main.c: 56: 
+}
+[e $U 97  ]
+[e :U 96 ]
+{
+"57
+[; ;main.c: 57: 
+[e = _start -> 1 `i ]
+"58
+[; ;main.c: 58: void main(void) {
+}
+[e :U 97 ]
+"59
+[; ;main.c: 59:     CMCON = 2;
+[e = _fortyms -> 0 `i ]
+"60
+[; ;main.c: 60:     ANSEL = 0b0010001;
+}
+[e :U 95 ]
+[e :U 94 ]
+"61
+[; ;main.c: 61:     ADCON0 = 0b10000001;
+[e $ ! == _start -> 1 `i 98  ]
+{
+"62
+[; ;main.c: 62:     WPU = 0X00;
+[e = _GP5 -> -> 1 `i `b ]
+"63
+[; ;main.c: 63:     TMR0 = 0;
+}
+[e $U 99  ]
+[e :U 98 ]
+[e $ ! == _start -> 0 `i 100  ]
+{
+"64
+[; ;main.c: 64:     OSCCAL = 0XFF;
+[e = _GP5 -> -> 0 `i `b ]
+"65
+[; ;main.c: 65:     OPTION_REG = 0X81;
+}
+[e $U 101  ]
+[e :U 100 ]
+{
+"67
+[; ;main.c: 67:     CMIE = 1;
+}
+[e :U 101 ]
+[e :U 99 ]
+"68
+[; ;main.c: 68:     TRISIO = 0X03;
+[e = _T0IF -> -> 0 `i `b ]
+"69
+[; ;main.c: 69: 
+[e = _TMR0 -> -> 6 `i `uc ]
+"70
+[; ;main.c: 70: 
+}
+[e :U 92 ]
+"71
+[; ;main.c: 71:     for(;;)
+[e $ ! _CMIF 102  ]
+"72
+[; ;main.c: 72:     {
+{
+"74
+[; ;main.c: 74:            twohundredms= 0;
+[e = _CMIF -> -> 0 `i `b ]
+"75
+[; ;main.c: 75:            _delay((unsigned long)((5)*(4000000/4000000.0)));
+}
+[e :U 102 ]
+"76
+[; ;main.c: 76:            adc_value = Read_Adc();
 [e :UE 91 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"61
-[; ;main.c: 61:                stop= 0;
+"81
+[; ;main.c: 81:                stop= 1;
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"62
-[; ;main.c: 62:                start=1;
+"82
+[; ;main.c: 82:            }else if(adc_value <= 300 || adc_value > 450){
 [e = _CMCON -> -> 2 `i `uc ]
-"63
-[; ;main.c: 63:            }
-[e = _ANSEL -> -> 17 `i `uc ]
-"64
-[; ;main.c: 64:        }
-[e = _WPU -> -> 0 `i `uc ]
-"65
-[; ;main.c: 65:     }
-[e = _TMR0 -> -> 0 `i `uc ]
-"66
-[; ;main.c: 66: 
-[e = _OSCCAL -> -> 255 `i `uc ]
-"67
-[; ;main.c: 67: }
-[e = _OPTION_REG -> -> 129 `i `uc ]
-"68
-[e = _INTCON -> -> 224 `i `uc ]
-"69
-[e = _CMIE -> -> 1 `i `b ]
-"70
-[e = _TRISIO -> -> 3 `i `uc ]
-"72
-{
-[e :U 97 ]
-"73
-{
-"74
-[e $ ! > _fortyms -> 40 `i 100  ]
-{
-"75
-[e = _fortyms -> 0 `i ]
-"76
-[e = _adc_value -> ( _Read_Adc ..  `i ]
-"77
-[e $ ! && > _adc_value -> 350 `i < _adc_value -> 450 `i 101  ]
-{
-"79
-[e = _start -> 0 `i ]
-"80
-[e = _stop -> 1 `i ]
-"81
-}
-[e $U 102  ]
-[e :U 101 ]
-[e $ ! > _adc_value -> 451 `i 103  ]
-{
 "83
-[e = _stop -> 0 `i ]
+[; ;main.c: 83: 
+[e = _ANSEL -> -> 17 `i `uc ]
 "84
-[e = _start -> 1 `i ]
+[; ;main.c: 84:                stop= 0;
+[e = _ADCON0 -> -> 129 `i `uc ]
 "85
-}
-[e :U 103 ]
-[e :U 102 ]
+[; ;main.c: 85:                startbutton=1;
+[e = _WPU -> -> 0 `i `uc ]
 "86
-}
-[e :U 100 ]
+[; ;main.c: 86:            }else{
+[e = _TMR0 -> -> 0 `i `uc ]
 "87
-}
-[e $U 97  ]
-[e :U 98 ]
-}
+[; ;main.c: 87: 
+[e = _OSCCAL -> -> 255 `i `uc ]
+"88
+[; ;main.c: 88:            }
+[e = _OPTION_REG -> -> 129 `i `uc ]
 "89
-[e :UE 96 ]
+[; ;main.c: 89:        }
+[e = _INTCON -> -> 224 `i `uc ]
+"90
+[; ;main.c: 90:     }
+[e = _CMIE -> -> 1 `i `b ]
+"91
+[; ;main.c: 91: 
+[e = _TRISIO -> -> 3 `i `uc ]
+"94
+{
+[e :U 104 ]
+"95
+{
+"96
+[e $ ! == _twohundredms -> 200 `i 107  ]
+{
+"97
+[e = _twohundredms -> 0 `i ]
+"98
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+"99
+[e = _adc_value ( _Read_Adc ..  ]
+"100
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+"101
+[e $ ! && > _adc_value -> 300 `i <= _adc_value -> 450 `i 108  ]
+{
+"103
+[e = _startbutton -> 0 `i ]
+"104
+[e = _stop -> 1 `i ]
+"105
+}
+[e $U 109  ]
+[e :U 108 ]
+[e $ ! || <= _adc_value -> 300 `i > _adc_value -> 450 `i 110  ]
+{
+"107
+[e = _stop -> 0 `i ]
+"108
+[e = _startbutton -> 1 `i ]
+"109
+}
+[e $U 111  ]
+[e :U 110 ]
+{
+"111
+}
+[e :U 111 ]
+[e :U 109 ]
+"112
+}
+[e :U 107 ]
+"113
+}
+[e $U 104  ]
+[e :U 105 ]
+}
+"115
+[e :UE 103 ]
 }

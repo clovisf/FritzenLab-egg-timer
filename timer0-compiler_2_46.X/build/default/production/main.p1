@@ -11,7 +11,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1384: extern volatile unsigned char ADRESL __attribute__((address(0x09E)));
 [v _ADRESL `Vuc ~T0 @X0 0 e@158 ]
 "25 main.c
-[; ;main.c: 25:             driveLED(1);
+[; ;main.c: 25:        firstPass= 1;
 [v _driveLED `(v ~T0 @X0 0 ef1`i ]
 "1595 D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1595: extern volatile __bit GP2 __attribute__((address(0x2A)));
@@ -150,321 +150,459 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
 "12 main.c
-[; ;main.c: 12:     counter++;
+[; ;main.c: 12: volatile int buttonPressed= 0;
 [p x FOSC  =  INTRCIO    ]
 "13
-[; ;main.c: 13:     if(enableCounter == 1){
+[; ;main.c: 13: volatile int firstPass= 1;
 [p x WDTE  =  OFF        ]
 "14
-[; ;main.c: 14:        timerminutes++;
+[; ;main.c: 14: volatile int enableButtonCounter= 0;
 [p x PWRTE  =  ON        ]
 "15
-[; ;main.c: 15:     }
+[; ;main.c: 15: volatile int previousClick= 0;
 [p x MCLRE  =  OFF       ]
 "16
-[; ;main.c: 16: 
+[; ;main.c: 16: volatile int selectedTime= 3;
 [p x BOREN  =  OFF       ]
 "17
-[; ;main.c: 17: 
+[; ;main.c: 17: volatile int enable= 0;
 [p x CP  =  OFF          ]
 "18
-[; ;main.c: 18:     if(counter == 1){
+[; ;main.c: 18: 
 [p x CPD  =  OFF          ]
 "21
-[; ;main.c: 21:         reading = ((ADRESH<<8)+ADRESL);
+[; ;main.c: 21: 
 [v _counter `Vuc ~T0 @X0 1 e ]
 [i _counter
 -> -> 0 `i `uc
 ]
 "22
-[; ;main.c: 22:         voltageX10= reading * 5;
+[; ;main.c: 22:     buttonCounter++;
 [v _timerminutes `Vus ~T0 @X0 1 e ]
 [i _timerminutes
 -> -> 0 `i `us
 ]
 "23
-[; ;main.c: 23: 
+[; ;main.c: 23:     if(enableCounter == 1){
 [v _reading `Vi ~T0 @X0 1 e ]
 [i _reading
 -> 0 `i
 ]
 "24
-[; ;main.c: 24:         if(voltageX10 > 500){
+[; ;main.c: 24:        timerminutes++;
 [v _voltageX10 `Vi ~T0 @X0 1 e ]
 [i _voltageX10
 -> 0 `i
 ]
-"26
-[; ;main.c: 26:             enableCounter= 1;
+"27
+[; ;main.c: 27:     if(enableButtonCounter == 1){
 [v _enableCounter `Vi ~T0 @X0 1 e ]
 [i _enableCounter
 -> 0 `i
 ]
-"27
-[; ;main.c: 27:         }else if(voltageX10 > 100 && voltageX10 <= 500){
+"28
+[; ;main.c: 28:         enableButtonCounter= 0;
 [v _activateBuzzer `Vi ~T0 @X0 1 e ]
 [i _activateBuzzer
 -> 0 `i
 ]
-"28
-[; ;main.c: 28:            driveLED(0);
+"29
+[; ;main.c: 29:         buttonPressed++;
 [v _buzzerCount `Vi ~T0 @X0 1 e ]
 [i _buzzerCount
 -> 0 `i
 ]
-[v $root$_isr `(v ~T0 @X0 0 e ]
 "30
-[; ;main.c: 30:            if(GP2 == 0){
-[v _isr `(v ~T1 @X0 1 ef ]
+[; ;main.c: 30: 
+[v _ledBlinkCounter `Vi ~T0 @X0 1 e ]
+[i _ledBlinkCounter
+-> 0 `i
+]
 "31
-[; ;main.c: 31:             activateBuzzer= 0;
+[; ;main.c: 31:     }
+[v _buttonCounter `Vi ~T0 @X0 1 e ]
+[i _buttonCounter
+-> 0 `i
+]
+"32
+[; ;main.c: 32: 
+[v _buttonPressed `Vi ~T0 @X0 1 e ]
+[i _buttonPressed
+-> 0 `i
+]
+"33
+[; ;main.c: 33:     if(buttonCounter > 46){
+[v _firstPass `Vi ~T0 @X0 1 e ]
+[i _firstPass
+-> 1 `i
+]
+"34
+[; ;main.c: 34:         enable= 1;
+[v _enableButtonCounter `Vi ~T0 @X0 1 e ]
+[i _enableButtonCounter
+-> 0 `i
+]
+"35
+[; ;main.c: 35:         activateBuzzer= 1;
+[v _previousClick `Vi ~T0 @X0 1 e ]
+[i _previousClick
+-> 0 `i
+]
+"36
+[; ;main.c: 36:         buttonCounter= 0;
+[v _selectedTime `Vi ~T0 @X0 1 e ]
+[i _selectedTime
+-> 3 `i
+]
+"37
+[; ;main.c: 37:         if(buttonPressed == 1){
+[v _enable `Vi ~T0 @X0 1 e ]
+[i _enable
+-> 0 `i
+]
+[v $root$_isr `(v ~T0 @X0 0 e ]
+"39
+[; ;main.c: 39:         }else if(buttonPressed == 2){
+[v _isr `(v ~T1 @X0 1 ef ]
+"40
+[; ;main.c: 40:             selectedTime= 40;
 {
 [e :U _isr ]
 [f ]
-"32
-[; ;main.c: 32:            }
-[e ++ _counter -> -> 1 `i `Vuc ]
-"33
-[; ;main.c: 33: 
+"42
+[; ;main.c: 42:             selectedTime= 60;
+[e ++ _buttonCounter -> -> 1 `i `Vi ]
+"43
+[; ;main.c: 43:         }else if(buttonPressed == 4){
 [e $ ! == _enableCounter -> 1 `i 88  ]
 {
-"34
-[; ;main.c: 34:         }else{
+"44
+[; ;main.c: 44:             selectedTime= 80;
 [e ++ _timerminutes -> -> 1 `i `Vus ]
-"35
-[; ;main.c: 35: 
+"45
+[; ;main.c: 45:         }
+[e = _firstPass -> 1 `i ]
+"46
+[; ;main.c: 46:     }
 }
 [e :U 88 ]
-"38
-[; ;main.c: 38: 
-[e $ ! == -> _counter `i -> 1 `i 89  ]
-{
-"39
-[; ;main.c: 39: 
-[e = _GO_nDONE -> -> 1 `i `b ]
-"40
-[; ;main.c: 40: 
-[e $U 90  ]
-[e :U 91 ]
-[e :U 90 ]
-[e $ _GO_nDONE 91  ]
-[e :U 92 ]
-"41
-[; ;main.c: 41:     }
-[e = _reading + << -> _ADRESH `i -> 8 `i -> _ADRESL `i ]
-"42
-[; ;main.c: 42:     if(timerminutes == 1258){
-[e = _voltageX10 * _reading -> 5 `i ]
-"44
-[; ;main.c: 44:         enableCounter= 0;
-[e $ ! > _voltageX10 -> 500 `i 93  ]
-{
-"45
-[; ;main.c: 45:         timerminutes= 0;
-[e ( _driveLED (1 -> 1 `i ]
-"46
-[; ;main.c: 46:         activateBuzzer= 1;
-[e = _enableCounter -> 1 `i ]
 "47
-[; ;main.c: 47:     }
-}
-[e $U 94  ]
-[e :U 93 ]
-[e $ ! && > _voltageX10 -> 100 `i <= _voltageX10 -> 500 `i 95  ]
+[; ;main.c: 47: 
+[e $ ! == _enableButtonCounter -> 1 `i 89  ]
 {
 "48
 [; ;main.c: 48: 
-[e ( _driveLED (1 -> 0 `i ]
+[e = _enableButtonCounter -> 0 `i ]
 "49
-[; ;main.c: 49:     if(activateBuzzer == 1){
-[e = _enableCounter -> 0 `i ]
-"50
-[; ;main.c: 50:         buzzerCount++;
-[e $ ! == -> _GP2 `i -> 0 `i 96  ]
-{
+[; ;main.c: 49:     GO_nDONE= 1;
+[e ++ _buttonPressed -> -> 1 `i `Vi ]
 "51
-[; ;main.c: 51:         if(buzzerCount < 15){
-[e = _activateBuzzer -> 0 `i ]
-"52
-[; ;main.c: 52:             GP2= 1;
-}
-[e :U 96 ]
-"54
-[; ;main.c: 54:             GP2= 0;
-}
-[e $U 97  ]
-[e :U 95 ]
-{
-"56
-[; ;main.c: 56:             buzzerCount= 0;
-}
-[e :U 97 ]
-[e :U 94 ]
-"57
-[; ;main.c: 57:         }
-[e = _counter -> -> 0 `i `uc ]
-"61
-[; ;main.c: 61:     TMR0IF = 0;
+[; ;main.c: 51:     reading = ((ADRESH<<8)+ADRESL);
 }
 [e :U 89 ]
-"62
-[; ;main.c: 62:     TMR0 = 0;
-[e $ ! == -> _timerminutes `ui -> -> 1258 `i `ui 98  ]
+"53
+[; ;main.c: 53: 
+[e $ ! > _buttonCounter -> 46 `i 90  ]
 {
+"54
+[; ;main.c: 54:     if(voltageX10 > 500){
+[e = _enable -> 1 `i ]
+"55
+[; ;main.c: 55: 
+[e = _activateBuzzer -> 1 `i ]
+"56
+[; ;main.c: 56:         enableCounter= 1;
+[e = _buttonCounter -> 0 `i ]
+"57
+[; ;main.c: 57:         previousClick= 1;
+[e $ ! == _buttonPressed -> 1 `i 91  ]
+{
+"58
+[; ;main.c: 58:     }else if(voltageX10 > 100 && voltageX10 <= 500){
+[e = _selectedTime -> 20 `i ]
+"59
+[; ;main.c: 59:        driveLED(0);
+}
+[e $U 92  ]
+[e :U 91 ]
+[e $ ! == _buttonPressed -> 2 `i 93  ]
+{
+"60
+[; ;main.c: 60:        enableCounter= 0;
+[e = _selectedTime -> 40 `i ]
+"61
+[; ;main.c: 61:        if(GP2 == 0){
+}
+[e $U 94  ]
+[e :U 93 ]
+[e $ ! == _buttonPressed -> 3 `i 95  ]
+{
+"62
+[; ;main.c: 62:         activateBuzzer= 0;
+[e = _selectedTime -> 60 `i ]
 "63
-[; ;main.c: 63: }
-[e ( _driveLED (1 -> 0 `i ]
+[; ;main.c: 63:        }
+}
+[e $U 96  ]
+[e :U 95 ]
+[e $ ! == _buttonPressed -> 4 `i 97  ]
+{
 "64
 [; ;main.c: 64: 
-[e = _enableCounter -> 0 `i ]
+[e = _selectedTime -> 80 `i ]
 "65
-[; ;main.c: 65: void driveLED(int i){
-[e = _timerminutes -> -> 0 `i `us ]
+[; ;main.c: 65:     }else{
+}
+[e :U 97 ]
+[e :U 96 ]
+[e :U 94 ]
+[e :U 92 ]
 "66
-[; ;main.c: 66:     if(i == 0){
-[e = _activateBuzzer -> 1 `i ]
-"67
-[; ;main.c: 67:         GP5= 0;
+[; ;main.c: 66:         if(previousClick == 1){
 }
-[e :U 98 ]
+[e :U 90 ]
 "69
-[; ;main.c: 69:         GP5= 1;
-[e $ ! == _activateBuzzer -> 1 `i 99  ]
-{
+[; ;main.c: 69: 
+[e = _GO_nDONE -> -> 1 `i `b ]
 "70
-[; ;main.c: 70:     }else{
-[e ++ _buzzerCount -> -> 1 `i `Vi ]
-"71
-[; ;main.c: 71: 
-[e $ ! < _buzzerCount -> 15 `i 100  ]
-{
-"72
-[; ;main.c: 72:     }
-[e = _GP2 -> -> 1 `i `b ]
-"73
-[; ;main.c: 73: }
-}
-[e $U 101  ]
+[; ;main.c: 70: 
+[e $U 98  ]
+[e :U 99 ]
+[e :U 98 ]
+[e $ _GO_nDONE 99  ]
 [e :U 100 ]
-[e $ ! < _buzzerCount -> 30 `i 102  ]
-{
+"71
+[; ;main.c: 71:         }
+[e = _reading + << -> _ADRESH `i -> 8 `i -> _ADRESL `i ]
+"72
+[; ;main.c: 72:         previousClick= 0;
+[e = _voltageX10 * _reading -> 5 `i ]
 "74
 [; ;main.c: 74: 
-[e = _GP2 -> -> 0 `i `b ]
-"75
-[; ;main.c: 75: 
-}
-[e $U 103  ]
-[e :U 102 ]
+[e $ ! > _voltageX10 -> 500 `i 101  ]
 {
 "76
-[; ;main.c: 76: void main(void) {
-[e = _buzzerCount -> 0 `i ]
+[; ;main.c: 76:         enable= 0;
+[e = _enableCounter -> 1 `i ]
 "77
-[; ;main.c: 77:     TRISIO = 0b00000001;
-}
-[e :U 103 ]
-[e :U 101 ]
+[; ;main.c: 77:         driveLED(1);
+[e = _previousClick -> 1 `i ]
 "78
-[; ;main.c: 78:     CMCON = 7;
+[; ;main.c: 78:         enableCounter= 0;
 }
-[e $U 104  ]
-[e :U 99 ]
+[e $U 102  ]
+[e :U 101 ]
+[e $ ! && > _voltageX10 -> 100 `i <= _voltageX10 -> 500 `i 103  ]
 {
+"79
+[; ;main.c: 79:         timerminutes= 0;
+[e ( _driveLED (1 -> 0 `i ]
 "80
-[; ;main.c: 80:     ADCON0=0b10000000;
+[; ;main.c: 80:         activateBuzzer= 1;
+[e = _enableCounter -> 0 `i ]
+"81
+[; ;main.c: 81:     }
+[e $ ! == -> _GP2 `i -> 0 `i 104  ]
+{
+"82
+[; ;main.c: 82: 
+[e = _activateBuzzer -> 0 `i ]
+"83
+[; ;main.c: 83:     if(activateBuzzer == 1){
 }
 [e :U 104 ]
-"81
-[; ;main.c: 81:     ADON=1;
+"85
+[; ;main.c: 85:         if(buzzerCount < 15){
+}
+[e $U 105  ]
+[e :U 103 ]
+{
+"86
+[; ;main.c: 86:             GP2= 1;
+[e $ ! == _previousClick -> 1 `i 106  ]
+{
+"87
+[; ;main.c: 87:             driveLED(1);
+[e = _enableButtonCounter -> 1 `i ]
+"91
+[; ;main.c: 91:         }else{
+}
+[e :U 106 ]
+"92
+[; ;main.c: 92:             buzzerCount= 0;
+[e = _previousClick -> 0 `i ]
+"93
+[; ;main.c: 93:         }
+}
+[e :U 105 ]
+[e :U 102 ]
+"95
+[; ;main.c: 95: 
+[e $ ! && == -> _timerminutes `ui -> _selectedTime `ui == _enable -> 1 `i 107  ]
+{
+"96
+[; ;main.c: 96:     }
+[e = _enable -> 0 `i ]
+"97
+[; ;main.c: 97:     TMR0IF = 0;
+[e ( _driveLED (1 -> 1 `i ]
+"98
+[; ;main.c: 98:     TMR0 = 0;
+[e = _enableCounter -> 0 `i ]
+"99
+[; ;main.c: 99: }
+[e = _timerminutes -> -> 0 `i `us ]
+"100
+[; ;main.c: 100: 
+[e = _activateBuzzer -> 1 `i ]
+"101
+[; ;main.c: 101: void driveLED(int i){
+}
+[e :U 107 ]
+"103
+[; ;main.c: 103:         GP5= 0;
+[e $ ! == _activateBuzzer -> 1 `i 108  ]
+{
+"104
+[; ;main.c: 104:     }else if(i == 1){
+[e ++ _buzzerCount -> -> 1 `i `Vi ]
+"105
+[; ;main.c: 105:         GP5= 1;
+[e $ ! < _buzzerCount -> 15 `i 109  ]
+{
+"106
+[; ;main.c: 106:     }else{
+[e = _GP2 -> -> 1 `i `b ]
+"107
+[; ;main.c: 107: 
+[e ( _driveLED (1 -> 1 `i ]
+"108
+[; ;main.c: 108:     }
+}
+[e $U 110  ]
+[e :U 109 ]
+[e $ ! < _buzzerCount -> 30 `i 111  ]
+{
+"109
+[; ;main.c: 109: }
+[e = _GP2 -> -> 0 `i `b ]
+"110
+[; ;main.c: 110: 
+[e ( _driveLED (1 -> 0 `i ]
+"111
+[; ;main.c: 111: 
+}
+[e $U 112  ]
+[e :U 111 ]
+{
+"112
+[; ;main.c: 112: void main(void) {
+[e = _buzzerCount -> 0 `i ]
+"113
+[; ;main.c: 113:     TRISIO = 0b00000001;
+}
+[e :U 112 ]
+[e :U 110 ]
+"114
+[; ;main.c: 114:     CMCON = 7;
+}
+[e $U 113  ]
+[e :U 108 ]
+{
+"116
+[; ;main.c: 116:     ADCON0=0b10000000;
+}
+[e :U 113 ]
+"117
+[; ;main.c: 117:     ADON=1;
 [e = _TMR0IF -> -> 0 `i `b ]
-"82
-[; ;main.c: 82:     WPU = 0X00;
+"118
+[; ;main.c: 118:     WPU = 0X00;
 [e = _TMR0 -> -> 0 `i `uc ]
-"83
-[; ;main.c: 83:     TMR0 = 0;
+"119
+[; ;main.c: 119:     TMR0 = 0;
 [e :UE 87 ]
 }
-"85
-[; ;main.c: 85:     OPTION_REG = 0b10000111;
+"121
+[; ;main.c: 121:     OPTION_REG = 0b10000111;
 [v _driveLED `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _driveLED ]
 [v _i `i ~T0 @X0 1 r1 ]
 [f ]
-"86
-[; ;main.c: 86:     INTCON = 0b11100000;
-[e $ ! == _i -> 0 `i 106  ]
+"122
+[; ;main.c: 122:     INTCON = 0b11100000;
+[e $ ! == _i -> 0 `i 115  ]
 {
-"87
-[; ;main.c: 87: 
+"123
+[; ;main.c: 123: 
 [e = _GP5 -> -> 0 `i `b ]
-"88
-[; ;main.c: 88:     GP2= 0;
+"124
+[; ;main.c: 124:     GP2= 0;
 }
-[e $U 107  ]
-[e :U 106 ]
-[e $ ! == _i -> 1 `i 108  ]
+[e $U 116  ]
+[e :U 115 ]
+[e $ ! == _i -> 1 `i 117  ]
 {
-"89
-[; ;main.c: 89:     GP5= 0;
+"125
+[; ;main.c: 125:     GP5= 0;
 [e = _GP5 -> -> 1 `i `b ]
-"90
-[; ;main.c: 90: 
+"126
+[; ;main.c: 126: 
 }
-[e $U 109  ]
-[e :U 108 ]
+[e $U 118  ]
+[e :U 117 ]
 {
-"92
-[; ;main.c: 92:     {
+"128
+[; ;main.c: 128:     {
 }
-[e :U 109 ]
-[e :U 107 ]
-"93
-[; ;main.c: 93: 
-[e :UE 105 ]
+[e :U 118 ]
+[e :U 116 ]
+"129
+[; ;main.c: 129: 
+[e :UE 114 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"96
-[; ;main.c: 96: 
+"132
+[; ;main.c: 132: 
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"97
-[; ;main.c: 97: }
+"133
+[; ;main.c: 133: }
 [e = _TRISIO -> -> 1 `i `uc ]
-"98
+"134
 [e = _CMCON -> -> 7 `i `uc ]
-"99
+"135
 [e = _ANSEL -> -> 17 `i `uc ]
-"100
+"136
 [e = _ADCON0 -> -> 128 `i `uc ]
-"101
+"137
 [e = _ADON -> -> 1 `i `b ]
-"102
+"138
 [e = _WPU -> -> 0 `i `uc ]
-"103
+"139
 [e = _TMR0 -> -> 0 `i `uc ]
-"104
+"140
 [e = _OSCCAL -> -> 255 `i `uc ]
-"105
+"141
 [e = _OPTION_REG -> -> 135 `i `uc ]
-"106
+"142
 [e = _INTCON -> -> 224 `i `uc ]
-"108
+"144
 [e = _GP2 -> -> 0 `i `b ]
-"109
+"145
 [e = _GP5 -> -> 0 `i `b ]
-"111
-[e :U 112 ]
-"112
+"147
+[e :U 121 ]
+"148
 {
-"115
+"151
 }
-[e :U 111 ]
-[e $U 112  ]
-[e :U 113 ]
-"117
-[e :UE 110 ]
+[e :U 120 ]
+[e $U 121  ]
+[e :U 122 ]
+"153
+[e :UE 119 ]
 }

@@ -1359,44 +1359,78 @@ volatile uint16_t timerminutes= 0;
 volatile int reading= 0;
 volatile int voltageX10= 0;
 void driveLED(int i);
+void blinkLed (int j);
 volatile int enableCounter= 0;
 volatile int activateBuzzer= 0;
 volatile int buzzerCount= 0;
+volatile int ledBlinkCounter= 0;
+volatile int buttonCounter= 0;
+volatile int buttonPressed= 0;
+volatile int firstPass= 1;
+volatile int enableButtonCounter= 0;
+volatile int previousClick= 0;
+volatile int selectedTime= 3;
+volatile int enable= 0;
 
 void __attribute__((picinterrupt(("")))) isr()
 {
-    counter++;
+
+    buttonCounter++;
     if(enableCounter == 1){
        timerminutes++;
+       firstPass= 1;
+    }
+    if(enableButtonCounter == 1){
+        enableButtonCounter= 0;
+        buttonPressed++;
+
+    }
+
+    if(buttonCounter > 46){
+        enable= 1;
+        activateBuzzer= 1;
+        buttonCounter= 0;
+        if(buttonPressed == 1){
+            selectedTime= 20;
+        }else if(buttonPressed == 2){
+            selectedTime= 40;
+        }else if(buttonPressed == 3){
+            selectedTime= 60;
+        }else if(buttonPressed == 4){
+            selectedTime= 80;
+        }
     }
 
 
-    if(counter == 1){
-        GO_nDONE= 1;
-        while(GO_nDONE);
-        reading = ((ADRESH<<8)+ADRESL);
-        voltageX10= reading * 5;
+    GO_nDONE= 1;
+    while(GO_nDONE);
+    reading = ((ADRESH<<8)+ADRESL);
+    voltageX10= reading * 5;
 
-        if(voltageX10 > 500){
-            driveLED(1);
-            enableCounter= 1;
-        }else if(voltageX10 > 100 && voltageX10 <= 500){
-           driveLED(0);
-           enableCounter= 0;
-           if(GP2 == 0){
-            activateBuzzer= 0;
-           }
+    if(voltageX10 > 500){
 
-        }else{
+        enableCounter= 1;
+        previousClick= 1;
+    }else if(voltageX10 > 100 && voltageX10 <= 500){
+       driveLED(0);
+       enableCounter= 0;
+       if(GP2 == 0){
+        activateBuzzer= 0;
+       }
+
+    }else{
+        if(previousClick == 1){
+            enableButtonCounter= 1;
+
+
 
         }
-        counter= 0;
-
-
-
+        previousClick= 0;
     }
-    if(timerminutes == 1258){
-        driveLED(0);
+
+    if(timerminutes == selectedTime && enable == 1){
+        enable= 0;
+        driveLED(1);
         enableCounter= 0;
         timerminutes= 0;
         activateBuzzer= 1;
@@ -1406,8 +1440,10 @@ void __attribute__((picinterrupt(("")))) isr()
         buzzerCount++;
         if(buzzerCount < 15){
             GP2= 1;
+            driveLED(1);
         }else if(buzzerCount < 30){
             GP2= 0;
+            driveLED(0);
         }else{
             buzzerCount= 0;
         }
