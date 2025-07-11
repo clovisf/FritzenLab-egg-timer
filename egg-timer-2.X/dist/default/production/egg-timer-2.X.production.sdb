@@ -11,11 +11,11 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"50 C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+"53 C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
 [v _Read_Adc Read_Adc `(ui  1 e 2 0 ]
-"56
+"59
 [v _ISR ISR `II(v  1 e 1 0 ]
-"97
+"123
 [v _main main `(v  1 e 1 0 ]
 "72 D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
@@ -60,6 +60,8 @@
 [v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
 "1404
 [v _ANSEL ANSEL `VEuc  1 e 1 @159 ]
+"1595
+[v _GP2 GP2 `VEb  1 e 0 @42 ]
 "1604
 [v _GP5 GP5 `VEb  1 e 0 @45 ]
 "1709
@@ -84,18 +86,26 @@
 [v _enterbuttontimercounter enterbuttontimercounter `VEi  1 e 2 0 ]
 "39
 [v _buttontimercounter buttontimercounter `VEi  1 e 2 0 ]
-"97
+"40
+[v _starttimer starttimer `VEi  1 e 2 0 ]
+"41
+[v _counttime counttime `VEi  1 e 2 0 ]
+"43
+[v _timecontrol timecontrol `VEi  1 e 2 0 ]
+"44
+[v _finalquantity finalquantity `VEi  1 e 2 0 ]
+"123
 [v _main main `(v  1 e 1 0 ]
 {
-"146
+"181
 } 0
-"50
+"53
 [v _Read_Adc Read_Adc `(ui  1 e 2 0 ]
 {
-"54
+"57
 } 0
-"56
+"59
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"92
+"118
 } 0

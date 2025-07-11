@@ -37,8 +37,11 @@ volatile int processbuttonclicks= 0;
 volatile int buttonclicks= 0;
 volatile int enterbuttontimercounter= 0;
 volatile int buttontimercounter= 0;
-
+volatile int starttimer= 0;
+volatile int counttime= 0;
 int supercounter= 0;
+volatile int timecontrol= 0;
+volatile int finalquantity= 0;
 
 /*unsigned int Read_Adc(void) {
     ADCON0 |= 0x02; // Start conversion by setting GO bit
@@ -61,6 +64,13 @@ void __interrupt() ISR()//vetor de interrupção
         ledtimer++;
         buttonstimer++;
         
+        if(starttimer == 1){ // increments the main timer counter
+            counttime++;
+            if((finalquantity - counttime) < 1 ){
+                finalquantity= 0;
+                starttimer= 0;
+            }
+        }
         
         if(ledtimer >= 200 && processbuttonclicks != 0 && canstartblinking == 1){
             processbuttonclicks--;
@@ -73,11 +83,27 @@ void __interrupt() ISR()//vetor de interrupção
         }else if(processbuttonclicks <= 0 && canstartblinking == 1){
             processbuttonclicks= 0;
             canstartblinking= 0;
+            starttimer= 1;
+            
+            if(timecontrol == 4){
+               finalquantity= 8000;
+            }else if(timecontrol == 3){
+               finalquantity= 6000;
+            }else if(timecontrol == 2){
+               finalquantity= 4000;
+            }else if(timecontrol == 1){
+               finalquantity= 2000;
+            }else{
+               finalquantity= 2000;
+            }
+            
         }
-        if(start == 1){
+        if(start == 1 && starttimer == 0){
             LED= 1;
-        }else if(start== 0){
+            BUZZER= 1;
+        }else if(start== 0 && starttimer == 0){
             LED= 0;
+            BUZZER= 0;
         }else{
             
         }
@@ -126,21 +152,30 @@ void main(void) {
            }  
            
            if(enterbuttontimercounter == 1){ // when the button was clicked at least once
-               buttontimercounter++; // increment a variable that will "count" 3s
-               if(buttontimercounter > 10){ // when the time is over 3s..
+               buttontimercounter++; // increment a variable that will "count" 4.6s
+               if(buttontimercounter > 15){ // when the time is over 4.6s..
                    enterbuttontimercounter= 0; // zero the main if condition and
-                   buttontimercounter= 0; // zero the 3s counter
+                   buttontimercounter= 0; // zero the 4.6s counter
                    processbuttonclicks= 2 * buttonclicks; // transfers the button clicks to another variable
+                   timecontrol= buttonclicks;
                    buttonclicks= 0; //zero the button clicks
-                   canstartblinking= 1; // only starts blinking after 3s
+                   canstartblinking= 1; // only starts blinking after 4.6s
                }
            }
-                     
-            
-               
-           //adc_value <= 90 && adc_value > 20 // 0b111000011 in binary
+                
+           //adc_value <= 90 && adc_value > 20 // Stop button
            
         }
-    }//loop infinito
+       
+       if(starttimer == 1 && finalquantity != 0){
+           
+           LED= 1;
+       }else if(finalquantity == 0){
+           LED= 0;
+           //finalquantity= 0;
+           starttimer= 0;
+           counttime= 0;
+       }
+    }
 
 }

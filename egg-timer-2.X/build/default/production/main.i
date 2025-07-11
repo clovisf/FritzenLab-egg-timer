@@ -1365,9 +1365,12 @@ volatile int processbuttonclicks= 0;
 volatile int buttonclicks= 0;
 volatile int enterbuttontimercounter= 0;
 volatile int buttontimercounter= 0;
-
+volatile int starttimer= 0;
+volatile int counttime= 0;
 int supercounter= 0;
-# 50 "main.c"
+volatile int timecontrol= 0;
+volatile int finalquantity= 0;
+# 53 "main.c"
 unsigned int Read_Adc(void) {
     ADCON0bits.GO_nDONE = 1;
     while (ADCON0bits.GO_nDONE);
@@ -1382,6 +1385,13 @@ void __attribute__((picinterrupt(("")))) ISR()
         ledtimer++;
         buttonstimer++;
 
+        if(starttimer == 1){
+            counttime++;
+            if((finalquantity - counttime) < 1 ){
+                finalquantity= 0;
+                starttimer= 0;
+            }
+        }
 
         if(ledtimer >= 200 && processbuttonclicks != 0 && canstartblinking == 1){
             processbuttonclicks--;
@@ -1394,11 +1404,27 @@ void __attribute__((picinterrupt(("")))) ISR()
         }else if(processbuttonclicks <= 0 && canstartblinking == 1){
             processbuttonclicks= 0;
             canstartblinking= 0;
+            starttimer= 1;
+
+            if(timecontrol == 4){
+               finalquantity= 8000;
+            }else if(timecontrol == 3){
+               finalquantity= 6000;
+            }else if(timecontrol == 2){
+               finalquantity= 4000;
+            }else if(timecontrol == 1){
+               finalquantity= 2000;
+            }else{
+               finalquantity= 2000;
+            }
+
         }
-        if(start == 1){
+        if(start == 1 && starttimer == 0){
             GP5= 1;
-        }else if(start== 0){
+            GP2= 1;
+        }else if(start== 0 && starttimer == 0){
             GP5= 0;
+            GP2= 0;
         }else{
 
         }
@@ -1448,10 +1474,11 @@ void main(void) {
 
            if(enterbuttontimercounter == 1){
                buttontimercounter++;
-               if(buttontimercounter > 10){
+               if(buttontimercounter > 15){
                    enterbuttontimercounter= 0;
                    buttontimercounter= 0;
                    processbuttonclicks= 2 * buttonclicks;
+                   timecontrol= buttonclicks;
                    buttonclicks= 0;
                    canstartblinking= 1;
                }
@@ -1459,9 +1486,17 @@ void main(void) {
 
 
 
-
-
         }
+
+       if(starttimer == 1 && finalquantity != 0){
+
+           GP5= 1;
+       }else if(finalquantity == 0){
+           GP5= 0;
+
+           starttimer= 0;
+           counttime= 0;
+       }
     }
 
 }
