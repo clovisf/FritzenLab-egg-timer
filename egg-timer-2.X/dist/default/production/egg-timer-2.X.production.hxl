@@ -1,24 +1,24 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_3.o
+ C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_3.o
  -Odist/default/production\egg-timer-2.X.production.hex
  -logfile=dist/default/production\egg-timer-2.X.production.hxl
  -addressing=2
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 1h		(C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_3.o)
-  8h - 363h		(C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_3.o)
-  400Eh - 400Fh		(C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_3.o)
+  0h - 1h		(C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_3.o)
+  8h - 37Fh		(C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_3.o)
+  400Eh - 400Fh		(C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_3.o)
  Unused ranges:
   2h - 7h
-  364h - 400Dh
+  380h - 400Dh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -76,6 +76,7 @@
 00000330 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000340 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000350 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000360 | H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- -- -- --
+00000360 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000370 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------
 00004000 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1

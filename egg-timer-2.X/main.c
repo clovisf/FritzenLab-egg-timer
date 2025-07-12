@@ -41,15 +41,8 @@ volatile int starttimer= 0;
 volatile int counttime= 0;
 int supercounter= 0;
 volatile int timecontrol= 0;
-volatile int finalquantity= 0;
+volatile int finalquantity= 2000;
 
-/*unsigned int Read_Adc(void) {
-    ADCON0 |= 0x02; // Start conversion by setting GO bit
-    __delay_us(5);
-    while (ADCON0 & 0x02){}; // Wait for conversion to complete by checking GO bit
-
-    return (ADRESH << 8) | ADRESL; // Combine high and low bytes
-}*/
 unsigned int Read_Adc(void) {
     ADCON0bits.GO_nDONE = 1;               // Start conversion
     while (ADCON0bits.GO_nDONE);           // Wait for conversion to complete
@@ -98,12 +91,19 @@ void __interrupt() ISR()//vetor de interrupção
             }
             
         }
-        if(start == 1 && starttimer == 0){
+        if((start == 1 && starttimer == 0)|| (starttimer == 1 && finalquantity != 0)){
             LED= 1;
-            BUZZER= 1;
-        }else if(start== 0 && starttimer == 0){
+            if(start == 1 && starttimer == 0){
+                BUZZER= 1;
+            }
+            
+        }else if((start== 0 && starttimer == 0) || finalquantity == 0){
             LED= 0;
             BUZZER= 0;
+            if(finalquantity == 0){
+                starttimer= 0;
+                counttime= 0;
+            }
         }else{
             
         }
@@ -167,15 +167,6 @@ void main(void) {
            
         }
        
-       if(starttimer == 1 && finalquantity != 0){
-           
-           LED= 1;
-       }else if(finalquantity == 0){
-           LED= 0;
-           //finalquantity= 0;
-           starttimer= 0;
-           counttime= 0;
-       }
     }
 
 }

@@ -13,15 +13,15 @@
 %PSECTS
 $dist/default/production\egg-timer-2.X.production.o
 cinit CODE 0 E E 7 2 1
-text1 CODE 0 19D 19D D 2 1
-text2 CODE 0 15 15 D5 2 1
-maintext CODE 0 EA EA B3 2 1
+text1 CODE 0 1AB 1AB D 2 1
+text2 CODE 0 15 15 FD 2 1
+maintext CODE 0 112 112 99 2 1
 cstackBANK0 BANK0 1 44 44 7 1 1
 intentry CODE 0 4 4 9 2 1
 bssBANK0 BANK0 1 20 20 24 1 1
-clrtext CODE 0 1AA 1AA 8 2 1
+clrtext CODE 0 1B8 1B8 8 2 1
 config CONFIG 4 2007 2007 1 2 1
-$C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
+$C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
 reset_vec CODE 0 0 0 1 2 1
 end_init CODE 0 D D 1 2 1
 config CONFIG 4 2007 2007 1 2 1
@@ -34,19 +34,19 @@ config CONFIG 4 2007 2007 1 2 1
 RAM 4B-5D 1
 BANK0 4B-5D 1
 CONST 1-3 2
-CONST 1B2-3FE 2
+CONST 1C0-3FE 2
 ENTRY 1-3 2
-ENTRY 1B2-3FE 2
+ENTRY 1C0-3FE 2
 IDLOC 2000-2003 2
 CODE 1-3 2
-CODE 1B2-3FE 2
+CODE 1C0-3FE 2
 SFR0 0-1F 1
 SFR1 80-DD 1
 EEDATA 2100-217F 2
 STRCODE 1-3 2
-STRCODE 1B2-3FE 2
+STRCODE 1C0-3FE 2
 STRING 1-3 2
-STRING 1B2-3FE 2
+STRING 1C0-3FE 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -61,16 +61,16 @@ STRING 1B2-3FE 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\egg-timer-2.X.production.o
-E cinit CODE >283:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
-E cinit CODE >286:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
-E cinit CODE >360:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
-F cinit CODE >361:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
-10 cinit CODE >362:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
-11 cinit CODE >363:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
-12 cinit CODE >364:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
-13 cinit CODE >370:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
-13 cinit CODE >372:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
-14 cinit CODE >373:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
+E cinit CODE >283:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
+E cinit CODE >286:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
+E cinit CODE >360:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
+F cinit CODE >361:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
+10 cinit CODE >362:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
+11 cinit CODE >363:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
+12 cinit CODE >364:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
+13 cinit CODE >370:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
+13 cinit CODE >372:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
+14 cinit CODE >373:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
 4 intentry CODE >59:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
 15 text2 CODE >59:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
 15 text2 CODE >61:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
@@ -112,78 +112,76 @@ B8 text2 CODE >93:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-tim
 BC text2 CODE >94:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
 BD text2 CODE >95:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
 C1 text2 CODE >101:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-CE text2 CODE >102:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-CF text2 CODE >103:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-D0 text2 CODE >104:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-DD text2 CODE >105:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-DE text2 CODE >106:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-DF text2 CODE >109:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-DF text2 CODE >110:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-E0 text2 CODE >111:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-E2 text2 CODE >118:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-19D text1 CODE >53:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-19D text1 CODE >54:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-19F text1 CODE >55:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-1A3 text1 CODE >56:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-1A9 text1 CODE >57:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-EA maintext CODE >123:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-EA maintext CODE >124:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-ED maintext CODE >125:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-F0 maintext CODE >126:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-F3 maintext CODE >127:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-F5 maintext CODE >128:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-F7 maintext CODE >129:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-FA maintext CODE >130:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-FC maintext CODE >131:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-FE maintext CODE >133:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-100 maintext CODE >138:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-106 maintext CODE >138:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-10A maintext CODE >138:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-10E maintext CODE >139:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-111 maintext CODE >141:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-117 maintext CODE >143:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-11A maintext CODE >143:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-11C maintext CODE >143:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-123 maintext CODE >143:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-125 maintext CODE >143:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-12F maintext CODE >144:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-131 maintext CODE >144:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-135 maintext CODE >145:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-13B maintext CODE >146:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-13F maintext CODE >147:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-145 maintext CODE >147:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-149 maintext CODE >147:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-14D maintext CODE >148:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-152 maintext CODE >149:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-153 maintext CODE >151:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-153 maintext CODE >154:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-15A maintext CODE >155:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-15C maintext CODE >155:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-160 maintext CODE >156:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-165 maintext CODE >156:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-169 maintext CODE >156:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-16D maintext CODE >157:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-170 maintext CODE >158:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-172 maintext CODE >159:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-177 maintext CODE >160:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+DA text2 CODE >102:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+DB text2 CODE >103:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+E7 text2 CODE >104:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+E9 text2 CODE >107:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+FB text2 CODE >108:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+FC text2 CODE >109:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+FD text2 CODE >110:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+103 text2 CODE >111:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+105 text2 CODE >112:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+107 text2 CODE >116:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+107 text2 CODE >117:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+108 text2 CODE >118:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+10A text2 CODE >125:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+1AB text1 CODE >53:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+1AB text1 CODE >54:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+1AD text1 CODE >55:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+1B1 text1 CODE >56:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+1B7 text1 CODE >57:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+112 maintext CODE >130:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+112 maintext CODE >131:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+115 maintext CODE >132:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+118 maintext CODE >133:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+11B maintext CODE >134:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+11D maintext CODE >135:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+11F maintext CODE >136:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+122 maintext CODE >137:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+124 maintext CODE >138:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+126 maintext CODE >140:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+128 maintext CODE >145:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+12E maintext CODE >145:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+132 maintext CODE >145:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+136 maintext CODE >146:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+139 maintext CODE >148:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+13F maintext CODE >150:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+142 maintext CODE >150:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+144 maintext CODE >150:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+14B maintext CODE >150:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+14D maintext CODE >150:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+157 maintext CODE >151:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+159 maintext CODE >151:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+15D maintext CODE >152:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+163 maintext CODE >153:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+167 maintext CODE >154:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+16D maintext CODE >154:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+171 maintext CODE >154:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+175 maintext CODE >155:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+17A maintext CODE >156:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+17B maintext CODE >158:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
 17B maintext CODE >161:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-17D maintext CODE >162:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-181 maintext CODE >170:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-18E maintext CODE >172:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-18F maintext CODE >173:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-196 maintext CODE >174:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-197 maintext CODE >176:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-199 maintext CODE >177:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-1AA clrtext CODE >347:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
-1AA clrtext CODE >348:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
-1AB clrtext CODE >349:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
-1AB clrtext CODE >350:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
-1AC clrtext CODE >351:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
-1AD clrtext CODE >352:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
-1AE clrtext CODE >353:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
-1AF clrtext CODE >354:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
-1B0 clrtext CODE >355:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
-1B1 clrtext CODE >356:C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_1.s
+182 maintext CODE >162:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+184 maintext CODE >162:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+188 maintext CODE >163:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+18D maintext CODE >163:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+191 maintext CODE >163:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+195 maintext CODE >164:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+198 maintext CODE >165:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+19A maintext CODE >166:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+19F maintext CODE >167:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+1A3 maintext CODE >168:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+1A5 maintext CODE >169:C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+1B8 clrtext CODE >347:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
+1B8 clrtext CODE >348:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
+1B9 clrtext CODE >349:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
+1B9 clrtext CODE >350:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
+1BA clrtext CODE >351:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
+1BB clrtext CODE >352:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
+1BC clrtext CODE >353:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
+1BD clrtext CODE >354:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
+1BE clrtext CODE >355:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
+1BF clrtext CODE >356:C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -207,25 +205,25 @@ __L__absolute__ 0 0 ABS 0 __absolute__ -
 __Hstrings 7FE 0 ABS 0 strings -
 _T0IF 5A 0 ABS 0 - dist/default/production\egg-timer-2.X.production.o
 _TMR0 1 0 ABS 0 - dist/default/production\egg-timer-2.X.production.o
-___sp 7FE 0 STACK 2 stack C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
-_main 1D4 0 CODE 0 maintext dist/default/production\egg-timer-2.X.production.o
+___sp 7FE 0 STACK 2 stack C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
+_main 224 0 CODE 0 maintext dist/default/production\egg-timer-2.X.production.o
 btemp 5E 0 ABS 0 - dist/default/production\egg-timer-2.X.production.o
-___stack_hi 7FE 0 STACK 2 stack C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
-___stack_lo 7FE 0 STACK 2 stack C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
-start 1A 0 CODE 0 init C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
+___stack_hi 7FE 0 STACK 2 stack C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
+___stack_lo 7FE 0 STACK 2 stack C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
+start 1A 0 CODE 0 init C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
 _finalquantity 24 0 BANK0 1 bssBANK0 dist/default/production\egg-timer-2.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-_Read_Adc 33A 0 CODE 0 text1 dist/default/production\egg-timer-2.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
+_Read_Adc 356 0 CODE 0 text1 dist/default/production\egg-timer-2.X.production.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
 wtemp0 5E 0 ABS 0 - dist/default/production\egg-timer-2.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 _ledtimer 3E 0 BANK0 1 bssBANK0 dist/default/production\egg-timer-2.X.production.o
-__end_of_Read_Adc 354 0 CODE 0 text1 dist/default/production\egg-timer-2.X.production.o
+__end_of_Read_Adc 370 0 CODE 0 text1 dist/default/production\egg-timer-2.X.production.o
 __Hclrtext 7FE 0 ABS 0 clrtext -
 _ADCON0 1F 0 ABS 0 - dist/default/production\egg-timer-2.X.production.o
 _ADRESH 1E 0 ABS 0 - dist/default/production\egg-timer-2.X.production.o
@@ -234,15 +232,15 @@ _timecontrol 26 0 BANK0 1 bssBANK0 dist/default/production\egg-timer-2.X.product
 __Lmaintext 7FE 0 ABS 0 maintext -
 _INTCON B 0 ABS 0 - dist/default/production\egg-timer-2.X.production.o
 _OPTION_REG 81 0 ABS 0 - dist/default/production\egg-timer-2.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
-___stacklo 0 0 ABS 0 - C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
+___stackhi 0 0 ABS 0 - C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
+___stacklo 0 0 ABS 0 - C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
 start_initialization 1C 0 CODE 0 cinit dist/default/production\egg-timer-2.X.production.o
 _OSCCAL 90 0 ABS 0 - dist/default/production\egg-timer-2.X.production.o
-clear_ram0 354 0 CODE 0 clrtext dist/default/production\egg-timer-2.X.production.o
+clear_ram0 370 0 CODE 0 clrtext dist/default/production\egg-timer-2.X.production.o
 __pcstackBANK0 44 0 BANK0 1 cstackBANK0 dist/default/production\egg-timer-2.X.production.o
 _TRISIO 85 0 ABS 0 - dist/default/production\egg-timer-2.X.production.o
 ?_Read_Adc 49 0 BANK0 1 cstackBANK0 dist/default/production\egg-timer-2.X.production.o
-___int_sp 7FE 0 STACK 2 stack C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
+___int_sp 7FE 0 STACK 2 stack C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
 _startbutton 38 0 BANK0 1 bssBANK0 dist/default/production\egg-timer-2.X.production.o
 __Hbank0 7FE 0 ABS 0 bank0 -
 __Hbank1 7FE 0 BANK1 1 bank1 -
@@ -278,22 +276,22 @@ _GP2 2A 0 ABS 0 - dist/default/production\egg-timer-2.X.production.o
 _GP5 2D 0 ABS 0 - dist/default/production\egg-timer-2.X.production.o
 _ISR 2A 0 CODE 0 text2 dist/default/production\egg-timer-2.X.production.o
 _WPU 95 0 ABS 0 - dist/default/production\egg-timer-2.X.production.o
-__S0 1B2 0 ABS 0 - -
+__S0 1C0 0 ABS 0 - -
 __S1 4B 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 saved_w 5E 0 ABS 0 - dist/default/production\egg-timer-2.X.production.o
 __Hosccal 7FE 0 CODE 0 osccal -
-__end_of_ISR 1D4 0 CODE 0 text2 dist/default/production\egg-timer-2.X.production.o
+__end_of_ISR 224 0 CODE 0 text2 dist/default/production\egg-timer-2.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
 _enterbuttontimercounter 30 0 BANK0 1 bssBANK0 dist/default/production\egg-timer-2.X.production.o
 __LbssBANK0 7FE 0 ABS 0 bssBANK0 -
-__pmaintext 1D4 0 CODE 0 maintext dist/default/production\egg-timer-2.X.production.o
+__pmaintext 224 0 CODE 0 maintext dist/default/production\egg-timer-2.X.production.o
 _buttonclicks 42 0 BANK0 1 bssBANK0 dist/default/production\egg-timer-2.X.production.o
 __Lcommon 7FE 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
 _processbuttonclicks 32 0 BANK0 1 bssBANK0 dist/default/production\egg-timer-2.X.production.o
-___osccal_val 7FE 0 CODE 0 osccal C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
+___osccal_val 7FE 0 CODE 0 osccal C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
 _ADCON0bits 1F 0 ABS 0 - dist/default/production\egg-timer-2.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
@@ -309,7 +307,7 @@ __Losccal 7FE 0 CODE 0 osccal -
 __Lstrings 7FE 0 ABS 0 strings -
 __Hreset_vec 2 0 CODE 0 reset_vec -
 __HbssBANK0 7FE 0 ABS 0 bssBANK0 -
-__ptext1 33A 0 CODE 0 text1 dist/default/production\egg-timer-2.X.production.o
+__ptext1 356 0 CODE 0 text1 dist/default/production\egg-timer-2.X.production.o
 __ptext2 2A 0 CODE 0 text2 dist/default/production\egg-timer-2.X.production.o
 _buttonstimer 3C 0 BANK0 1 bssBANK0 dist/default/production\egg-timer-2.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
@@ -317,8 +315,8 @@ __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 _adc_value 36 0 BANK0 1 bssBANK0 dist/default/production\egg-timer-2.X.production.o
 __H__absolute__ 0 0 ABS 0 __absolute__ -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-___heap_hi 0 0 ABS 0 - C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
-___heap_lo 0 0 ABS 0 - C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
+___heap_hi 0 0 ABS 0 - C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
+___heap_lo 0 0 ABS 0 - C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
 __end_of__initialization 26 0 CODE 0 cinit dist/default/production\egg-timer-2.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 7FE 0 ABS 0 clrtext -
@@ -326,7 +324,7 @@ _canstartblinking 34 0 BANK0 1 bssBANK0 dist/default/production\egg-timer-2.X.pr
 __pcstackCOMMON 0 0 COMMON 1 cstackCOMMON dist/default/production\egg-timer-2.X.production.o
 _starttimer 2C 0 BANK0 1 bssBANK0 dist/default/production\egg-timer-2.X.production.o
 __Hend_init 1C 0 CODE 0 end_init -
-__end_of_main 33A 0 CODE 0 maintext dist/default/production\egg-timer-2.X.production.o
+__end_of_main 356 0 CODE 0 maintext dist/default/production\egg-timer-2.X.production.o
 _ANSEL 9F 0 ABS 0 - dist/default/production\egg-timer-2.X.production.o
 _CMCON 19 0 ABS 0 - dist/default/production\egg-timer-2.X.production.o
 __Hram 7FE 0 ABS 0 ram -
@@ -337,8 +335,8 @@ __pintentry 8 0 CODE 0 intentry dist/default/production\egg-timer-2.X.production
 __initialization 1C 0 CODE 0 cinit dist/default/production\egg-timer-2.X.production.o
 __pbssBANK0 20 0 BANK0 1 bssBANK0 dist/default/production\egg-timer-2.X.production.o
 _buttontimercounter 2E 0 BANK0 1 bssBANK0 dist/default/production\egg-timer-2.X.production.o
-___int_stack_hi 7FE 0 STACK 2 stack C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
-___int_stack_lo 7FE 0 STACK 2 stack C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.\driver_tmp_12.o
+___int_stack_hi 7FE 0 STACK 2 stack C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
+___int_stack_lo 7FE 0 STACK 2 stack C:\Users\Clovisf\AppData\Local\Temp\xcAs4gs.\driver_tmp_12.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -364,7 +362,7 @@ ___int_stack_lo 7FE 0 STACK 2 stack C:\Users\Clovisf\AppData\Local\Temp\xcAsdn0.
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-intentry 0 4 8 1AE 2
+intentry 0 4 8 1BC 2
 reset_vec 0 0 0 1 2
 bssBANK0 1 20 20 2B 1
 # %NOTES Section

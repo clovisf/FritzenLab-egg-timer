@@ -437,219 +437,213 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 99 ]
 [e :U 98 ]
 "101
-[; ;main.c: 101:         if(start == 1 && starttimer == 0){
-[e $ ! && == _start -> 1 `i == _starttimer -> 0 `i 108  ]
+[; ;main.c: 101:         if((start == 1 && starttimer == 0)|| (starttimer == 1 && finalquantity != 0)){
+[e $ ! || && == _start -> 1 `i == _starttimer -> 0 `i && == _starttimer -> 1 `i != _finalquantity -> 0 `i 108  ]
 {
 "102
 [; ;main.c: 102:             GP5= 1;
 [e = _GP5 -> -> 1 `i `b ]
 "103
-[; ;main.c: 103:             GP2= 1;
-[e = _GP2 -> -> 1 `i `b ]
+[; ;main.c: 103:             if(start == 1 && starttimer == 0){
+[e $ ! && == _start -> 1 `i == _starttimer -> 0 `i 109  ]
+{
 "104
-[; ;main.c: 104:         }else if(start== 0 && starttimer == 0){
-}
-[e $U 109  ]
-[e :U 108 ]
-[e $ ! && == _start -> 0 `i == _starttimer -> 0 `i 110  ]
-{
+[; ;main.c: 104:                 GP2= 1;
+[e = _GP2 -> -> 1 `i `b ]
 "105
-[; ;main.c: 105:             GP5= 0;
-[e = _GP5 -> -> 0 `i `b ]
-"106
-[; ;main.c: 106:             GP2= 0;
-[e = _GP2 -> -> 0 `i `b ]
-"107
-[; ;main.c: 107:         }else{
+[; ;main.c: 105:             }
 }
-[e $U 111  ]
-[e :U 110 ]
-{
-"109
-[; ;main.c: 109:         }
-}
-[e :U 111 ]
 [e :U 109 ]
+"107
+[; ;main.c: 107:         }else if((start== 0 && starttimer == 0) || finalquantity == 0){
+}
+[e $U 110  ]
+[e :U 108 ]
+[e $ ! || && == _start -> 0 `i == _starttimer -> 0 `i == _finalquantity -> 0 `i 111  ]
+{
+"108
+[; ;main.c: 108:             GP5= 0;
+[e = _GP5 -> -> 0 `i `b ]
+"109
+[; ;main.c: 109:             GP2= 0;
+[e = _GP2 -> -> 0 `i `b ]
 "110
-[; ;main.c: 110:         T0IF = 0;
-[e = _T0IF -> -> 0 `i `b ]
+[; ;main.c: 110:             if(finalquantity == 0){
+[e $ ! == _finalquantity -> 0 `i 112  ]
+{
 "111
-[; ;main.c: 111:         TMR0 = 6;
-[e = _TMR0 -> -> 6 `i `uc ]
+[; ;main.c: 111:                 starttimer= 0;
+[e = _starttimer -> 0 `i ]
 "112
-[; ;main.c: 112:     }
+[; ;main.c: 112:                 counttime= 0;
+[e = _counttime -> 0 `i ]
+"113
+[; ;main.c: 113:             }
+}
+[e :U 112 ]
+"114
+[; ;main.c: 114:         }else{
+}
+[e $U 113  ]
+[e :U 111 ]
+{
+"116
+[; ;main.c: 116:         }
+}
+[e :U 113 ]
+[e :U 110 ]
+"117
+[; ;main.c: 117:         T0IF = 0;
+[e = _T0IF -> -> 0 `i `b ]
+"118
+[; ;main.c: 118:         TMR0 = 6;
+[e = _TMR0 -> -> 6 `i `uc ]
+"119
+[; ;main.c: 119:     }
 }
 [e :U 92 ]
-"118
-[; ;main.c: 118:  }
+"125
+[; ;main.c: 125:  }
 [e :UE 91 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"123
-[; ;main.c: 123: void main(void) {
+"130
+[; ;main.c: 130: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"124
-[; ;main.c: 124:     CMCON = 0x07;
-[e = _CMCON -> -> 7 `i `uc ]
-"125
-[; ;main.c: 125:     ANSEL = 0b0010001;
-[e = _ANSEL -> -> 17 `i `uc ]
-"126
-[; ;main.c: 126:     ADCON0 = 0b10000001;
-[e = _ADCON0 -> -> 129 `i `uc ]
-"127
-[; ;main.c: 127:     WPU = 0X00;
-[e = _WPU -> -> 0 `i `uc ]
-"128
-[; ;main.c: 128:     TMR0 = 0;
-[e = _TMR0 -> -> 0 `i `uc ]
-"129
-[; ;main.c: 129:     OSCCAL = 0XFF;
-[e = _OSCCAL -> -> 255 `i `uc ]
-"130
-[; ;main.c: 130:     OPTION_REG = 0X81;
-[e = _OPTION_REG -> -> 129 `i `uc ]
 "131
-[; ;main.c: 131:     INTCON = 0XE0;
-[e = _INTCON -> -> 224 `i `uc ]
+[; ;main.c: 131:     CMCON = 0x07;
+[e = _CMCON -> -> 7 `i `uc ]
+"132
+[; ;main.c: 132:     ANSEL = 0b0010001;
+[e = _ANSEL -> -> 17 `i `uc ]
 "133
-[; ;main.c: 133:     TRISIO = 0X03;
-[e = _TRISIO -> -> 3 `i `uc ]
+[; ;main.c: 133:     ADCON0 = 0b10000001;
+[e = _ADCON0 -> -> 129 `i `uc ]
+"134
+[; ;main.c: 134:     WPU = 0X00;
+[e = _WPU -> -> 0 `i `uc ]
+"135
+[; ;main.c: 135:     TMR0 = 0;
+[e = _TMR0 -> -> 0 `i `uc ]
 "136
-[; ;main.c: 136:     for(;;)
-{
-[e :U 113 ]
+[; ;main.c: 136:     OSCCAL = 0XFF;
+[e = _OSCCAL -> -> 255 `i `uc ]
 "137
-[; ;main.c: 137:     {
-{
+[; ;main.c: 137:     OPTION_REG = 0X81;
+[e = _OPTION_REG -> -> 129 `i `uc ]
 "138
-[; ;main.c: 138:        if(buttonstimer >= 300){
-[e $ ! >= _buttonstimer -> 300 `i 116  ]
-{
-"139
-[; ;main.c: 139:            buttonstimer= 0;
-[e = _buttonstimer -> 0 `i ]
-"141
-[; ;main.c: 141:            adc_value = Read_Adc();
-[e = _adc_value ( _Read_Adc ..  ]
+[; ;main.c: 138:     INTCON = 0XE0;
+[e = _INTCON -> -> 224 `i `uc ]
+"140
+[; ;main.c: 140:     TRISIO = 0X03;
+[e = _TRISIO -> -> 3 `i `uc ]
 "143
-[; ;main.c: 143:            if(adc_value > 90 && adc_value <= 1023 && canstartblinking == 0){
-[e $ ! && && > _adc_value -> -> 90 `i `ui <= _adc_value -> -> 1023 `i `ui == _canstartblinking -> 0 `i 117  ]
+[; ;main.c: 143:     for(;;)
 {
+[e :U 115 ]
 "144
-[; ;main.c: 144:                buttonclicks++;
-[e ++ _buttonclicks -> -> 1 `i `Vi ]
+[; ;main.c: 144:     {
+{
 "145
-[; ;main.c: 145:                if(buttonclicks == 1){
-[e $ ! == _buttonclicks -> 1 `i 118  ]
+[; ;main.c: 145:        if(buttonstimer >= 300){
+[e $ ! >= _buttonstimer -> 300 `i 118  ]
 {
 "146
-[; ;main.c: 146:                    enterbuttontimercounter= 1;
-[e = _enterbuttontimercounter -> 1 `i ]
-"147
-[; ;main.c: 147:                }else if(buttonclicks > 4){
-}
-[e $U 119  ]
-[e :U 118 ]
-[e $ ! > _buttonclicks -> 4 `i 120  ]
-{
+[; ;main.c: 146:            buttonstimer= 0;
+[e = _buttonstimer -> 0 `i ]
 "148
-[; ;main.c: 148:                    buttonclicks= 4;
-[e = _buttonclicks -> 4 `i ]
-"149
-[; ;main.c: 149:                }else{
+[; ;main.c: 148:            adc_value = Read_Adc();
+[e = _adc_value ( _Read_Adc ..  ]
+"150
+[; ;main.c: 150:            if(adc_value > 90 && adc_value <= 1023 && canstartblinking == 0){
+[e $ ! && && > _adc_value -> -> 90 `i `ui <= _adc_value -> -> 1023 `i `ui == _canstartblinking -> 0 `i 119  ]
+{
+"151
+[; ;main.c: 151:                buttonclicks++;
+[e ++ _buttonclicks -> -> 1 `i `Vi ]
+"152
+[; ;main.c: 152:                if(buttonclicks == 1){
+[e $ ! == _buttonclicks -> 1 `i 120  ]
+{
+"153
+[; ;main.c: 153:                    enterbuttontimercounter= 1;
+[e = _enterbuttontimercounter -> 1 `i ]
+"154
+[; ;main.c: 154:                }else if(buttonclicks > 4){
 }
 [e $U 121  ]
 [e :U 120 ]
-{
-"151
-[; ;main.c: 151:                }
-}
-[e :U 121 ]
-[e :U 119 ]
-"152
-[; ;main.c: 152:            }
-}
-[e :U 117 ]
-"154
-[; ;main.c: 154:            if(enterbuttontimercounter == 1){
-[e $ ! == _enterbuttontimercounter -> 1 `i 122  ]
+[e $ ! > _buttonclicks -> 4 `i 122  ]
 {
 "155
-[; ;main.c: 155:                buttontimercounter++;
-[e ++ _buttontimercounter -> -> 1 `i `Vi ]
+[; ;main.c: 155:                    buttonclicks= 4;
+[e = _buttonclicks -> 4 `i ]
 "156
-[; ;main.c: 156:                if(buttontimercounter > 15){
-[e $ ! > _buttontimercounter -> 15 `i 123  ]
+[; ;main.c: 156:                }else{
+}
+[e $U 123  ]
+[e :U 122 ]
 {
-"157
-[; ;main.c: 157:                    enterbuttontimercounter= 0;
-[e = _enterbuttontimercounter -> 0 `i ]
 "158
-[; ;main.c: 158:                    buttontimercounter= 0;
-[e = _buttontimercounter -> 0 `i ]
-"159
-[; ;main.c: 159:                    processbuttonclicks= 2 * buttonclicks;
-[e = _processbuttonclicks * -> 2 `i _buttonclicks ]
-"160
-[; ;main.c: 160:                    timecontrol= buttonclicks;
-[e = _timecontrol _buttonclicks ]
-"161
-[; ;main.c: 161:                    buttonclicks= 0;
-[e = _buttonclicks -> 0 `i ]
-"162
-[; ;main.c: 162:                    canstartblinking= 1;
-[e = _canstartblinking -> 1 `i ]
-"163
-[; ;main.c: 163:                }
+[; ;main.c: 158:                }
 }
 [e :U 123 ]
+[e :U 121 ]
+"159
+[; ;main.c: 159:            }
+}
+[e :U 119 ]
+"161
+[; ;main.c: 161:            if(enterbuttontimercounter == 1){
+[e $ ! == _enterbuttontimercounter -> 1 `i 124  ]
+{
+"162
+[; ;main.c: 162:                buttontimercounter++;
+[e ++ _buttontimercounter -> -> 1 `i `Vi ]
+"163
+[; ;main.c: 163:                if(buttontimercounter > 15){
+[e $ ! > _buttontimercounter -> 15 `i 125  ]
+{
 "164
-[; ;main.c: 164:            }
-}
-[e :U 122 ]
+[; ;main.c: 164:                    enterbuttontimercounter= 0;
+[e = _enterbuttontimercounter -> 0 `i ]
+"165
+[; ;main.c: 165:                    buttontimercounter= 0;
+[e = _buttontimercounter -> 0 `i ]
+"166
+[; ;main.c: 166:                    processbuttonclicks= 2 * buttonclicks;
+[e = _processbuttonclicks * -> 2 `i _buttonclicks ]
+"167
+[; ;main.c: 167:                    timecontrol= buttonclicks;
+[e = _timecontrol _buttonclicks ]
 "168
-[; ;main.c: 168:         }
-}
-[e :U 116 ]
+[; ;main.c: 168:                    buttonclicks= 0;
+[e = _buttonclicks -> 0 `i ]
+"169
+[; ;main.c: 169:                    canstartblinking= 1;
+[e = _canstartblinking -> 1 `i ]
 "170
-[; ;main.c: 170:        if(starttimer == 1 && finalquantity != 0){
-[e $ ! && == _starttimer -> 1 `i != _finalquantity -> 0 `i 124  ]
-{
-"172
-[; ;main.c: 172:            GP5= 1;
-[e = _GP5 -> -> 1 `i `b ]
-"173
-[; ;main.c: 173:        }else if(finalquantity == 0){
+[; ;main.c: 170:                }
 }
-[e $U 125  ]
-[e :U 124 ]
-[e $ ! == _finalquantity -> 0 `i 126  ]
-{
-"174
-[; ;main.c: 174:            GP5= 0;
-[e = _GP5 -> -> 0 `i `b ]
-"176
-[; ;main.c: 176:            starttimer= 0;
-[e = _starttimer -> 0 `i ]
-"177
-[; ;main.c: 177:            counttime= 0;
-[e = _counttime -> 0 `i ]
-"178
-[; ;main.c: 178:        }
-}
-[e :U 126 ]
 [e :U 125 ]
-"179
-[; ;main.c: 179:     }
+"171
+[; ;main.c: 171:            }
 }
-[e $U 113  ]
-[e :U 114 ]
+[e :U 124 ]
+"175
+[; ;main.c: 175:         }
 }
-"181
-[; ;main.c: 181: }
-[e :UE 112 ]
+[e :U 118 ]
+"186
+[; ;main.c: 186:     }
+}
+[e $U 115  ]
+[e :U 116 ]
+}
+"188
+[; ;main.c: 188: }
+[e :UE 114 ]
 }

@@ -1419,12 +1419,19 @@ void __attribute__((picinterrupt(("")))) ISR()
             }
 
         }
-        if(start == 1 && starttimer == 0){
+        if((start == 1 && starttimer == 0)|| (starttimer == 1 && finalquantity != 0)){
             GP5= 1;
-            GP2= 1;
-        }else if(start== 0 && starttimer == 0){
+            if(start == 1 && starttimer == 0){
+                GP2= 1;
+            }
+
+        }else if((start== 0 && starttimer == 0) || finalquantity == 0){
             GP5= 0;
             GP2= 0;
+            if(finalquantity == 0){
+                starttimer= 0;
+                counttime= 0;
+            }
         }else{
 
         }
@@ -1487,16 +1494,7 @@ void main(void) {
 
 
         }
-
-       if(starttimer == 1 && finalquantity != 0){
-
-           GP5= 1;
-       }else if(finalquantity == 0){
-           GP5= 0;
-
-           starttimer= 0;
-           counttime= 0;
-       }
+# 186 "main.c"
     }
 
 }
