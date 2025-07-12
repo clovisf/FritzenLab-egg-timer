@@ -1,0 +1,2 @@
+15min: 12min33sec
+60min: 50min

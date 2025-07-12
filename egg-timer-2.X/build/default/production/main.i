@@ -1352,149 +1352,212 @@ extern __bank0 __bit __timeout;
 #pragma config CP = OFF
 #pragma config CPD = OFF
 
-long tempo_led=0;
-int buttonpressed= 0;
 
-volatile int ledtimer= 0;
-volatile int buttonstimer= 0;
-volatile int start= 0;
-volatile int startbutton= 0;
-volatile unsigned int adc_value= 0;
-volatile int canstartblinking= 0;
-volatile int processbuttonclicks= 0;
-volatile int buttonclicks= 0;
-volatile int enterbuttontimercounter= 0;
-volatile int buttontimercounter= 0;
-volatile int starttimer= 0;
-volatile int counttime= 0;
-int supercounter= 0;
-volatile int timecontrol= 0;
-volatile int finalquantity= 0;
-# 53 "main.c"
+long tempo_led = 0;
+int buttonpressed = 0;
+volatile int ledtimer = 0;
+volatile int buttonstimer = 0;
+volatile unsigned char start = 0;
+volatile unsigned char startbutton = 0;
+volatile unsigned int adc_value = 0;
+volatile unsigned char canstartblinking = 0;
+volatile int processbuttonclicks = 0;
+volatile int buttonclicks = 0;
+volatile unsigned char enterbuttontimercounter = 0;
+volatile int buttontimercounter = 0;
+volatile unsigned char starttimer = 0;
+volatile int counttime = 0;
+int supercounter = 0;
+volatile unsigned char timecontrol = 0;
+volatile int finalquantity = 2000;
+volatile unsigned char finalbuzzer = 0;
+volatile int finalbuzzercounter = 0;
+volatile unsigned char buzzeron = 0;
+volatile unsigned char processstarted = 0;
+volatile int longtimecounter= 0;
+
+
 unsigned int Read_Adc(void) {
     ADCON0bits.GO_nDONE = 1;
     while (ADCON0bits.GO_nDONE);
+
     return ((unsigned int)ADRESH << 8) | ADRESL;
 }
 
-void __attribute__((picinterrupt(("")))) ISR()
- {
-    if(T0IF)
-    {
+
+void __attribute__((picinterrupt(("")))) ISR() {
+
+    if (T0IF) {
+
 
         ledtimer++;
         buttonstimer++;
 
-        if(starttimer == 1){
+
+        if (starttimer == 1) {
             counttime++;
-            if((finalquantity - counttime) < 1 ){
-                finalquantity= 0;
-                starttimer= 0;
+
+            if ((finalquantity - counttime) < 1) {
+                counttime = 0;
+                longtimecounter++;
+                if(longtimecounter >= 144){
+                    finalquantity = 0;
+                    starttimer = 0;
+
+                if (processstarted == 1) {
+                    finalbuzzer = 1;
+                    processstarted = 0;
+                }
+                }
+
+
             }
         }
 
-        if(ledtimer >= 200 && processbuttonclicks != 0 && canstartblinking == 1){
+
+        if (finalbuzzer == 1) {
+            finalbuzzercounter++;
+            canstartblinking = 0;
+            if (finalbuzzercounter <= 3000) {
+                buzzeron = 1;
+            } else {
+                buzzeron = 0;
+
+                starttimer = 1;
+
+
+
+                processbuttonclicks = 0;
+                processstarted = 0;
+                finalbuzzercounter = 0;
+                finalbuzzer = 0;
+            }
+        }
+
+
+        if (ledtimer >= 200 && processbuttonclicks > 0 && canstartblinking == 1) {
             processbuttonclicks--;
-            if(start == 1){
-                start= 0;
-            }else{
-              start= 1;
+            if (start == 1) {
+                start = 0;
+                buzzeron = 0;
+            } else {
+                start = 1;
+                buzzeron= 1;
             }
-            ledtimer= 0;
-        }else if(processbuttonclicks <= 0 && canstartblinking == 1){
-            processbuttonclicks= 0;
-            canstartblinking= 0;
-            starttimer= 1;
+            ledtimer = 0;
+        } else if (processbuttonclicks <= 0 && canstartblinking == 1) {
 
-            if(timecontrol == 4){
-               finalquantity= 8000;
-            }else if(timecontrol == 3){
-               finalquantity= 6000;
-            }else if(timecontrol == 2){
-               finalquantity= 4000;
-            }else if(timecontrol == 1){
-               finalquantity= 2000;
-            }else{
-               finalquantity= 2000;
+            if (timecontrol == 4) {
+                finalquantity = 30000;
+            } else if (timecontrol == 3) {
+                finalquantity = 22500;
+            } else if (timecontrol == 2) {
+                finalquantity = 15000;
+            } else if (timecontrol == 1) {
+                finalquantity = 7500;
+            } else {
+                finalquantity = 0;
             }
 
+            if (starttimer == 0 && finalbuzzer == 0) {
+                starttimer = 1;
+                canstartblinking = 0;
+            }
         }
-        if((start == 1 && starttimer == 0)|| (starttimer == 1 && finalquantity != 0)){
-            GP5= 1;
-            if(start == 1 && starttimer == 0){
-                GP2= 1;
-            }
 
-        }else if((start== 0 && starttimer == 0) || finalquantity == 0){
-            GP5= 0;
-            GP2= 0;
-            if(finalquantity == 0){
-                starttimer= 0;
-                counttime= 0;
-            }
-        }else{
 
+        if ((start == 1 && starttimer == 0) || (starttimer == 1 && finalquantity != 0) || buzzeron == 1) {
+
+            GP5 = 1;
+
+            if (buzzeron == 1) {
+                GP2 = 1;
+            } else {
+                GP2 = 0;
+            }
+        } else {
+
+            GP5 = 0;
+            GP2 = 0;
         }
+
         T0IF = 0;
         TMR0 = 6;
     }
-
-
-
-
-
- }
-
-
+}
 
 
 void main(void) {
-    CMCON = 0x07;
-    ANSEL = 0b0010001;
-    ADCON0 = 0b10000001;
-    WPU = 0X00;
-    TMR0 = 0;
-    OSCCAL = 0XFF;
-    OPTION_REG = 0X81;
-    INTCON = 0XE0;
 
+    CMCON = 0x07;
+# 173 "main.c"
+    ANSEL = 0b00100001;
+
+
+
+
+
+
+
+    ADCON0 = 0b10000001;
+
+
+    WPU = 0X00;
+
+
+    TMR0 = 0;
+
+
+    OSCCAL = 0XFF;
+# 201 "main.c"
+    OPTION_REG = 0X81;
+# 212 "main.c"
+    INTCON = 0XE0;
+# 221 "main.c"
     TRISIO = 0X03;
 
 
-    for(;;)
-    {
-       if(buttonstimer >= 300){
-           buttonstimer= 0;
+    for (;;) {
 
-           adc_value = Read_Adc();
+        if (buttonstimer >= 300) {
+            buttonstimer = 0;
 
-           if(adc_value > 90 && adc_value <= 1023 && canstartblinking == 0){
-               buttonclicks++;
-               if(buttonclicks == 1){
-                   enterbuttontimercounter= 1;
-               }else if(buttonclicks > 4){
-                   buttonclicks= 4;
-               }else{
-
-               }
-           }
-
-           if(enterbuttontimercounter == 1){
-               buttontimercounter++;
-               if(buttontimercounter > 15){
-                   enterbuttontimercounter= 0;
-                   buttontimercounter= 0;
-                   processbuttonclicks= 2 * buttonclicks;
-                   timecontrol= buttonclicks;
-                   buttonclicks= 0;
-                   canstartblinking= 1;
-               }
-           }
+            adc_value = Read_Adc();
 
 
 
+            if (adc_value > 90 && adc_value <= 1023 && canstartblinking == 0 && starttimer == 0) {
+                buttonclicks++;
+                processstarted = 1;
+
+                if (buttonclicks == 1) {
+                    enterbuttontimercounter = 1;
+                } else if (buttonclicks > 4) {
+                    buttonclicks = 4;
+                }
+            }
+
+
+            if (enterbuttontimercounter == 1) {
+                buttontimercounter++;
+                if (buttontimercounter > 15) {
+                    enterbuttontimercounter = 0;
+                    buttontimercounter = 0;
+                    processbuttonclicks = 2 * buttonclicks;
+                    timecontrol = buttonclicks;
+                    buttonclicks = 0;
+                    canstartblinking = 1;
+                }
+            }
         }
-# 186 "main.c"
+        if(adc_value <= 90 && adc_value > 20){
+            starttimer= 0;
+            canstartblinking= 0;
+            buttontimercounter= 0;
+            processbuttonclicks= 0;
+            buttonclicks= 0;
+            processbuttonclicks= 0;
+            finalbuzzer= 0;
+        }
     }
-
 }
