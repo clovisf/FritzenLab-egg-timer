@@ -1,12 +1,28 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"643 D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
-[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 643: extern volatile unsigned char ADCON0 __attribute__((address(0x01F)));
-[v _ADCON0 `Vuc ~T0 @X0 0 e@31 ]
-[v F485 `(v ~T0 @X0 1 tf1`ul ]
-"20 D:\Installations\pic\include\builtins.h
-[v __delay `JF485 ~T0 @X0 0 e ]
-[p i __delay ]
-"623 D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
+"649 D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
+[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 649:     struct {
+[s S43 :1 `uc 1 :1 `uc 1 :2 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S43 . ADON GO_nDONE CHS . VCFG ADFM ]
+"657
+[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 657:     struct {
+[s S44 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S44 . . GO_DONE CHS0 CHS1 ]
+"663
+[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 663:     struct {
+[s S45 :1 `uc 1 :1 `uc 1 ]
+[n S45 . . nDONE ]
+"667
+[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 667:     struct {
+[s S46 :1 `uc 1 :1 `uc 1 ]
+[n S46 . . GO ]
+"648
+[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 648: typedef union {
+[u S42 `S43 1 `S44 1 `S45 1 `S46 1 ]
+[n S42 . . . . . ]
+"672
+[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 672: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0x01F)));
+[v _ADCON0bits `VS42 ~T0 @X0 0 e@31 ]
+"623
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 623: extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
 [v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
 "1384
@@ -20,12 +36,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1604
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1604: extern volatile __bit GP5 __attribute__((address(0x2D)));
 [v _GP5 `Vb ~T0 @X0 0 e@45 ]
+"1595
+[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1595: extern volatile __bit GP2 __attribute__((address(0x2A)));
+[v _GP2 `Vb ~T0 @X0 0 e@42 ]
 "72
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 72: extern volatile unsigned char TMR0 __attribute__((address(0x001)));
 [v _TMR0 `Vuc ~T0 @X0 0 e@1 ]
-"1562
-[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1562: extern volatile __bit CMIF __attribute__((address(0x63)));
-[v _CMIF `Vb ~T0 @X0 0 e@99 ]
 [p mainexit ]
 "564
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 564: extern volatile unsigned char CMCON __attribute__((address(0x019)));
@@ -33,6 +49,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1404
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1404: extern volatile unsigned char ANSEL __attribute__((address(0x09F)));
 [v _ANSEL `Vuc ~T0 @X0 0 e@159 ]
+"643
+[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 643: extern volatile unsigned char ADCON0 __attribute__((address(0x01F)));
+[v _ADCON0 `Vuc ~T0 @X0 0 e@31 ]
 "989
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 989: extern volatile unsigned char WPU __attribute__((address(0x095)));
 [v _WPU `Vuc ~T0 @X0 0 e@149 ]
@@ -45,9 +64,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "326
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 326: extern volatile unsigned char INTCON __attribute__((address(0x00B)));
 [v _INTCON `Vuc ~T0 @X0 0 e@11 ]
-"1559
-[; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1559: extern volatile __bit CMIE __attribute__((address(0x463)));
-[v _CMIE `Vb ~T0 @X0 0 e@1123 ]
 "797
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 797: extern volatile unsigned char TRISIO __attribute__((address(0x085)));
 [v _TRISIO `Vuc ~T0 @X0 0 e@133 ]
@@ -147,312 +163,621 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1406
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
-"15 main.c
-[; ;main.c: 15:     return (ADRESH << 8) | ADRESL;
-[p x FOSC  =  INTRCIO ]
-"16
-[; ;main.c: 16: }
-[p x WDTE  =  OFF        ]
-"17
-[; ;main.c: 17: 
-[p x PWRTE  =  OFF       ]
-"18
-[; ;main.c: 18: void __attribute__((picinterrupt(("")))) ISR()
-[p x MCLRE  =  OFF      ]
-"19
-[; ;main.c: 19:  {
-[p x BOREN  =  OFF       ]
+"19 main.c
+[; ;main.c: 19: volatile int finalbuzzercounter = 0;
+[p x FOSC  =  INTRCIO    ]
 "20
-[; ;main.c: 20:     if(T0IF)
-[p x CP  =  OFF          ]
+[; ;main.c: 20: volatile unsigned char buzzeron = 0;
+[p x WDTE  =  OFF        ]
 "21
-[; ;main.c: 21:     {
-[p x CPD  =  OFF         ]
+[; ;main.c: 21: volatile unsigned char processstarted = 0;
+[p x PWRTE  =  OFF       ]
+"22
+[; ;main.c: 22: volatile int longtimecounter= 0;
+[p x MCLRE  =  OFF       ]
 "23
-[; ;main.c: 23:         fortyms++;
+[; ;main.c: 23: 
+[p x BOREN  =  OFF       ]
+"24
+[; ;main.c: 24: 
+[p x CP  =  OFF          ]
+"25
+[; ;main.c: 25: unsigned int Read_Adc(void) {
+[p x CPD  =  OFF         ]
+"28
+[; ;main.c: 28: 
 [v _tempo_led `l ~T0 @X0 1 e ]
 [i _tempo_led
 -> -> 0 `i `l
 ]
-"24
-[; ;main.c: 24:         twohundredms++;
+"29
+[; ;main.c: 29:     return ((unsigned int)ADRESH << 8) | ADRESL;
 [v _buttonpressed `i ~T0 @X0 1 e ]
 [i _buttonpressed
 -> 0 `i
 ]
-"26
-[; ;main.c: 26:         if(fortyms == 1000 && startbutton == 0){
-[v _fortyms `i ~T0 @X0 1 e ]
-[i _fortyms
--> 0 `i
-]
-"27
-[; ;main.c: 27:             start= 0;
-[v _twohundredms `i ~T0 @X0 1 e ]
-[i _twohundredms
--> 0 `i
-]
-"28
-[; ;main.c: 28:             fortyms= 0;
-[v _start `i ~T0 @X0 1 e ]
-[i _start
--> 0 `i
-]
-"29
-[; ;main.c: 29: 
-[v _startbutton `i ~T0 @X0 1 e ]
-[i _startbutton
--> 0 `i
-]
 "30
-[; ;main.c: 30:         }else if(fortyms == 1000 && startbutton == 1){
-[v _stop `i ~T0 @X0 1 e ]
-[i _stop
+[; ;main.c: 30: }
+[v _ledtimer `Vi ~T0 @X0 1 e ]
+[i _ledtimer
 -> 0 `i
 ]
 "31
-[; ;main.c: 31:             if(start == 1){
-[v _adc_value `i ~T0 @X0 1 e ]
-[i _adc_value
+[; ;main.c: 31: 
+[v _buttonstimer `Vi ~T0 @X0 1 e ]
+[i _buttonstimer
 -> 0 `i
 ]
+"32
+[; ;main.c: 32: 
+[v _start `Vuc ~T0 @X0 1 e ]
+[i _start
+-> -> 0 `i `uc
+]
 "33
-[; ;main.c: 33:             }else{
-[v _Read_Adc `(i ~T0 @X0 1 ef ]
+[; ;main.c: 33: void __attribute__((picinterrupt(("")))) ISR() {
+[v _startbutton `Vuc ~T0 @X0 1 e ]
+[i _startbutton
+-> -> 0 `i `uc
+]
+"34
+[; ;main.c: 34: 
+[v _adc_value `Vui ~T0 @X0 1 e ]
+[i _adc_value
+-> -> 0 `i `ui
+]
+"35
+[; ;main.c: 35:     if (T0IF) {
+[v _canstartblinking `Vuc ~T0 @X0 1 e ]
+[i _canstartblinking
+-> -> 0 `i `uc
+]
+"36
+[; ;main.c: 36: 
+[v _processbuttonclicks `Vi ~T0 @X0 1 e ]
+[i _processbuttonclicks
+-> 0 `i
+]
+"37
+[; ;main.c: 37: 
+[v _buttonclicks `Vi ~T0 @X0 1 e ]
+[i _buttonclicks
+-> 0 `i
+]
+"38
+[; ;main.c: 38:         ledtimer++;
+[v _enterbuttontimercounter `Vuc ~T0 @X0 1 e ]
+[i _enterbuttontimercounter
+-> -> 0 `i `uc
+]
+"39
+[; ;main.c: 39:         buttonstimer++;
+[v _buttontimercounter `Vi ~T0 @X0 1 e ]
+[i _buttontimercounter
+-> 0 `i
+]
+"40
+[; ;main.c: 40: 
+[v _starttimer `Vuc ~T0 @X0 1 e ]
+[i _starttimer
+-> -> 0 `i `uc
+]
+"41
+[; ;main.c: 41: 
+[v _counttime `Vi ~T0 @X0 1 e ]
+[i _counttime
+-> 0 `i
+]
+"42
+[; ;main.c: 42:         if (starttimer == 1) {
+[v _supercounter `i ~T0 @X0 1 e ]
+[i _supercounter
+-> 0 `i
+]
+"43
+[; ;main.c: 43:             counttime++;
+[v _timecontrol `Vuc ~T0 @X0 1 e ]
+[i _timecontrol
+-> -> 0 `i `uc
+]
+"44
+[; ;main.c: 44: 
+[v _finalquantity `Vi ~T0 @X0 1 e ]
+[i _finalquantity
+-> 2000 `i
+]
+"45
+[; ;main.c: 45:             if ((finalquantity - counttime) < 1) {
+[v _finalbuzzer `Vuc ~T0 @X0 1 e ]
+[i _finalbuzzer
+-> -> 0 `i `uc
+]
+"46
+[; ;main.c: 46:                 counttime = 0;
+[v _finalbuzzercounter `Vi ~T0 @X0 1 e ]
+[i _finalbuzzercounter
+-> 0 `i
+]
+"47
+[; ;main.c: 47:                 longtimecounter++;
+[v _buzzeron `Vuc ~T0 @X0 1 e ]
+[i _buzzeron
+-> -> 0 `i `uc
+]
+"48
+[; ;main.c: 48:                 if(longtimecounter >= 144){
+[v _processstarted `Vuc ~T0 @X0 1 e ]
+[i _processstarted
+-> -> 0 `i `uc
+]
+"49
+[; ;main.c: 49:                     finalquantity = 0;
+[v _longtimecounter `Vi ~T0 @X0 1 e ]
+[i _longtimecounter
+-> 0 `i
+]
+"52
+[; ;main.c: 52:                 if (processstarted == 1) {
+[v _Read_Adc `(ui ~T0 @X0 1 ef ]
 {
 [e :U _Read_Adc ]
 [f ]
-"34
-[; ;main.c: 34:               start= 1;
-[e =| _ADCON0 -> -> 2 `i `Vuc ]
-"35
-[; ;main.c: 35:             }
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"36
-[; ;main.c: 36:             fortyms= 0;
+"53
+[; ;main.c: 53:                     finalbuzzer = 1;
+[e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
+"54
+[; ;main.c: 54:                     processstarted = 0;
 [e $U 88  ]
 [e :U 89 ]
-{
-}
 [e :U 88 ]
-[e $ != & -> _ADCON0 `i -> 2 `i -> 0 `i 89  ]
+[e $ != -> . . _ADCON0bits 0 1 `i -> 0 `i 89  ]
 [e :U 90 ]
-"38
-[; ;main.c: 38:         if(start == 1){
-[e ) | << -> _ADRESH `i -> 8 `i -> _ADRESL `i ]
+"56
+[; ;main.c: 56:                 }
+[e ) | << -> _ADRESH `ui -> 8 `i -> _ADRESL `ui ]
 [e $UE 87  ]
-"39
-[; ;main.c: 39:             GP5= 1;
+"57
+[; ;main.c: 57: 
 [e :UE 87 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"41
-[; ;main.c: 41:             GP5= 0;
+"60
+[; ;main.c: 60:         }
 [v _ISR `(v ~T1 @X0 1 ef ]
-"42
-[; ;main.c: 42:         }else{
 {
 [e :U _ISR ]
 [f ]
-"43
-[; ;main.c: 43: 
+"62
+[; ;main.c: 62: 
 [e $ ! _T0IF 92  ]
-"44
-[; ;main.c: 44:         }
 {
-"46
-[; ;main.c: 46:         TMR0 = 6;
-[e ++ _fortyms -> 1 `i ]
-"47
-[; ;main.c: 47:     }
-[e ++ _twohundredms -> 1 `i ]
-"49
-[; ;main.c: 49:     {
-[e $ ! && == _fortyms -> 1000 `i == _startbutton -> 0 `i 93  ]
+"65
+[; ;main.c: 65:             canstartblinking = 0;
+[e ++ _ledtimer -> -> 1 `i `Vi ]
+"66
+[; ;main.c: 66:             if (finalbuzzercounter <= 3000) {
+[e ++ _buttonstimer -> -> 1 `i `Vi ]
+"69
+[; ;main.c: 69:                 buzzeron = 0;
+[e $ ! == -> _starttimer `i -> 1 `i 93  ]
 {
-"50
-[; ;main.c: 50: 
-[e = _start -> 0 `i ]
-"51
-[; ;main.c: 51:          CMIF =0;
-[e = _fortyms -> 0 `i ]
-"53
-[; ;main.c: 53:  }
+"70
+[; ;main.c: 70: 
+[e ++ _counttime -> -> 1 `i `Vi ]
+"72
+[; ;main.c: 72: 
+[e $ ! < - _finalquantity _counttime -> 1 `i 94  ]
+{
+"73
+[; ;main.c: 73: 
+[e = _counttime -> 0 `i ]
+"74
+[; ;main.c: 74: 
+[e ++ _longtimecounter -> -> 1 `i `Vi ]
+"75
+[; ;main.c: 75:                 processbuttonclicks = 0;
+[e $ ! >= _longtimecounter -> 144 `i 95  ]
+{
+"76
+[; ;main.c: 76:                 processstarted = 0;
+[e = _finalquantity -> 0 `i ]
+"77
+[; ;main.c: 77:                 finalbuzzercounter = 0;
+[e = _starttimer -> -> 0 `i `uc ]
+"79
+[; ;main.c: 79:             }
+[e $ ! == -> _processstarted `i -> 1 `i 96  ]
+{
+"80
+[; ;main.c: 80:         }
+[e = _finalbuzzer -> -> 1 `i `uc ]
+"81
+[; ;main.c: 81: 
+[e = _processstarted -> -> 0 `i `uc ]
+"82
+[; ;main.c: 82: 
 }
-[e $U 94  ]
-[e :U 93 ]
-[e $ ! && == _fortyms -> 1000 `i == _startbutton -> 1 `i 95  ]
-{
-"54
-[; ;main.c: 54: 
-[e $ ! == _start -> 1 `i 96  ]
-{
-"55
-[; ;main.c: 55: 
-[e = _start -> 0 `i ]
-"56
-[; ;main.c: 56: 
-}
-[e $U 97  ]
 [e :U 96 ]
-{
-"57
-[; ;main.c: 57: 
-[e = _start -> 1 `i ]
-"58
-[; ;main.c: 58: void main(void) {
-}
-[e :U 97 ]
-"59
-[; ;main.c: 59:     CMCON = 2;
-[e = _fortyms -> 0 `i ]
-"60
-[; ;main.c: 60:     ANSEL = 0b0010001;
+"83
+[; ;main.c: 83:         if (ledtimer >= 200 && processbuttonclicks > 0 && canstartblinking == 1) {
 }
 [e :U 95 ]
+"86
+[; ;main.c: 86:                 start = 0;
+}
 [e :U 94 ]
-"61
-[; ;main.c: 61:     ADCON0 = 0b10000001;
-[e $ ! == _start -> 1 `i 98  ]
+"87
+[; ;main.c: 87:                 buzzeron = 0;
+}
+[e :U 93 ]
+"90
+[; ;main.c: 90:                 buzzeron= 1;
+[e $ ! == -> _finalbuzzer `i -> 1 `i 97  ]
 {
-"62
-[; ;main.c: 62:     WPU = 0X00;
-[e = _GP5 -> -> 1 `i `b ]
-"63
-[; ;main.c: 63:     TMR0 = 0;
+"91
+[; ;main.c: 91:             }
+[e ++ _finalbuzzercounter -> -> 1 `i `Vi ]
+"92
+[; ;main.c: 92:             ledtimer = 0;
+[e = _canstartblinking -> -> 0 `i `uc ]
+"93
+[; ;main.c: 93:         } else if (processbuttonclicks <= 0 && canstartblinking == 1) {
+[e $ ! <= _finalbuzzercounter -> 3000 `i 98  ]
+{
+"94
+[; ;main.c: 94: 
+[e = _buzzeron -> -> 1 `i `uc ]
+"95
+[; ;main.c: 95:             if (timecontrol == 4) {
 }
 [e $U 99  ]
 [e :U 98 ]
-[e $ ! == _start -> 0 `i 100  ]
 {
-"64
-[; ;main.c: 64:     OSCCAL = 0XFF;
-[e = _GP5 -> -> 0 `i `b ]
-"65
-[; ;main.c: 65:     OPTION_REG = 0X81;
+"96
+[; ;main.c: 96:                 finalquantity = 30000;
+[e = _buzzeron -> -> 0 `i `uc ]
+"98
+[; ;main.c: 98:                 finalquantity = 22500;
+[e = _starttimer -> -> 1 `i `uc ]
+"102
+[; ;main.c: 102:                 finalquantity = 7500;
+[e = _processbuttonclicks -> 0 `i ]
+"103
+[; ;main.c: 103:             } else {
+[e = _processstarted -> -> 0 `i `uc ]
+"104
+[; ;main.c: 104:                 finalquantity = 0;
+[e = _finalbuzzercounter -> 0 `i ]
+"105
+[; ;main.c: 105:             }
+[e = _finalbuzzer -> -> 0 `i `uc ]
+"106
+[; ;main.c: 106: 
 }
-[e $U 101  ]
-[e :U 100 ]
-{
-"67
-[; ;main.c: 67:     CMIE = 1;
-}
-[e :U 101 ]
 [e :U 99 ]
-"68
-[; ;main.c: 68:     TRISIO = 0X03;
-[e = _T0IF -> -> 0 `i `b ]
-"69
-[; ;main.c: 69: 
-[e = _TMR0 -> -> 6 `i `uc ]
-"70
-[; ;main.c: 70: 
+"107
+[; ;main.c: 107:             if (starttimer == 0 && finalbuzzer == 0) {
 }
-[e :U 92 ]
-"71
-[; ;main.c: 71:     for(;;)
-[e $ ! _CMIF 102  ]
-"72
-[; ;main.c: 72:     {
+[e :U 97 ]
+"110
+[; ;main.c: 110:             }
+[e $ ! && && >= _ledtimer -> 200 `i > _processbuttonclicks -> 0 `i == -> _canstartblinking `i -> 1 `i 100  ]
 {
-"74
-[; ;main.c: 74:            twohundredms= 0;
-[e = _CMIF -> -> 0 `i `b ]
-"75
-[; ;main.c: 75:            _delay((unsigned long)((5)*(4000000/4000000.0)));
+"111
+[; ;main.c: 111:         }
+[e -- _processbuttonclicks -> -> 1 `i `Vi ]
+"112
+[; ;main.c: 112: 
+[e $ ! == -> _start `i -> 1 `i 101  ]
+{
+"113
+[; ;main.c: 113: 
+[e = _start -> -> 0 `i `uc ]
+"114
+[; ;main.c: 114:         if ((start == 1 && starttimer == 0) || (starttimer == 1 && finalquantity != 0) || buzzeron == 1) {
+[e = _buzzeron -> -> 0 `i `uc ]
+"115
+[; ;main.c: 115: 
+}
+[e $U 102  ]
+[e :U 101 ]
+{
+"116
+[; ;main.c: 116:             GP5 = 1;
+[e = _start -> -> 1 `i `uc ]
+"117
+[; ;main.c: 117: 
+[e = _buzzeron -> -> 1 `i `uc ]
+"118
+[; ;main.c: 118:             if (buzzeron == 1) {
 }
 [e :U 102 ]
-"76
-[; ;main.c: 76:            adc_value = Read_Adc();
+"119
+[; ;main.c: 119:                 GP2 = 1;
+[e = _ledtimer -> 0 `i ]
+"120
+[; ;main.c: 120:             } else {
+}
+[e $U 103  ]
+[e :U 100 ]
+[e $ ! && <= _processbuttonclicks -> 0 `i == -> _canstartblinking `i -> 1 `i 104  ]
+{
+"122
+[; ;main.c: 122:             }
+[e $ ! == -> _timecontrol `i -> 4 `i 105  ]
+{
+"123
+[; ;main.c: 123:         } else {
+[e = _finalquantity -> 30000 `i ]
+"124
+[; ;main.c: 124: 
+}
+[e $U 106  ]
+[e :U 105 ]
+[e $ ! == -> _timecontrol `i -> 3 `i 107  ]
+{
+"125
+[; ;main.c: 125:             GP5 = 0;
+[e = _finalquantity -> 22500 `i ]
+"126
+[; ;main.c: 126:             GP2 = 0;
+}
+[e $U 108  ]
+[e :U 107 ]
+[e $ ! == -> _timecontrol `i -> 2 `i 109  ]
+{
+"127
+[; ;main.c: 127:         }
+[e = _finalquantity -> 15000 `i ]
+"128
+[; ;main.c: 128: 
+}
+[e $U 110  ]
+[e :U 109 ]
+[e $ ! == -> _timecontrol `i -> 1 `i 111  ]
+{
+"129
+[; ;main.c: 129:         T0IF = 0;
+[e = _finalquantity -> 7500 `i ]
+"130
+[; ;main.c: 130:         TMR0 = 6;
+}
+[e $U 112  ]
+[e :U 111 ]
+{
+"131
+[; ;main.c: 131:     }
+[e = _finalquantity -> 0 `i ]
+"132
+[; ;main.c: 132: }
+}
+[e :U 112 ]
+[e :U 110 ]
+[e :U 108 ]
+[e :U 106 ]
+"134
+[; ;main.c: 134: 
+[e $ ! && == -> _starttimer `i -> 0 `i == -> _finalbuzzer `i -> 0 `i 113  ]
+{
+"135
+[; ;main.c: 135: void main(void) {
+[e = _starttimer -> -> 1 `i `uc ]
+"136
+[; ;main.c: 136: 
+[e = _canstartblinking -> -> 0 `i `uc ]
+"137
+[; ;main.c: 137:     CMCON = 0x07;
+}
+[e :U 113 ]
+"138
+}
+[e :U 104 ]
+[e :U 103 ]
+"141
+[e $ ! || || && == -> _start `i -> 1 `i == -> _starttimer `i -> 0 `i && == -> _starttimer `i -> 1 `i != _finalquantity -> 0 `i == -> _buzzeron `i -> 1 `i 114  ]
+{
+"143
+[e = _GP5 -> -> 1 `i `b ]
+"145
+[e $ ! == -> _buzzeron `i -> 1 `i 115  ]
+{
+"146
+[e = _GP2 -> -> 1 `i `b ]
+"147
+}
+[e $U 116  ]
+[e :U 115 ]
+{
+"148
+[e = _GP2 -> -> 0 `i `b ]
+"149
+}
+[e :U 116 ]
+"150
+}
+[e $U 117  ]
+[e :U 114 ]
+{
+"152
+[e = _GP5 -> -> 0 `i `b ]
+"153
+[e = _GP2 -> -> 0 `i `b ]
+"154
+}
+[e :U 117 ]
+"156
+[e = _T0IF -> -> 0 `i `b ]
+"157
+[e = _TMR0 -> -> 6 `i `uc ]
+"158
+}
+[e :U 92 ]
+"159
 [e :UE 91 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"81
-[; ;main.c: 81:                stop= 1;
+"162
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"82
-[; ;main.c: 82:            }else if(adc_value <= 300 || adc_value > 450){
-[e = _CMCON -> -> 2 `i `uc ]
-"83
-[; ;main.c: 83: 
-[e = _ANSEL -> -> 17 `i `uc ]
-"84
-[; ;main.c: 84:                stop= 0;
+"164
+[e = _CMCON -> -> 7 `i `uc ]
+"173
+[; ;main.c: 173:     ANSEL = 0b00100001;
+[e = _ANSEL -> -> 33 `i `uc ]
+"181
+[; ;main.c: 181:     ADCON0 = 0b10000001;
 [e = _ADCON0 -> -> 129 `i `uc ]
-"85
-[; ;main.c: 85:                startbutton=1;
+"184
+[; ;main.c: 184:     WPU = 0X00;
 [e = _WPU -> -> 0 `i `uc ]
-"86
-[; ;main.c: 86:            }else{
+"187
+[; ;main.c: 187:     TMR0 = 0;
 [e = _TMR0 -> -> 0 `i `uc ]
-"87
-[; ;main.c: 87: 
+"190
+[; ;main.c: 190:     OSCCAL = 0XFF;
 [e = _OSCCAL -> -> 255 `i `uc ]
-"88
-[; ;main.c: 88:            }
+"201
+[; ;main.c: 201:     OPTION_REG = 0X81;
 [e = _OPTION_REG -> -> 129 `i `uc ]
-"89
-[; ;main.c: 89:        }
+"212
+[; ;main.c: 212:     INTCON = 0XE0;
 [e = _INTCON -> -> 224 `i `uc ]
-"90
-[; ;main.c: 90:     }
-[e = _CMIE -> -> 1 `i `b ]
-"91
-[; ;main.c: 91: 
+"221
+[; ;main.c: 221:     TRISIO = 0X03;
 [e = _TRISIO -> -> 3 `i `uc ]
-"94
+"224
+[; ;main.c: 224:     for (;;) {
 {
-[e :U 104 ]
-"95
+[e :U 119 ]
 {
-"96
-[e $ ! == _twohundredms -> 200 `i 107  ]
+"226
+[; ;main.c: 226:         if (buttonstimer >= 300) {
+[e $ ! >= _buttonstimer -> 300 `i 122  ]
 {
-"97
-[e = _twohundredms -> 0 `i ]
-"98
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"99
+"227
+[; ;main.c: 227:             buttonstimer = 0;
+[e = _buttonstimer -> 0 `i ]
+"229
+[; ;main.c: 229:             adc_value = Read_Adc();
 [e = _adc_value ( _Read_Adc ..  ]
-"100
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"101
-[e $ ! && > _adc_value -> 300 `i <= _adc_value -> 450 `i 108  ]
+"233
+[; ;main.c: 233:             if (adc_value > 90 && adc_value <= 1023 && canstartblinking == 0 && starttimer == 0) {
+[e $ ! && && && > _adc_value -> -> 90 `i `ui <= _adc_value -> -> 1023 `i `ui == -> _canstartblinking `i -> 0 `i == -> _starttimer `i -> 0 `i 123  ]
 {
-"103
-[e = _startbutton -> 0 `i ]
-"104
-[e = _stop -> 1 `i ]
-"105
-}
-[e $U 109  ]
-[e :U 108 ]
-[e $ ! || <= _adc_value -> 300 `i > _adc_value -> 450 `i 110  ]
+"234
+[; ;main.c: 234:                 buttonclicks++;
+[e ++ _buttonclicks -> -> 1 `i `Vi ]
+"235
+[; ;main.c: 235:                 processstarted = 1;
+[e = _processstarted -> -> 1 `i `uc ]
+"237
+[; ;main.c: 237:                 if (buttonclicks == 1) {
+[e $ ! == _buttonclicks -> 1 `i 124  ]
 {
-"107
-[e = _stop -> 0 `i ]
-"108
-[e = _startbutton -> 1 `i ]
-"109
+"238
+[; ;main.c: 238:                     enterbuttontimercounter = 1;
+[e = _enterbuttontimercounter -> -> 1 `i `uc ]
+"239
+[; ;main.c: 239:                 } else if (buttonclicks > 4) {
 }
-[e $U 111  ]
-[e :U 110 ]
+[e $U 125  ]
+[e :U 124 ]
+[e $ ! > _buttonclicks -> 4 `i 126  ]
 {
-"111
+"240
+[; ;main.c: 240:                     buttonclicks = 4;
+[e = _buttonclicks -> 4 `i ]
+"241
+[; ;main.c: 241:                 }
 }
-[e :U 111 ]
-[e :U 109 ]
-"112
+[e :U 126 ]
+[e :U 125 ]
+"242
+[; ;main.c: 242:             }
 }
-[e :U 107 ]
-"113
+[e :U 123 ]
+"245
+[; ;main.c: 245:             if (enterbuttontimercounter == 1) {
+[e $ ! == -> _enterbuttontimercounter `i -> 1 `i 127  ]
+{
+"246
+[; ;main.c: 246:                 buttontimercounter++;
+[e ++ _buttontimercounter -> -> 1 `i `Vi ]
+"247
+[; ;main.c: 247:                 if (buttontimercounter > 15) {
+[e $ ! > _buttontimercounter -> 15 `i 128  ]
+{
+"248
+[; ;main.c: 248:                     enterbuttontimercounter = 0;
+[e = _enterbuttontimercounter -> -> 0 `i `uc ]
+"249
+[; ;main.c: 249:                     buttontimercounter = 0;
+[e = _buttontimercounter -> 0 `i ]
+"250
+[; ;main.c: 250:                     processbuttonclicks = 2 * buttonclicks;
+[e = _processbuttonclicks * -> 2 `i _buttonclicks ]
+"251
+[; ;main.c: 251:                     timecontrol = buttonclicks;
+[e = _timecontrol -> _buttonclicks `uc ]
+"252
+[; ;main.c: 252:                     buttonclicks = 0;
+[e = _buttonclicks -> 0 `i ]
+"253
+[; ;main.c: 253:                     canstartblinking = 1;
+[e = _canstartblinking -> -> 1 `i `uc ]
+"254
+[; ;main.c: 254:                 }
 }
-[e $U 104  ]
-[e :U 105 ]
+[e :U 128 ]
+"255
+[; ;main.c: 255:             }
 }
-"115
-[e :UE 103 ]
+[e :U 127 ]
+"256
+[; ;main.c: 256:         }
+}
+[e :U 122 ]
+"257
+[; ;main.c: 257:         if(adc_value <= 90 && adc_value > 20){
+[e $ ! && <= _adc_value -> -> 90 `i `ui > _adc_value -> -> 20 `i `ui 129  ]
+{
+"258
+[; ;main.c: 258:             starttimer= 0;
+[e = _starttimer -> -> 0 `i `uc ]
+"259
+[; ;main.c: 259:             canstartblinking= 0;
+[e = _canstartblinking -> -> 0 `i `uc ]
+"260
+[; ;main.c: 260:             buttontimercounter= 0;
+[e = _buttontimercounter -> 0 `i ]
+"261
+[; ;main.c: 261:             processbuttonclicks= 0;
+[e = _processbuttonclicks -> 0 `i ]
+"262
+[; ;main.c: 262:             buttonclicks= 0;
+[e = _buttonclicks -> 0 `i ]
+"263
+[; ;main.c: 263:             processbuttonclicks= 0;
+[e = _processbuttonclicks -> 0 `i ]
+"264
+[; ;main.c: 264:             finalbuzzer= 0;
+[e = _finalbuzzer -> -> 0 `i `uc ]
+"265
+[; ;main.c: 265:             enterbuttontimercounter= 0;
+[e = _enterbuttontimercounter -> -> 0 `i `uc ]
+"266
+[; ;main.c: 266:         }
+}
+[e :U 129 ]
+"267
+[; ;main.c: 267:     }
+}
+[e $U 119  ]
+[e :U 120 ]
+}
+"268
+[; ;main.c: 268: }
+[e :UE 118 ]
 }

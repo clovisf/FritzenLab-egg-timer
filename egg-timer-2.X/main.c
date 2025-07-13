@@ -17,7 +17,7 @@
 /////////////////////////////////////////////////////////configuraçôes//////////////////////////////////////////////////
 // CONFIG
 #pragma config FOSC = INTRCIO   // Oscillator Selection bits (INTOSC oscillator: I/O function on GP4/OSC2/CLKOUT pin, I/O function on GP5/OSC1/CLKIN)
-#pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled)
+#pragma config WDTE = ON       // Watchdog Timer Enable bit (WDT disabled)
 #pragma config PWRTE = OFF      // Power-Up Timer Enable bit (PWRT disabled)
 #pragma config MCLRE = OFF      // GP3/MCLR pin function select (GP3/MCLR pin function is digital I/O, MCLR internally tied to VDD)
 #pragma config BOREN = OFF      // Brown-out Detect Enable bit (BOD disabled)
@@ -60,6 +60,7 @@ unsigned int Read_Adc(void) {
 void __interrupt() ISR() {
     // Check if Timer0 interrupt flag is set
     if (T0IF) {
+        
         // Timer0 is configured to interrupt every 1ms (250kHz / 250 increments = 1kHz)
         // TMR0 is reloaded with 6 (256-250) to achieve 250 counts per interrupt
         ledtimer++;
@@ -103,6 +104,11 @@ void __interrupt() ISR() {
                 processstarted = 0;
                 finalbuzzercounter = 0;
                 finalbuzzer = 0;
+                while(1){ // trigger watchdog for resetting the microcontroller
+                    
+                }
+                
+                
             }
         }
 
@@ -160,6 +166,8 @@ void __interrupt() ISR() {
 
 //////////////////////////////////////////////////////Main Routine///////////////////////////////////////////////////////////////
 void main(void) {
+    OPTION_REGbits.PSA = 1;     // Assign prescaler to WDT
+    OPTION_REGbits.PS = 0b111;  // 1:128 prescaler (bits PS2:PS0 = 111) (4.13ms )
     // Configure Comparator Module: Disable comparators (all pins are digital I/O)
     CMCON = 0x07;
 
@@ -222,6 +230,7 @@ void main(void) {
 
     // Main program loop
     for (;;) {
+        CLRWDT(); // clears watchdog regularly
         // Debounce and read button input every ~300ms (300 counts of 1ms timer)
         if (buttonstimer >= 300) {
             buttonstimer = 0; // Reset button timer
@@ -239,6 +248,10 @@ void main(void) {
                 } else if (buttonclicks > 4) {
                     buttonclicks = 4; // Limit clicks to a maximum of 4
                 }
+            }else if(adc_value <= 90 && adc_value > 20){
+                while(1){
+                    
+                }
             }
 
             // Logic to process button clicks after a delay (4.6 seconds)
@@ -254,14 +267,6 @@ void main(void) {
                 }
             }
         }
-        if(adc_value <= 90 && adc_value > 20){ // Stop button
-            starttimer= 0;
-            canstartblinking= 0;
-            buttontimercounter= 0;
-            processbuttonclicks= 0;
-            buttonclicks= 0;
-            processbuttonclicks= 0;
-            finalbuzzer= 0;
-        } 
+        
     }
 }

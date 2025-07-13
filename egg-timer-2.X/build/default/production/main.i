@@ -1345,7 +1345,7 @@ extern __bank0 __bit __timeout;
 # 10 "main.c" 2
 # 19 "main.c"
 #pragma config FOSC = INTRCIO
-#pragma config WDTE = OFF
+#pragma config WDTE = ON
 #pragma config PWRTE = OFF
 #pragma config MCLRE = OFF
 #pragma config BOREN = OFF
@@ -1390,6 +1390,7 @@ void __attribute__((picinterrupt(("")))) ISR() {
     if (T0IF) {
 
 
+
         ledtimer++;
         buttonstimer++;
 
@@ -1431,6 +1432,11 @@ void __attribute__((picinterrupt(("")))) ISR() {
                 processstarted = 0;
                 finalbuzzercounter = 0;
                 finalbuzzer = 0;
+                while(1){
+
+                }
+
+
             }
         }
 
@@ -1488,9 +1494,11 @@ void __attribute__((picinterrupt(("")))) ISR() {
 
 
 void main(void) {
+    OPTION_REGbits.PSA = 1;
+    OPTION_REGbits.PS = 0b111;
 
     CMCON = 0x07;
-# 173 "main.c"
+# 181 "main.c"
     ANSEL = 0b00100001;
 
 
@@ -1509,15 +1517,16 @@ void main(void) {
 
 
     OSCCAL = 0XFF;
-# 201 "main.c"
+# 209 "main.c"
     OPTION_REG = 0X81;
-# 212 "main.c"
+# 220 "main.c"
     INTCON = 0XE0;
-# 221 "main.c"
+# 229 "main.c"
     TRISIO = 0X03;
 
 
     for (;;) {
+        __asm("clrwdt");
 
         if (buttonstimer >= 300) {
             buttonstimer = 0;
@@ -1535,6 +1544,10 @@ void main(void) {
                 } else if (buttonclicks > 4) {
                     buttonclicks = 4;
                 }
+            }else if(adc_value <= 90 && adc_value > 20){
+                while(1){
+
+                }
             }
 
 
@@ -1550,14 +1563,6 @@ void main(void) {
                 }
             }
         }
-        if(adc_value <= 90 && adc_value > 20){
-            starttimer= 0;
-            canstartblinking= 0;
-            buttontimercounter= 0;
-            processbuttonclicks= 0;
-            buttonclicks= 0;
-            processbuttonclicks= 0;
-            finalbuzzer= 0;
-        }
+
     }
 }

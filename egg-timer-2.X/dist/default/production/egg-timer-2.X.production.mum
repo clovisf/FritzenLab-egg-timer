@@ -1,6 +1,6 @@
 
 12F675 Memory Summary:
-    Program space        used   212h (   530) of   400h words   ( 51.8%)
+    Program space        used   20Eh (   526) of   400h words   ( 51.4%)
     Data space           used    2Eh (    46) of    40h bytes   ( 71.9%)
     EEPROM space         used     0h (     0) of    80h bytes   (  0.0%)
     Configuration bits   used     1h (     1) of     1h word    (100.0%)
