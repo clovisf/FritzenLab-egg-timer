@@ -25,21 +25,21 @@
 #pragma config CPD = OFF        // Data Code Protection bit (Data memory code protection is disabled)
 
 // Global variables for timer and state management
-long tempo_led = 0;
+
 int buttonpressed = 0;
 volatile int ledtimer = 0;
 volatile int buttonstimer = 0;
+int adtimer = 0;
 volatile unsigned char start = 0;
 volatile unsigned char startbutton = 0;
 volatile unsigned int adc_value = 0;
 volatile unsigned char canstartblinking = 0;
 volatile int processbuttonclicks = 0;
 volatile int buttonclicks = 0;
-volatile unsigned char enterbuttontimercounter = 0;
+int enterbuttontimercounter = 0;
 volatile int buttontimercounter = 0;
 volatile unsigned char starttimer = 0;
 volatile int counttime = 0;
-int supercounter = 0;
 volatile unsigned char timecontrol = 0;
 volatile int finalquantity = 2000; // Default time for 1 click (2 seconds at 1ms/count)
 volatile unsigned char finalbuzzer = 0;      // Flag to activate the final buzzer sequence
@@ -48,6 +48,12 @@ volatile unsigned char buzzeron = 0;         // Flag to control buzzer output
 volatile unsigned char processstarted = 0;   // Flag to indicate if a timing process was initiated
 volatile int longtimecounter= 0;
 volatile int dothemagicofreset= 0;
+int thirdadc= 0;
+int secondadc= 0;
+int currentadc= 0;
+int d1 = 0;
+int d2 = 0;
+int d3 = 0;
 
 // Function to read ADC value from AN0 (GP0)
 unsigned int Read_Adc(void) {
@@ -67,6 +73,7 @@ void __interrupt() ISR() {
         // TMR0 is reloaded with 6 (256-250) to achieve 250 counts per interrupt
         ledtimer++;
         buttonstimer++;
+        adtimer++;
 
         // Main timer logic: increments counttime if starttimer is active
         if (starttimer == 1) {
@@ -230,10 +237,32 @@ void main(void) {
     for (;;) {
         CLRWDT(); // clears watchdog regularly
         // Debounce and read button input every ~300ms (300 counts of 1ms timer)
-        if (buttonstimer >= 300) {
-            buttonstimer = 0; // Reset button timer
+        
+        if(adtimer >= 20){
+            adtimer= 0;
+            thirdadc= secondadc;
+            secondadc= currentadc;
+            currentadc = Read_Adc(); 
+            
+            // code below is a moving average that
+            // discads the smallest of 3 values and
+            // averages the remaining 2
+            d1= currentadc - secondadc;
+            d2= currentadc - thirdadc;
+            d3= secondadc - thirdadc;
 
-            adc_value = Read_Adc(); // Read ADC analog value from GP0
+            if(d1 >= d2 && d1 >= d3){
+                adc_value= (currentadc + secondadc) / 2;
+            }else if(d2 >= d1 && d2 >= d3){
+                adc_value= (currentadc + thirdadc) / 2;
+            }else{
+                adc_value= (secondadc + thirdadc) / 2;
+            }
+            
+            
+        }
+        if (buttonstimer >= 300) {
+            buttonstimer = 0; // Reset button timer          
 
             // Check for button press (ADC value between 90 and 1023)
             // and ensure no process is currently blinking/timing
@@ -246,8 +275,10 @@ void main(void) {
                 } else if (buttonclicks > 4) {
                     buttonclicks = 4; // Limit clicks to a maximum of 4
                 }
-            }else if(adc_value <= 90 && adc_value > 10){
-                dothemagicofreset= 1;
+            }else if(adc_value <= 90 && adc_value > 20){
+                while(1){
+                    
+                }
             }
 
             // Logic to process button clicks after a delay (4.6 seconds)
@@ -264,7 +295,7 @@ void main(void) {
             }
         }
         if(dothemagicofreset == 1){ // handles the stop button function
-            tempo_led = 0;
+            
             buttonpressed = 0;
             ledtimer = 0;
             buttonstimer = 0;
@@ -278,7 +309,6 @@ void main(void) {
             buttontimercounter = 0;
             starttimer = 0;
             counttime = 0;
-            supercounter = 0;
             timecontrol = 0;
             finalquantity = 2000; // Default time for 1 click (2 seconds at 1ms/count)
             finalbuzzer = 0;      // Flag to activate the final buzzer sequence

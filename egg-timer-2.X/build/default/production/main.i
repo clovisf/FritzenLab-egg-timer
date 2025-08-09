@@ -1353,21 +1353,21 @@ extern __bank0 __bit __timeout;
 #pragma config CPD = OFF
 
 
-long tempo_led = 0;
+
 int buttonpressed = 0;
 volatile int ledtimer = 0;
 volatile int buttonstimer = 0;
+int adtimer = 0;
 volatile unsigned char start = 0;
 volatile unsigned char startbutton = 0;
 volatile unsigned int adc_value = 0;
 volatile unsigned char canstartblinking = 0;
 volatile int processbuttonclicks = 0;
 volatile int buttonclicks = 0;
-volatile unsigned char enterbuttontimercounter = 0;
+int enterbuttontimercounter = 0;
 volatile int buttontimercounter = 0;
 volatile unsigned char starttimer = 0;
 volatile int counttime = 0;
-int supercounter = 0;
 volatile unsigned char timecontrol = 0;
 volatile int finalquantity = 2000;
 volatile unsigned char finalbuzzer = 0;
@@ -1376,6 +1376,12 @@ volatile unsigned char buzzeron = 0;
 volatile unsigned char processstarted = 0;
 volatile int longtimecounter= 0;
 volatile int dothemagicofreset= 0;
+int thirdadc= 0;
+int secondadc= 0;
+int currentadc= 0;
+int d1 = 0;
+int d2 = 0;
+int d3 = 0;
 
 
 unsigned int Read_Adc(void) {
@@ -1395,6 +1401,7 @@ void __attribute__((picinterrupt(("")))) ISR() {
 
         ledtimer++;
         buttonstimer++;
+        adtimer++;
 
 
         if (starttimer == 1) {
@@ -1495,7 +1502,7 @@ void main(void) {
 
 
     CMCON = 0x07;
-# 178 "main.c"
+# 185 "main.c"
     ANSEL = 0b00100001;
 
 
@@ -1514,21 +1521,43 @@ void main(void) {
 
 
     OSCCAL = 0XFF;
-# 206 "main.c"
+# 213 "main.c"
     OPTION_REG = 0X81;
-# 218 "main.c"
+# 225 "main.c"
     INTCON = 0XE0;
-# 227 "main.c"
+# 234 "main.c"
     TRISIO = 0X03;
 
 
     for (;;) {
         __asm("clrwdt");
 
+
+        if(adtimer >= 20){
+            adtimer= 0;
+            thirdadc= secondadc;
+            secondadc= currentadc;
+            currentadc = Read_Adc();
+
+
+
+
+            d1= currentadc - secondadc;
+            d2= currentadc - thirdadc;
+            d3= secondadc - thirdadc;
+
+            if(d1 >= d2 && d1 >= d3){
+                adc_value= (currentadc + secondadc) / 2;
+            }else if(d2 >= d1 && d2 >= d3){
+                adc_value= (currentadc + thirdadc) / 2;
+            }else{
+                adc_value= (secondadc + thirdadc) / 2;
+            }
+
+
+        }
         if (buttonstimer >= 300) {
             buttonstimer = 0;
-
-            adc_value = Read_Adc();
 
 
 
@@ -1541,8 +1570,10 @@ void main(void) {
                 } else if (buttonclicks > 4) {
                     buttonclicks = 4;
                 }
-            }else if(adc_value <= 90 && adc_value > 10){
-                dothemagicofreset= 1;
+            }else if(adc_value <= 90 && adc_value > 20){
+                while(1){
+
+                }
             }
 
 
@@ -1559,7 +1590,7 @@ void main(void) {
             }
         }
         if(dothemagicofreset == 1){
-            tempo_led = 0;
+
             buttonpressed = 0;
             ledtimer = 0;
             buttonstimer = 0;
@@ -1573,7 +1604,6 @@ void main(void) {
             buttontimercounter = 0;
             starttimer = 0;
             counttime = 0;
-            supercounter = 0;
             timecontrol = 0;
             finalquantity = 2000;
             finalbuzzer = 0;
