@@ -11,11 +11,11 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"52 C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+"53 C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
 [v _Read_Adc Read_Adc `(ui  1 e 2 0 ]
-"60
+"61
 [v _ISR ISR `II(v  1 e 1 0 ]
-"168
+"166
 [v _main main `(v  1 e 1 0 ]
 "72 D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
@@ -50,20 +50,6 @@
 [v _ADCON0bits ADCON0bits `VES40  1 e 1 @31 ]
 "727
 [v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
-[s S70 . 1 `uc 1 PS 1 0 :3:0 
-`uc 1 PSA 1 0 :1:3 
-`uc 1 T0SE 1 0 :1:4 
-`uc 1 T0CS 1 0 :1:5 
-`uc 1 INTEDG 1 0 :1:6 
-`uc 1 nGPPU 1 0 :1:7 
-]
-"747
-[s S77 . 1 `uc 1 PS0 1 0 :1:0 
-`uc 1 PS1 1 0 :1:1 
-`uc 1 PS2 1 0 :1:2 
-]
-[u S81 . 1 `S70 1 . 1 0 `S77 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES81  1 e 1 @129 ]
 "797
 [v _TRISIO TRISIO `VEuc  1 e 1 @133 ]
 "929
@@ -80,7 +66,11 @@
 [v _GP5 GP5 `VEb  1 e 0 @45 ]
 "1709
 [v _T0IF T0IF `VEb  1 e 0 @90 ]
-"30 C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+"28 C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+[v _tempo_led tempo_led `l  1 e 4 0 ]
+"29
+[v _buttonpressed buttonpressed `i  1 e 2 0 ]
+"30
 [v _ledtimer ledtimer `VEi  1 e 2 0 ]
 "31
 [v _buttonstimer buttonstimer `VEi  1 e 2 0 ]
@@ -104,6 +94,8 @@
 [v _starttimer starttimer `VEuc  1 e 1 0 ]
 "41
 [v _counttime counttime `VEi  1 e 2 0 ]
+"42
+[v _supercounter supercounter `i  1 e 2 0 ]
 "43
 [v _timecontrol timecontrol `VEuc  1 e 1 0 ]
 "44
@@ -118,18 +110,20 @@
 [v _processstarted processstarted `VEuc  1 e 1 0 ]
 "49
 [v _longtimecounter longtimecounter `VEi  1 e 2 0 ]
-"168
+"50
+[v _dothemagicofreset dothemagicofreset `VEi  1 e 2 0 ]
+"166
 [v _main main `(v  1 e 1 0 ]
 {
-"272
+"292
 } 0
-"52
+"53
 [v _Read_Adc Read_Adc `(ui  1 e 2 0 ]
 {
-"57
+"58
 } 0
-"60
+"61
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"165
+"163
 } 0

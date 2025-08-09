@@ -1375,6 +1375,7 @@ volatile int finalbuzzercounter = 0;
 volatile unsigned char buzzeron = 0;
 volatile unsigned char processstarted = 0;
 volatile int longtimecounter= 0;
+volatile int dothemagicofreset= 0;
 
 
 unsigned int Read_Adc(void) {
@@ -1386,6 +1387,7 @@ unsigned int Read_Adc(void) {
 
 
 void __attribute__((picinterrupt(("")))) ISR() {
+
 
     if (T0IF) {
 
@@ -1432,10 +1434,6 @@ void __attribute__((picinterrupt(("")))) ISR() {
                 processstarted = 0;
                 finalbuzzercounter = 0;
                 finalbuzzer = 0;
-                while(1){
-
-                }
-
 
             }
         }
@@ -1494,11 +1492,10 @@ void __attribute__((picinterrupt(("")))) ISR() {
 
 
 void main(void) {
-    OPTION_REGbits.PSA = 1;
-    OPTION_REGbits.PS = 0b111;
+
 
     CMCON = 0x07;
-# 181 "main.c"
+# 178 "main.c"
     ANSEL = 0b00100001;
 
 
@@ -1517,11 +1514,11 @@ void main(void) {
 
 
     OSCCAL = 0XFF;
-# 209 "main.c"
+# 206 "main.c"
     OPTION_REG = 0X81;
-# 220 "main.c"
+# 218 "main.c"
     INTCON = 0XE0;
-# 229 "main.c"
+# 227 "main.c"
     TRISIO = 0X03;
 
 
@@ -1544,10 +1541,8 @@ void main(void) {
                 } else if (buttonclicks > 4) {
                     buttonclicks = 4;
                 }
-            }else if(adc_value <= 90 && adc_value > 20){
-                while(1){
-
-                }
+            }else if(adc_value <= 90 && adc_value > 10){
+                dothemagicofreset= 1;
             }
 
 
@@ -1563,6 +1558,30 @@ void main(void) {
                 }
             }
         }
-
+        if(dothemagicofreset == 1){
+            tempo_led = 0;
+            buttonpressed = 0;
+            ledtimer = 0;
+            buttonstimer = 0;
+            start = 0;
+            startbutton = 0;
+            adc_value = 0;
+            canstartblinking = 0;
+            processbuttonclicks = 0;
+            buttonclicks = 0;
+            enterbuttontimercounter = 0;
+            buttontimercounter = 0;
+            starttimer = 0;
+            counttime = 0;
+            supercounter = 0;
+            timecontrol = 0;
+            finalquantity = 2000;
+            finalbuzzer = 0;
+            finalbuzzercounter = 0;
+            buzzeron = 0;
+            processstarted = 0;
+            longtimecounter= 0;
+            dothemagicofreset= 0;
+        }
     }
 }

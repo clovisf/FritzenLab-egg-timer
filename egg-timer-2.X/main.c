@@ -47,6 +47,7 @@ volatile int finalbuzzercounter = 0; // Counter for buzzer duration
 volatile unsigned char buzzeron = 0;         // Flag to control buzzer output
 volatile unsigned char processstarted = 0;   // Flag to indicate if a timing process was initiated
 volatile int longtimecounter= 0;
+volatile int dothemagicofreset= 0;
 
 // Function to read ADC value from AN0 (GP0)
 unsigned int Read_Adc(void) {
@@ -59,6 +60,7 @@ unsigned int Read_Adc(void) {
 // Interrupt Service Routine (ISR)
 void __interrupt() ISR() {
     // Check if Timer0 interrupt flag is set
+   
     if (T0IF) {
         
         // Timer0 is configured to interrupt every 1ms (250kHz / 250 increments = 1kHz)
@@ -104,11 +106,7 @@ void __interrupt() ISR() {
                 processstarted = 0;
                 finalbuzzercounter = 0;
                 finalbuzzer = 0;
-                while(1){ // trigger watchdog for resetting the microcontroller
-                    
-                }
-                
-                
+                  
             }
         }
 
@@ -166,8 +164,7 @@ void __interrupt() ISR() {
 
 //////////////////////////////////////////////////////Main Routine///////////////////////////////////////////////////////////////
 void main(void) {
-    OPTION_REGbits.PSA = 1;     // Assign prescaler to WDT
-    OPTION_REGbits.PS = 0b111;  // 1:128 prescaler (bits PS2:PS0 = 111) (4.13ms )
+    
     // Configure Comparator Module: Disable comparators (all pins are digital I/O)
     CMCON = 0x07;
 
@@ -207,7 +204,8 @@ void main(void) {
     // Fosc = 4MHz -> Fosc/4 = 1MHz instruction clock.
     // With prescaler 1:4, Timer0 increments at 250kHz.
     OPTION_REG = 0X81; // Pull-ups disabled / Prescaler 1:4 for Timer0
-
+    
+    
     // INTCON: Interrupt Control Register
     // Bit 7: GIE = 1 (Global Interrupt Enable)
     // Bit 6: PEIE = 1 (Peripheral Interrupt Enable)
@@ -248,10 +246,8 @@ void main(void) {
                 } else if (buttonclicks > 4) {
                     buttonclicks = 4; // Limit clicks to a maximum of 4
                 }
-            }else if(adc_value <= 90 && adc_value > 20){
-                while(1){
-                    
-                }
+            }else if(adc_value <= 90 && adc_value > 10){
+                dothemagicofreset= 1;
             }
 
             // Logic to process button clicks after a delay (4.6 seconds)
@@ -267,6 +263,30 @@ void main(void) {
                 }
             }
         }
-        
+        if(dothemagicofreset == 1){ // handles the stop button function
+            tempo_led = 0;
+            buttonpressed = 0;
+            ledtimer = 0;
+            buttonstimer = 0;
+            start = 0;
+            startbutton = 0;
+            adc_value = 0;
+            canstartblinking = 0;
+            processbuttonclicks = 0;
+            buttonclicks = 0;
+            enterbuttontimercounter = 0;
+            buttontimercounter = 0;
+            starttimer = 0;
+            counttime = 0;
+            supercounter = 0;
+            timecontrol = 0;
+            finalquantity = 2000; // Default time for 1 click (2 seconds at 1ms/count)
+            finalbuzzer = 0;      // Flag to activate the final buzzer sequence
+            finalbuzzercounter = 0; // Counter for buzzer duration
+            buzzeron = 0;         // Flag to control buzzer output
+            processstarted = 0;   // Flag to indicate if a timing process was initiated
+            longtimecounter= 0;
+            dothemagicofreset= 0;
+        }    
     }
 }
