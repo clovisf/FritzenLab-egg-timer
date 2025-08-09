@@ -113,7 +113,8 @@ void __interrupt() ISR() {
                 processstarted = 0;
                 finalbuzzercounter = 0;
                 finalbuzzer = 0;
-                  
+                while(1){
+                }  
             }
         }
 

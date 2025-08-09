@@ -1441,7 +1441,8 @@ void __attribute__((picinterrupt(("")))) ISR() {
                 processstarted = 0;
                 finalbuzzercounter = 0;
                 finalbuzzer = 0;
-
+                while(1){
+                }
             }
         }
 
@@ -1502,7 +1503,7 @@ void main(void) {
 
 
     CMCON = 0x07;
-# 185 "main.c"
+# 186 "main.c"
     ANSEL = 0b00100001;
 
 
@@ -1521,11 +1522,11 @@ void main(void) {
 
 
     OSCCAL = 0XFF;
-# 213 "main.c"
+# 214 "main.c"
     OPTION_REG = 0X81;
-# 225 "main.c"
+# 226 "main.c"
     INTCON = 0XE0;
-# 234 "main.c"
+# 235 "main.c"
     TRISIO = 0X03;
 
 
