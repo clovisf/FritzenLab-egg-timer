@@ -1,27 +1,27 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "649 D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 649:     struct {
-[s S43 :1 `uc 1 :1 `uc 1 :2 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S43 . ADON GO_nDONE CHS . VCFG ADFM ]
+[s S41 :1 `uc 1 :1 `uc 1 :2 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S41 . ADON GO_nDONE CHS . VCFG ADFM ]
 "657
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 657:     struct {
-[s S44 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S44 . . GO_DONE CHS0 CHS1 ]
+[s S42 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S42 . . GO_DONE CHS0 CHS1 ]
 "663
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 663:     struct {
-[s S45 :1 `uc 1 :1 `uc 1 ]
-[n S45 . . nDONE ]
+[s S43 :1 `uc 1 :1 `uc 1 ]
+[n S43 . . nDONE ]
 "667
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 667:     struct {
-[s S46 :1 `uc 1 :1 `uc 1 ]
-[n S46 . . GO ]
+[s S44 :1 `uc 1 :1 `uc 1 ]
+[n S44 . . GO ]
 "648
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 648: typedef union {
-[u S42 `S43 1 `S44 1 `S45 1 `S46 1 ]
-[n S42 . . . . . ]
+[u S40 `S41 1 `S42 1 `S43 1 `S44 1 ]
+[n S40 . . . . . ]
 "672
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 672: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0x01F)));
-[v _ADCON0bits `VS42 ~T0 @X0 0 e@31 ]
+[v _ADCON0bits `VS40 ~T0 @X0 0 e@31 ]
 "623
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 623: extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
 [v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
@@ -163,788 +163,701 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1406
 [; ;D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
-"19 main.c
-[; ;main.c: 19: volatile int finalbuzzercounter = 0;
-[p x FOSC  =  INTRCIO    ]
+"16 main.c
+[; ;main.c: 16: volatile int counttime = 0;
+[p x FOSC  =  INTRCIO ]
+"17
+[; ;main.c: 17: volatile unsigned char timecontrol = 0;
+[p x WDTE  =  ON ]
+"18
+[; ;main.c: 18: volatile int finalquantity = 2000;
+[p x PWRTE  =  OFF ]
+"19
+[; ;main.c: 19: volatile unsigned char finalbuzzer = 0;
+[p x MCLRE  =  OFF ]
 "20
-[; ;main.c: 20: volatile unsigned char buzzeron = 0;
-[p x WDTE  =  ON        ]
+[; ;main.c: 20: volatile int finalbuzzercounter = 0;
+[p x BOREN  =  OFF ]
 "21
-[; ;main.c: 21: volatile unsigned char processstarted = 0;
-[p x PWRTE  =  OFF       ]
+[; ;main.c: 21: volatile unsigned char buzzeron = 0;
+[p x CP  =  OFF ]
 "22
-[; ;main.c: 22: volatile int longtimecounter= 0;
-[p x MCLRE  =  OFF       ]
-"23
-[; ;main.c: 23: volatile int dothemagicofreset= 0;
-[p x BOREN  =  OFF       ]
-"24
-[; ;main.c: 24: int thirdadc= 0;
-[p x CP  =  OFF          ]
-"25
-[; ;main.c: 25: int secondadc= 0;
-[p x CPD  =  OFF         ]
-"29
-[; ;main.c: 29: int d3 = 0;
+[; ;main.c: 22: volatile unsigned char processstarted = 0;
+[p x CPD  =  OFF ]
+"26
+[; ;main.c: 26: int secondadc= 0;
 [v _buttonpressed `i ~T0 @X0 1 e ]
 [i _buttonpressed
 -> 0 `i
 ]
-"30
-[; ;main.c: 30: 
+"27
+[; ;main.c: 27: int currentadc= 0;
 [v _ledtimer `Vi ~T0 @X0 1 e ]
 [i _ledtimer
 -> 0 `i
 ]
-"31
-[; ;main.c: 31: 
+"28
+[; ;main.c: 28: int d1 = 0;
 [v _buttonstimer `Vi ~T0 @X0 1 e ]
 [i _buttonstimer
 -> 0 `i
 ]
-"32
-[; ;main.c: 32: unsigned int Read_Adc(void) {
-[v _adtimer `i ~T0 @X0 1 e ]
+"30
+[; ;main.c: 30: int d3 = 0;
+[v _adtimer `Vi ~T0 @X0 1 e ]
 [i _adtimer
 -> 0 `i
 ]
-"33
-[; ;main.c: 33:     ADCON0bits.GO_nDONE = 1;
+"31
+[; ;main.c: 31: int last_adc_state = 0;
 [v _start `Vuc ~T0 @X0 1 e ]
 [i _start
 -> -> 0 `i `uc
 ]
-"34
-[; ;main.c: 34:     while (ADCON0bits.GO_nDONE);
+"32
+[; ;main.c: 32: 
 [v _startbutton `Vuc ~T0 @X0 1 e ]
 [i _startbutton
 -> -> 0 `i `uc
 ]
-"35
-[; ;main.c: 35: 
+"33
+[; ;main.c: 33: 
 [v _adc_value `Vui ~T0 @X0 1 e ]
 [i _adc_value
 -> -> 0 `i `ui
 ]
-"36
-[; ;main.c: 36:     return ((unsigned int)ADRESH << 8) | ADRESL;
+"34
+[; ;main.c: 34: unsigned int Read_Adc(void) {
 [v _canstartblinking `Vuc ~T0 @X0 1 e ]
 [i _canstartblinking
 -> -> 0 `i `uc
 ]
-"37
-[; ;main.c: 37: }
+"35
+[; ;main.c: 35:     ADCON0bits.GO_nDONE = 1;
 [v _processbuttonclicks `Vi ~T0 @X0 1 e ]
 [i _processbuttonclicks
 -> 0 `i
 ]
-"38
-[; ;main.c: 38: 
+"36
+[; ;main.c: 36:     while (ADCON0bits.GO_nDONE);
 [v _buttonclicks `Vi ~T0 @X0 1 e ]
 [i _buttonclicks
 -> 0 `i
 ]
-"39
-[; ;main.c: 39: 
+"37
+[; ;main.c: 37:     return ((unsigned int)ADRESH << 8) | ADRESL;
 [v _enterbuttontimercounter `i ~T0 @X0 1 e ]
 [i _enterbuttontimercounter
 -> 0 `i
 ]
-"40
-[; ;main.c: 40: void __attribute__((picinterrupt(("")))) ISR() {
+"38
+[; ;main.c: 38: }
 [v _buttontimercounter `Vi ~T0 @X0 1 e ]
 [i _buttontimercounter
 -> 0 `i
 ]
-"41
-[; ;main.c: 41: 
+"39
+[; ;main.c: 39: 
 [v _starttimer `Vuc ~T0 @X0 1 e ]
 [i _starttimer
 -> -> 0 `i `uc
 ]
-"42
-[; ;main.c: 42: 
+"40
+[; ;main.c: 40: 
 [v _counttime `Vi ~T0 @X0 1 e ]
 [i _counttime
 -> 0 `i
 ]
-"43
-[; ;main.c: 43:     if (T0IF) {
+"41
+[; ;main.c: 41: void __attribute__((picinterrupt(("")))) ISR() {
 [v _timecontrol `Vuc ~T0 @X0 1 e ]
 [i _timecontrol
 -> -> 0 `i `uc
 ]
-"44
-[; ;main.c: 44: 
+"42
+[; ;main.c: 42:     if (T0IF) {
 [v _finalquantity `Vi ~T0 @X0 1 e ]
 [i _finalquantity
 -> 2000 `i
 ]
-"45
-[; ;main.c: 45: 
+"43
+[; ;main.c: 43: 
 [v _finalbuzzer `Vuc ~T0 @X0 1 e ]
 [i _finalbuzzer
 -> -> 0 `i `uc
 ]
-"46
-[; ;main.c: 46: 
+"44
+[; ;main.c: 44:         ledtimer++;
 [v _finalbuzzercounter `Vi ~T0 @X0 1 e ]
 [i _finalbuzzercounter
 -> 0 `i
 ]
-"47
-[; ;main.c: 47:         ledtimer++;
+"45
+[; ;main.c: 45:         buttonstimer++;
 [v _buzzeron `Vuc ~T0 @X0 1 e ]
 [i _buzzeron
 -> -> 0 `i `uc
 ]
-"48
-[; ;main.c: 48:         buttonstimer++;
+"46
+[; ;main.c: 46:         adtimer++;
 [v _processstarted `Vuc ~T0 @X0 1 e ]
 [i _processstarted
 -> -> 0 `i `uc
 ]
-"49
-[; ;main.c: 49:         adtimer++;
+"47
+[; ;main.c: 47: 
 [v _longtimecounter `Vi ~T0 @X0 1 e ]
 [i _longtimecounter
 -> 0 `i
 ]
-"50
-[; ;main.c: 50: 
+"48
+[; ;main.c: 48:         if (starttimer == 1) {
 [v _dothemagicofreset `Vi ~T0 @X0 1 e ]
 [i _dothemagicofreset
 -> 0 `i
 ]
-"51
-[; ;main.c: 51: 
+"49
+[; ;main.c: 49:             counttime++;
 [v _thirdadc `i ~T0 @X0 1 e ]
 [i _thirdadc
 -> 0 `i
 ]
-"52
-[; ;main.c: 52:         if (starttimer == 1) {
+"50
+[; ;main.c: 50:             if ((finalquantity - counttime) < 1) {
 [v _secondadc `i ~T0 @X0 1 e ]
 [i _secondadc
 -> 0 `i
 ]
-"53
-[; ;main.c: 53:             counttime++;
+"51
+[; ;main.c: 51:                 counttime = 0;
 [v _currentadc `i ~T0 @X0 1 e ]
 [i _currentadc
 -> 0 `i
 ]
-"54
-[; ;main.c: 54: 
+"52
+[; ;main.c: 52:                 longtimecounter++;
 [v _d1 `i ~T0 @X0 1 e ]
 [i _d1
 -> 0 `i
 ]
-"55
-[; ;main.c: 55:             if ((finalquantity - counttime) < 1) {
+"53
+[; ;main.c: 53:                 if(longtimecounter >= 144){
 [v _d2 `i ~T0 @X0 1 e ]
 [i _d2
 -> 0 `i
 ]
-"56
-[; ;main.c: 56:                 counttime = 0;
+"54
+[; ;main.c: 54:                     finalquantity = 0;
 [v _d3 `i ~T0 @X0 1 e ]
 [i _d3
 -> 0 `i
 ]
-"59
-[; ;main.c: 59:                     finalquantity = 0;
+"55
+[; ;main.c: 55:                     starttimer = 0;
+[v _last_adc_state `i ~T0 @X0 1 e ]
+[i _last_adc_state
+-> 0 `i
+]
+"58
+[; ;main.c: 58:                         processstarted = 0;
 [v _Read_Adc `(ui ~T0 @X0 1 ef ]
 {
 [e :U _Read_Adc ]
 [f ]
-"60
-[; ;main.c: 60:                     starttimer = 0;
+"59
+[; ;main.c: 59:                     }
 [e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
-"61
-[; ;main.c: 61: 
-[e $U 88  ]
-[e :U 89 ]
+"60
+[; ;main.c: 60:                 }
+[e $U 86  ]
+[e :U 87 ]
+[e :U 86 ]
+[e $ != -> . . _ADCON0bits 0 1 `i -> 0 `i 87  ]
 [e :U 88 ]
-[e $ != -> . . _ADCON0bits 0 1 `i -> 0 `i 89  ]
-[e :U 90 ]
-"63
-[; ;main.c: 63:                     finalbuzzer = 1;
+"61
+[; ;main.c: 61:             }
 [e ) | << -> _ADRESH `ui -> 8 `i -> _ADRESL `ui ]
-[e $UE 87  ]
-"64
-[; ;main.c: 64:                     processstarted = 0;
-[e :UE 87 ]
+[e $UE 85  ]
+"62
+[; ;main.c: 62:         }
+[e :UE 85 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"67
-[; ;main.c: 67: 
+"65
+[; ;main.c: 65:             finalbuzzercounter++;
 [v _ISR `(v ~T1 @X0 1 ef ]
 {
 [e :U _ISR ]
 [f ]
-"70
-[; ;main.c: 70:         }
-[e $ ! _T0IF 92  ]
+"66
+[; ;main.c: 66:             canstartblinking = 0;
+[e $ ! _T0IF 90  ]
 {
-"74
-[; ;main.c: 74:             finalbuzzercounter++;
+"68
+[; ;main.c: 68:                 buzzeron = 1;
 [e ++ _ledtimer -> -> 1 `i `Vi ]
-"75
-[; ;main.c: 75:             canstartblinking = 0;
+"69
+[; ;main.c: 69:             } else {
 [e ++ _buttonstimer -> -> 1 `i `Vi ]
-"76
-[; ;main.c: 76:             if (finalbuzzercounter <= 3000) {
-[e ++ _adtimer -> 1 `i ]
-"79
-[; ;main.c: 79:                 buzzeron = 0;
-[e $ ! == -> _starttimer `i -> 1 `i 93  ]
+"70
+[; ;main.c: 70:                 buzzeron = 0;
+[e ++ _adtimer -> -> 1 `i `Vi ]
+"72
+[; ;main.c: 72:                 processstarted = 0;
+[e $ ! == -> _starttimer `i -> 1 `i 91  ]
 {
-"80
-[; ;main.c: 80: 
+"73
+[; ;main.c: 73:                 finalbuzzercounter = 0;
 [e ++ _counttime -> -> 1 `i `Vi ]
+"74
+[; ;main.c: 74:                 finalbuzzer = 0;
+[e $ ! < - _finalquantity _counttime -> 1 `i 92  ]
+{
+"75
+[; ;main.c: 75:                 while(1);
+[e = _counttime -> 0 `i ]
+"76
+[; ;main.c: 76:             }
+[e ++ _longtimecounter -> -> 1 `i `Vi ]
+"77
+[; ;main.c: 77:         }
+[e $ ! >= _longtimecounter -> 144 `i 93  ]
+{
+"78
+[; ;main.c: 78: 
+[e = _finalquantity -> 0 `i ]
+"79
+[; ;main.c: 79:         if (ledtimer >= 200 && processbuttonclicks > 0 && canstartblinking == 1) {
+[e = _starttimer -> -> 0 `i `uc ]
+"80
+[; ;main.c: 80:             processbuttonclicks--;
+[e $ ! == -> _processstarted `i -> 1 `i 94  ]
+{
+"81
+[; ;main.c: 81:             ledtimer = 0;
+[e = _finalbuzzer -> -> 1 `i `uc ]
 "82
 [; ;main.c: 82: 
-[e $ ! < - _finalquantity _counttime -> 1 `i 94  ]
-{
-"83
-[; ;main.c: 83: 
-[e = _counttime -> 0 `i ]
-"84
-[; ;main.c: 84: 
-[e ++ _longtimecounter -> -> 1 `i `Vi ]
-"85
-[; ;main.c: 85:                 processbuttonclicks = 0;
-[e $ ! >= _longtimecounter -> 144 `i 95  ]
-{
-"86
-[; ;main.c: 86:                 processstarted = 0;
-[e = _finalquantity -> 0 `i ]
-"87
-[; ;main.c: 87:                 finalbuzzercounter = 0;
-[e = _starttimer -> -> 0 `i `uc ]
-"89
-[; ;main.c: 89:                 while(1){
-[e $ ! == -> _processstarted `i -> 1 `i 96  ]
-{
-"90
-[; ;main.c: 90:                 }
-[e = _finalbuzzer -> -> 1 `i `uc ]
-"91
-[; ;main.c: 91:             }
 [e = _processstarted -> -> 0 `i `uc ]
-"92
-[; ;main.c: 92:         }
-}
-[e :U 96 ]
-"93
-[; ;main.c: 93: 
-}
-[e :U 95 ]
-"96
-[; ;main.c: 96:             processbuttonclicks--;
+"83
+[; ;main.c: 83:             if (processbuttonclicks % 2 == 0) {
 }
 [e :U 94 ]
-"97
-[; ;main.c: 97:             if (start == 1) {
+"84
+[; ;main.c: 84:                 start = 0;
 }
 [e :U 93 ]
-"100
-[; ;main.c: 100:             } else {
-[e $ ! == -> _finalbuzzer `i -> 1 `i 97  ]
+"85
+[; ;main.c: 85:                 buzzeron = 0;
+}
+[e :U 92 ]
+"86
+[; ;main.c: 86:             } else {
+}
+[e :U 91 ]
+"88
+[; ;main.c: 88:                 buzzeron = 1;
+[e $ ! == -> _finalbuzzer `i -> 1 `i 95  ]
 {
-"101
-[; ;main.c: 101:                 start = 1;
+"89
+[; ;main.c: 89:             }
 [e ++ _finalbuzzercounter -> -> 1 `i `Vi ]
-"102
-[; ;main.c: 102:                 buzzeron= 1;
+"90
+[; ;main.c: 90:         } else if (processbuttonclicks <= 0 && canstartblinking == 1) {
 [e = _canstartblinking -> -> 0 `i `uc ]
-"103
-[; ;main.c: 103:             }
-[e $ ! <= _finalbuzzercounter -> 3000 `i 98  ]
+"91
+[; ;main.c: 91: 
+[e $ ! <= _finalbuzzercounter -> 3000 `i 96  ]
 {
-"104
-[; ;main.c: 104:             ledtimer = 0;
+"92
+[; ;main.c: 92:             start = 0;
 [e = _buzzeron -> -> 1 `i `uc ]
-"105
-[; ;main.c: 105:         } else if (processbuttonclicks <= 0 && canstartblinking == 1) {
+"93
+[; ;main.c: 93:             buzzeron = 0;
 }
-[e $U 99  ]
-[e :U 98 ]
+[e $U 97  ]
+[e :U 96 ]
 {
-"106
-[; ;main.c: 106: 
+"94
+[; ;main.c: 94: 
 [e = _buzzeron -> -> 0 `i `uc ]
-"108
-[; ;main.c: 108:                 finalquantity = 30000;
-[e = _starttimer -> -> 1 `i `uc ]
-"112
-[; ;main.c: 112:                 finalquantity = 15000;
+"95
+[; ;main.c: 95: 
 [e = _processbuttonclicks -> 0 `i ]
-"113
-[; ;main.c: 113:             } else if (timecontrol == 1) {
+"96
+[; ;main.c: 96: 
 [e = _processstarted -> -> 0 `i `uc ]
-"114
-[; ;main.c: 114:                 finalquantity = 7500;
+"97
+[; ;main.c: 97: 
 [e = _finalbuzzercounter -> 0 `i ]
-"115
-[; ;main.c: 115:             } else {
+"98
+[; ;main.c: 98: 
 [e = _finalbuzzer -> -> 0 `i `uc ]
-"116
-[; ;main.c: 116:                 finalquantity = 0;
-[e :U 101 ]
-{
-"117
-[; ;main.c: 117:             }
-}
-[e :U 100 ]
-[e $U 101  ]
-[e :U 102 ]
-"118
-[; ;main.c: 118: 
-}
+"99
+[; ;main.c: 99:             if (timecontrol == 4) finalquantity = 25000;
 [e :U 99 ]
-"119
-[; ;main.c: 119:             if (starttimer == 0 && finalbuzzer == 0) {
+[e :U 98 ]
+[e $U 99  ]
+[e :U 100 ]
+"100
+[; ;main.c: 100:             else if (timecontrol == 3) finalquantity = 18750;
 }
 [e :U 97 ]
-"122
-[; ;main.c: 122:             }
-[e $ ! && && >= _ledtimer -> 200 `i > _processbuttonclicks -> 0 `i == -> _canstartblinking `i -> 1 `i 103  ]
+"101
+[; ;main.c: 101:             else if (timecontrol == 2) finalquantity = 12500;
+}
+[e :U 95 ]
+"103
+[; ;main.c: 103:             else finalquantity = 0;
+[e $ ! && && >= _ledtimer -> 200 `i > _processbuttonclicks -> 0 `i == -> _canstartblinking `i -> 1 `i 101  ]
 {
-"123
-[; ;main.c: 123:         }
+"104
+[; ;main.c: 104:             if (starttimer == 0 && finalbuzzer == 0) {
 [e -- _processbuttonclicks -> -> 1 `i `Vi ]
-"124
-[; ;main.c: 124: 
-[e $ ! == -> _start `i -> 1 `i 104  ]
-{
-"125
-[; ;main.c: 125: 
-[e = _start -> -> 0 `i `uc ]
-"126
-[; ;main.c: 126:         if ((start == 1 && starttimer == 0) || (starttimer == 1 && finalquantity != 0) || buzzeron == 1) {
-[e = _buzzeron -> -> 0 `i `uc ]
-"127
-[; ;main.c: 127: 
-}
-[e $U 105  ]
-[e :U 104 ]
-{
-"128
-[; ;main.c: 128:             GP5 = 1;
-[e = _start -> -> 1 `i `uc ]
-"129
-[; ;main.c: 129: 
-[e = _buzzeron -> -> 1 `i `uc ]
-"130
-[; ;main.c: 130:             if (buzzeron == 1) {
-}
-[e :U 105 ]
-"131
-[; ;main.c: 131:                 GP2 = 1;
+"105
+[; ;main.c: 105:                 starttimer = 1;
 [e = _ledtimer -> 0 `i ]
-"132
-[; ;main.c: 132:             } else {
+"107
+[; ;main.c: 107:             }
+[e $ ! == % _processbuttonclicks -> 2 `i -> 0 `i 102  ]
+{
+"108
+[; ;main.c: 108:         }
+[e = _start -> -> 0 `i `uc ]
+"109
+[; ;main.c: 109: 
+[e = _buzzeron -> -> 0 `i `uc ]
+"110
+[; ;main.c: 110:         if ((start == 1 && starttimer == 0) || (starttimer == 1 && finalquantity != 0) || buzzeron == 1) {
 }
-[e $U 106  ]
+[e $U 103  ]
+[e :U 102 ]
+{
+"111
+[; ;main.c: 111:             GP5 = 1;
+[e = _start -> -> 1 `i `uc ]
+"112
+[; ;main.c: 112:             if (buzzeron == 1) {
+[e = _buzzeron -> -> 1 `i `uc ]
+"113
+[; ;main.c: 113:                 GP2 = 1;
+}
 [e :U 103 ]
-[e $ ! && <= _processbuttonclicks -> 0 `i == -> _canstartblinking `i -> 1 `i 107  ]
-{
-"134
-[; ;main.c: 134:             }
-[e $ ! == -> _timecontrol `i -> 4 `i 108  ]
-{
-"135
-[; ;main.c: 135:         } else {
-[e = _finalquantity -> 30000 `i ]
-"136
-[; ;main.c: 136: 
+"114
+[; ;main.c: 114:             } else {
 }
+[e $U 104  ]
+[e :U 101 ]
+[e $ ! && <= _processbuttonclicks -> 0 `i == -> _canstartblinking `i -> 1 `i 105  ]
+{
+"116
+[; ;main.c: 116:             }
+[e = _start -> -> 0 `i `uc ]
+"117
+[; ;main.c: 117:         } else {
+[e = _buzzeron -> -> 0 `i `uc ]
+"123
+[; ;main.c: 123:         TMR0 = 6;
+[e $ ! == -> _timecontrol `i -> 4 `i 106  ]
+[e = _finalquantity -> 25000 `i ]
+[e $U 107  ]
+"124
+[; ;main.c: 124:     }
+[e :U 106 ]
+[e $ ! == -> _timecontrol `i -> 3 `i 108  ]
+[e = _finalquantity -> 18750 `i ]
 [e $U 109  ]
+"125
+[; ;main.c: 125: }
 [e :U 108 ]
-[e $ ! == -> _timecontrol `i -> 3 `i 110  ]
-{
-"137
-[; ;main.c: 137:             GP5 = 0;
-[e = _finalquantity -> 22500 `i ]
-"138
-[; ;main.c: 138:             GP2 = 0;
-}
+[e $ ! == -> _timecontrol `i -> 2 `i 110  ]
+[e = _finalquantity -> 12500 `i ]
 [e $U 111  ]
+"126
+[; ;main.c: 126: 
 [e :U 110 ]
-[e $ ! == -> _timecontrol `i -> 2 `i 112  ]
-{
-"139
-[; ;main.c: 139:         }
-[e = _finalquantity -> 15000 `i ]
-"140
-[; ;main.c: 140: 
-}
+[e $ ! == -> _timecontrol `i -> 1 `i 112  ]
+[e = _finalquantity -> 6250 `i ]
 [e $U 113  ]
+"127
+[; ;main.c: 127: void main(void) {
 [e :U 112 ]
-[e $ ! == -> _timecontrol `i -> 1 `i 114  ]
-{
-"141
-[; ;main.c: 141:         T0IF = 0;
-[e = _finalquantity -> 7500 `i ]
-"142
-[; ;main.c: 142:         TMR0 = 6;
-}
-[e $U 115  ]
-[e :U 114 ]
-{
-"143
-[; ;main.c: 143:     }
 [e = _finalquantity -> 0 `i ]
-"144
-[; ;main.c: 144: }
-}
-[e :U 115 ]
 [e :U 113 ]
 [e :U 111 ]
 [e :U 109 ]
-"146
-[; ;main.c: 146: 
-[e $ ! && == -> _starttimer `i -> 0 `i == -> _finalbuzzer `i -> 0 `i 116  ]
+[e :U 107 ]
+"128
+[; ;main.c: 128: 
+[e $ ! && == -> _starttimer `i -> 0 `i == -> _finalbuzzer `i -> 0 `i 114  ]
 {
-"147
-[; ;main.c: 147: void main(void) {
+"129
+[; ;main.c: 129:     CMCON = 0x07;
 [e = _starttimer -> -> 1 `i `uc ]
+"130
+[; ;main.c: 130: 
+[e = _canstartblinking -> -> 0 `i `uc ]
+"131
+[; ;main.c: 131:     ANSEL = 0b00100001;
+}
+[e :U 114 ]
+"132
+[; ;main.c: 132:     ADCON0 = 0b10000001;
+}
+[e :U 105 ]
+[e :U 104 ]
+"134
+[; ;main.c: 134:     WPU = 0X00;
+[e $ ! || || && == -> _start `i -> 1 `i == -> _starttimer `i -> 0 `i && == -> _starttimer `i -> 1 `i != _finalquantity -> 0 `i == -> _buzzeron `i -> 1 `i 115  ]
+{
+"135
+[; ;main.c: 135:     TMR0 = 0;
+[e = _GP5 -> -> 1 `i `b ]
+"136
+[; ;main.c: 136: 
+[e $ ! == -> _buzzeron `i -> 1 `i 116  ]
+{
+"137
+[; ;main.c: 137: 
+[e = _GP2 -> -> 1 `i `b ]
+"138
+[; ;main.c: 138: 
+}
+[e $U 117  ]
+[e :U 116 ]
+{
+"139
+[; ;main.c: 139: 
+[e = _GP2 -> -> 0 `i `b ]
+"140
+[; ;main.c: 140:     OSCCAL = 0x80;
+}
+[e :U 117 ]
+"141
+[; ;main.c: 141: 
+}
+[e $U 118  ]
+[e :U 115 ]
+{
+"142
+[; ;main.c: 142:     OPTION_REG = 0X81;
+[e = _GP5 -> -> 0 `i `b ]
+"143
+[; ;main.c: 143:     INTCON = 0XE0;
+[e = _GP2 -> -> 0 `i `b ]
+"144
+[; ;main.c: 144:     TRISIO = 0X03;
+}
+[e :U 118 ]
+"146
+[; ;main.c: 146:     for (;;) {
+[e = _T0IF -> -> 0 `i `b ]
+"147
+[; ;main.c: 147:         __asm("clrwdt");
+[e = _TMR0 -> -> 6 `i `uc ]
 "148
 [; ;main.c: 148: 
-[e = _canstartblinking -> -> 0 `i `uc ]
+}
+[e :U 90 ]
 "149
-[; ;main.c: 149: 
-}
-[e :U 116 ]
-"150
-[; ;main.c: 150:     CMCON = 0x07;
-}
-[e :U 107 ]
-[e :U 106 ]
-"153
-[e $ ! || || && == -> _start `i -> 1 `i == -> _starttimer `i -> 0 `i && == -> _starttimer `i -> 1 `i != _finalquantity -> 0 `i == -> _buzzeron `i -> 1 `i 117  ]
-{
-"155
-[e = _GP5 -> -> 1 `i `b ]
-"157
-[e $ ! == -> _buzzeron `i -> 1 `i 118  ]
-{
-"158
-[e = _GP2 -> -> 1 `i `b ]
-"159
-}
-[e $U 119  ]
-[e :U 118 ]
-{
-"160
-[e = _GP2 -> -> 0 `i `b ]
-"161
-}
-[e :U 119 ]
-"162
-}
-[e $U 120  ]
-[e :U 117 ]
-{
-"164
-[e = _GP5 -> -> 0 `i `b ]
-"165
-[e = _GP2 -> -> 0 `i `b ]
-"166
-}
-[e :U 120 ]
-"168
-[e = _T0IF -> -> 0 `i `b ]
-"169
-[e = _TMR0 -> -> 6 `i `uc ]
-"170
-}
-[e :U 92 ]
-"171
-[e :UE 91 ]
+[; ;main.c: 149:         if(adtimer >= 20){
+[e :UE 89 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"174
+"151
+[; ;main.c: 151:             thirdadc = secondadc;
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"177
+"153
+[; ;main.c: 153:             currentadc = Read_Adc();
 [e = _CMCON -> -> 7 `i `uc ]
-"186
-[; ;main.c: 186:     ANSEL = 0b00100001;
+"155
+[; ;main.c: 155: 
 [e = _ANSEL -> -> 33 `i `uc ]
-"194
-[; ;main.c: 194:     ADCON0 = 0b10000001;
+"156
+[; ;main.c: 156: 
 [e = _ADCON0 -> -> 129 `i `uc ]
-"197
-[; ;main.c: 197:     WPU = 0X00;
+"158
+[; ;main.c: 158:                 (currentadc >= thirdadc && currentadc <= secondadc))
 [e = _WPU -> -> 0 `i `uc ]
-"200
-[; ;main.c: 200:     TMR0 = 0;
+"159
+[; ;main.c: 159:                 adc_value = currentadc;
 [e = _TMR0 -> -> 0 `i `uc ]
-"203
-[; ;main.c: 203:     OSCCAL = 0XFF;
-[e = _OSCCAL -> -> 255 `i `uc ]
-"214
-[; ;main.c: 214:     OPTION_REG = 0X81;
+"164
+[; ;main.c: 164:                 adc_value = thirdadc;
+[e = _OSCCAL -> -> 128 `i `uc ]
+"166
+[; ;main.c: 166: 
 [e = _OPTION_REG -> -> 129 `i `uc ]
-"226
-[; ;main.c: 226:     INTCON = 0XE0;
+"167
+[; ;main.c: 167: 
 [e = _INTCON -> -> 224 `i `uc ]
-"235
-[; ;main.c: 235:     TRISIO = 0X03;
+"168
+[; ;main.c: 168:             int current_adc_state = (adc_value > 70) ? 1 : 0;
 [e = _TRISIO -> -> 3 `i `uc ]
-"238
-[; ;main.c: 238:     for (;;) {
+"170
+[; ;main.c: 170:             if (adc_value > 20 && adc_value <= 100) {
 {
-[e :U 122 ]
+[e :U 120 ]
 {
-"239
-[; ;main.c: 239:         __asm("clrwdt");
+"171
+[; ;main.c: 171:                 dothemagicofreset = 1;
 [; <" clrwdt ;# ">
-"242
-[; ;main.c: 242:         if(adtimer >= 20){
-[e $ ! >= _adtimer -> 20 `i 125  ]
+"173
+[; ;main.c: 173: 
+[e $ ! >= _adtimer -> 20 `i 123  ]
 {
-"243
-[; ;main.c: 243:             adtimer= 0;
+"174
+[; ;main.c: 174:             if (current_adc_state == 1 && last_adc_state == 0) {
 [e = _adtimer -> 0 `i ]
-"244
-[; ;main.c: 244:             thirdadc= secondadc;
+"175
+[; ;main.c: 175: 
 [e = _thirdadc _secondadc ]
-"245
-[; ;main.c: 245:             secondadc= currentadc;
+"176
+[; ;main.c: 176:                 if (canstartblinking == 0 && starttimer == 0 && adc_value > 100) {
 [e = _secondadc _currentadc ]
-"246
-[; ;main.c: 246:             currentadc = Read_Adc();
+"177
+[; ;main.c: 177:                     buttonclicks++;
 [e = _currentadc -> ( _Read_Adc ..  `i ]
-"251
-[; ;main.c: 251:             d1= currentadc - secondadc;
-[e = _d1 - _currentadc _secondadc ]
-"252
-[; ;main.c: 252:             d2= currentadc - thirdadc;
-[e = _d2 - _currentadc _thirdadc ]
-"253
-[; ;main.c: 253:             d3= secondadc - thirdadc;
-[e = _d3 - _secondadc _thirdadc ]
-"255
-[; ;main.c: 255:             if(d1 >= d2 && d1 >= d3){
-[e $ ! && >= _d1 _d2 >= _d1 _d3 126  ]
-{
-"256
-[; ;main.c: 256:                 adc_value= (currentadc + secondadc) / 2;
-[e = _adc_value -> / + _currentadc _secondadc -> 2 `i `ui ]
-"257
-[; ;main.c: 257:             }else if(d2 >= d1 && d2 >= d3){
-}
+"181
+[; ;main.c: 181:                     if (buttonclicks == 1) {
+[e $ ! || && >= _currentadc _secondadc <= _currentadc _thirdadc && >= _currentadc _thirdadc <= _currentadc _secondadc 124  ]
+"183
+[; ;main.c: 183:                         buttontimercounter = 0;
+[e = _adc_value -> _currentadc `ui ]
+[e $U 125  ]
+"184
+[; ;main.c: 184:                     }
+[e :U 124 ]
+[e $ ! || && >= _secondadc _currentadc <= _secondadc _thirdadc && >= _secondadc _thirdadc <= _secondadc _currentadc 126  ]
+"186
+[; ;main.c: 186:                 }
+[e = _adc_value -> _secondadc `ui ]
 [e $U 127  ]
+"187
+[; ;main.c: 187:             }
 [e :U 126 ]
-[e $ ! && >= _d2 _d1 >= _d2 _d3 128  ]
+"188
+[; ;main.c: 188:             last_adc_state = current_adc_state;
+[e = _adc_value -> _thirdadc `ui ]
+[e :U 127 ]
+[e :U 125 ]
+"192
+[; ;main.c: 192:             buttonstimer = 0;
+[v _current_adc_state `i ~T0 @X0 1 a ]
+[e = _current_adc_state ? > _adc_value -> -> 70 `i `ui : -> 1 `i -> 0 `i ]
+"194
+[; ;main.c: 194: 
+[e $ ! && > _adc_value -> -> 20 `i `ui <= _adc_value -> -> 100 `i `ui 128  ]
 {
-"258
-[; ;main.c: 258:                 adc_value= (currentadc + thirdadc) / 2;
-[e = _adc_value -> / + _currentadc _thirdadc -> 2 `i `ui ]
-"259
-[; ;main.c: 259:             }else{
+"195
+[; ;main.c: 195:             if (enterbuttontimercounter == 1) {
+[e = _dothemagicofreset -> 1 `i ]
+"196
+[; ;main.c: 196:                 buttontimercounter++;
 }
-[e $U 129  ]
 [e :U 128 ]
+"198
+[; ;main.c: 198:                 if (buttontimercounter > 20) {
+[e $ ! && == _current_adc_state -> 1 `i == _last_adc_state -> 0 `i 129  ]
 {
-"260
-[; ;main.c: 260:                 adc_value= (secondadc + thirdadc) / 2;
-[e = _adc_value -> / + _secondadc _thirdadc -> 2 `i `ui ]
-"261
-[; ;main.c: 261:             }
+"200
+[; ;main.c: 200:                     buttontimercounter = 0;
+[e $ ! && && == -> _canstartblinking `i -> 0 `i == -> _starttimer `i -> 0 `i > _adc_value -> -> 100 `i `ui 130  ]
+{
+"201
+[; ;main.c: 201:                     processbuttonclicks = 2 * buttonclicks;
+[e ++ _buttonclicks -> -> 1 `i `Vi ]
+"202
+[; ;main.c: 202:                     timecontrol = buttonclicks;
+[e = _processstarted -> -> 1 `i `uc ]
+"205
+[; ;main.c: 205:                 }
+[e $ ! == _buttonclicks -> 1 `i 131  ]
+{
+"206
+[; ;main.c: 206:             }
+[e = _enterbuttontimercounter -> 1 `i ]
+"207
+[; ;main.c: 207:         }
+[e = _buttontimercounter -> 0 `i ]
+"208
+[; ;main.c: 208: 
+}
+[e :U 131 ]
+"209
+[; ;main.c: 209:         if(dothemagicofreset == 1) {
+[e $ ! > _buttonclicks -> 4 `i 132  ]
+[e = _buttonclicks -> 4 `i ]
+[e :U 132 ]
+"210
+[; ;main.c: 210: 
+}
+[e :U 130 ]
+"211
+[; ;main.c: 211: 
 }
 [e :U 129 ]
-[e :U 127 ]
-"264
-[; ;main.c: 264:         }
+"212
+[; ;main.c: 212:             while(1);
+[e = _last_adc_state _current_adc_state ]
+"213
+[; ;main.c: 213:         }
 }
-[e :U 125 ]
-"265
-[; ;main.c: 265:         if (buttonstimer >= 300) {
-[e $ ! >= _buttonstimer -> 300 `i 130  ]
+[e :U 123 ]
+"215
+[; ;main.c: 215: }
+[e $ ! >= _buttonstimer -> 300 `i 133  ]
 {
-"266
-[; ;main.c: 266:             buttonstimer = 0;
+"216
 [e = _buttonstimer -> 0 `i ]
-"270
-[; ;main.c: 270:             if (adc_value > 90 && adc_value <= 1023 && canstartblinking == 0 && starttimer == 0) {
-[e $ ! && && && > _adc_value -> -> 90 `i `ui <= _adc_value -> -> 1023 `i `ui == -> _canstartblinking `i -> 0 `i == -> _starttimer `i -> 0 `i 131  ]
+"219
+[e $ ! == _enterbuttontimercounter -> 1 `i 134  ]
 {
-"271
-[; ;main.c: 271:                 buttonclicks++;
-[e ++ _buttonclicks -> -> 1 `i `Vi ]
-"272
-[; ;main.c: 272:                 processstarted = 1;
-[e = _processstarted -> -> 1 `i `uc ]
-"274
-[; ;main.c: 274:                 if (buttonclicks == 1) {
-[e $ ! == _buttonclicks -> 1 `i 132  ]
+"220
+[e ++ _buttontimercounter -> -> 1 `i `Vi ]
+"222
+[e $ ! > _buttontimercounter -> 20 `i 135  ]
 {
-"275
-[; ;main.c: 275:                     enterbuttontimercounter = 1;
-[e = _enterbuttontimercounter -> 1 `i ]
-"276
-[; ;main.c: 276:                 } else if (buttonclicks > 4) {
+"223
+[e = _enterbuttontimercounter -> 0 `i ]
+"224
+[e = _buttontimercounter -> 0 `i ]
+"225
+[e = _processbuttonclicks * -> 2 `i _buttonclicks ]
+"226
+[e = _timecontrol -> _buttonclicks `uc ]
+"227
+[e = _buttonclicks -> 0 `i ]
+"228
+[e = _canstartblinking -> -> 1 `i `uc ]
+"229
 }
-[e $U 133  ]
-[e :U 132 ]
-[e $ ! > _buttonclicks -> 4 `i 134  ]
-{
-"277
-[; ;main.c: 277:                     buttonclicks = 4;
-[e = _buttonclicks -> 4 `i ]
-"278
-[; ;main.c: 278:                 }
+[e :U 135 ]
+"230
 }
 [e :U 134 ]
+"231
+}
 [e :U 133 ]
-"279
-[; ;main.c: 279:             }else if(adc_value <= 90 && adc_value > 20){
-}
-[e $U 135  ]
-[e :U 131 ]
-[e $ ! && <= _adc_value -> -> 90 `i `ui > _adc_value -> -> 20 `i `ui 136  ]
+"233
+[e $ ! == _dothemagicofreset -> 1 `i 136  ]
 {
-"280
-[; ;main.c: 280:                 while(1){
+"236
 [e :U 138 ]
-{
-"282
-[; ;main.c: 282:                 }
-}
 [e :U 137 ]
 [e $U 138  ]
 [e :U 139 ]
-"283
-[; ;main.c: 283:             }
+"237
 }
 [e :U 136 ]
-[e :U 135 ]
-"286
-[; ;main.c: 286:             if (enterbuttontimercounter == 1) {
-[e $ ! == _enterbuttontimercounter -> 1 `i 140  ]
-{
-"287
-[; ;main.c: 287:                 buttontimercounter++;
-[e ++ _buttontimercounter -> -> 1 `i `Vi ]
-"288
-[; ;main.c: 288:                 if (buttontimercounter > 15) {
-[e $ ! > _buttontimercounter -> 15 `i 141  ]
-{
-"289
-[; ;main.c: 289:                     enterbuttontimercounter = 0;
-[e = _enterbuttontimercounter -> 0 `i ]
-"290
-[; ;main.c: 290:                     buttontimercounter = 0;
-[e = _buttontimercounter -> 0 `i ]
-"291
-[; ;main.c: 291:                     processbuttonclicks = 2 * buttonclicks;
-[e = _processbuttonclicks * -> 2 `i _buttonclicks ]
-"292
-[; ;main.c: 292:                     timecontrol = buttonclicks;
-[e = _timecontrol -> _buttonclicks `uc ]
-"293
-[; ;main.c: 293:                     buttonclicks = 0;
-[e = _buttonclicks -> 0 `i ]
-"294
-[; ;main.c: 294:                     canstartblinking = 1;
-[e = _canstartblinking -> -> 1 `i `uc ]
-"295
-[; ;main.c: 295:                 }
+"238
 }
-[e :U 141 ]
-"296
-[; ;main.c: 296:             }
+[e $U 120  ]
+[e :U 121 ]
 }
-[e :U 140 ]
-"297
-[; ;main.c: 297:         }
-}
-[e :U 130 ]
-"298
-[; ;main.c: 298:         if(dothemagicofreset == 1){
-[e $ ! == _dothemagicofreset -> 1 `i 142  ]
-{
-"300
-[; ;main.c: 300:             buttonpressed = 0;
-[e = _buttonpressed -> 0 `i ]
-"301
-[; ;main.c: 301:             ledtimer = 0;
-[e = _ledtimer -> 0 `i ]
-"302
-[; ;main.c: 302:             buttonstimer = 0;
-[e = _buttonstimer -> 0 `i ]
-"303
-[; ;main.c: 303:             start = 0;
-[e = _start -> -> 0 `i `uc ]
-"304
-[; ;main.c: 304:             startbutton = 0;
-[e = _startbutton -> -> 0 `i `uc ]
-"305
-[; ;main.c: 305:             adc_value = 0;
-[e = _adc_value -> -> 0 `i `ui ]
-"306
-[; ;main.c: 306:             canstartblinking = 0;
-[e = _canstartblinking -> -> 0 `i `uc ]
-"307
-[; ;main.c: 307:             processbuttonclicks = 0;
-[e = _processbuttonclicks -> 0 `i ]
-"308
-[; ;main.c: 308:             buttonclicks = 0;
-[e = _buttonclicks -> 0 `i ]
-"309
-[; ;main.c: 309:             enterbuttontimercounter = 0;
-[e = _enterbuttontimercounter -> 0 `i ]
-"310
-[; ;main.c: 310:             buttontimercounter = 0;
-[e = _buttontimercounter -> 0 `i ]
-"311
-[; ;main.c: 311:             starttimer = 0;
-[e = _starttimer -> -> 0 `i `uc ]
-"312
-[; ;main.c: 312:             counttime = 0;
-[e = _counttime -> 0 `i ]
-"313
-[; ;main.c: 313:             timecontrol = 0;
-[e = _timecontrol -> -> 0 `i `uc ]
-"314
-[; ;main.c: 314:             finalquantity = 2000;
-[e = _finalquantity -> 2000 `i ]
-"315
-[; ;main.c: 315:             finalbuzzer = 0;
-[e = _finalbuzzer -> -> 0 `i `uc ]
-"316
-[; ;main.c: 316:             finalbuzzercounter = 0;
-[e = _finalbuzzercounter -> 0 `i ]
-"317
-[; ;main.c: 317:             buzzeron = 0;
-[e = _buzzeron -> -> 0 `i `uc ]
-"318
-[; ;main.c: 318:             processstarted = 0;
-[e = _processstarted -> -> 0 `i `uc ]
-"319
-[; ;main.c: 319:             longtimecounter= 0;
-[e = _longtimecounter -> 0 `i ]
-"320
-[; ;main.c: 320:             dothemagicofreset= 0;
-[e = _dothemagicofreset -> 0 `i ]
-"321
-[; ;main.c: 321:         }
-}
-[e :U 142 ]
-"322
-[; ;main.c: 322:     }
-}
-[e $U 122  ]
-[e :U 123 ]
-}
-"323
-[; ;main.c: 323: }
-[e :UE 121 ]
+"239
+[e :UE 119 ]
 }

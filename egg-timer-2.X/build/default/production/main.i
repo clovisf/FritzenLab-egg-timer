@@ -4,194 +4,46 @@
 # 288 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "D:\\Installations\\pic\\include\\language_support.h" 1 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
+# 10 "main.c"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 1 3
+# 18 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 3
+extern const char __xc8_OPTIM_SPEED;
 
+extern double __fpnormalize(double);
 
 
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\xc8debug.h" 1 3
 
 
 
-# 1 "D:\\Installations\\pic\\include\\c99\\stdio.h" 1 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdlib.h" 1 3
 
 
 
-# 1 "D:\\Installations\\pic\\include\\c99\\musl_xc8.h" 1 3
-# 5 "D:\\Installations\\pic\\include\\c99\\stdio.h" 2 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\musl_xc8.h" 1 3
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdlib.h" 2 3
 
 
 
 
 
-# 1 "D:\\Installations\\pic\\include\\c99\\features.h" 1 3
-# 11 "D:\\Installations\\pic\\include\\c99\\stdio.h" 2 3
-# 24 "D:\\Installations\\pic\\include\\c99\\stdio.h" 3
-# 1 "D:\\Installations\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 12 "D:\\Installations\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 128 "D:\\Installations\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned size_t;
-# 143 "D:\\Installations\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef short ssize_t;
-# 174 "D:\\Installations\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __int24 int24_t;
-# 210 "D:\\Installations\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __uint24 uint24_t;
-# 253 "D:\\Installations\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long off_t;
-# 409 "D:\\Installations\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 25 "D:\\Installations\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "D:\\Installations\\pic\\include\\c99\\stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-
-
-
-
-
-int ungetc(int, FILE *);
-int getch(void);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-
-
-
-
-void putch(char);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 8 "main.c" 2
-
-# 1 "D:\\Installations\\pic\\include\\c99\\stdlib.h" 1 3
-# 21 "D:\\Installations\\pic\\include\\c99\\stdlib.h" 3
-# 1 "D:\\Installations\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 24 "D:\\Installations\\pic\\include\\c99\\bits/alltypes.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\features.h" 1 3
+# 11 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdlib.h" 2 3
+# 21 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdlib.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long int wchar_t;
-# 22 "D:\\Installations\\pic\\include\\c99\\stdlib.h" 2 3
+# 128 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned size_t;
+# 174 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __int24 int24_t;
+# 210 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __uint24 uint24_t;
+# 22 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdlib.h" 2 3
 
 int atoi (const char *);
 long atol (const char *);
@@ -215,7 +67,7 @@ unsigned long strtoul (const char *restrict, char **restrict, int);
 
 
 unsigned long __strtoxl(const char * s, char ** endptr, int base, char is_signed);
-# 55 "D:\\Installations\\pic\\include\\c99\\stdlib.h" 3
+# 55 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdlib.h" 3
 int rand (void);
 void srand (unsigned);
 
@@ -261,43 +113,39 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 9 "main.c" 2
-
-# 1 "D:\\Installations\\pic\\include\\xc.h" 1 3
-# 18 "D:\\Installations\\pic\\include\\xc.h" 3
-extern const char __xc8_OPTIM_SPEED;
-
-extern double __fpnormalize(double);
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\xc8debug.h" 2 3
 
 
 
-# 1 "D:\\Installations\\pic\\include\\c99\\xc8debug.h" 1 3
-# 12 "D:\\Installations\\pic\\include\\c99\\xc8debug.h" 3
+
+
+
+
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
-# 23 "D:\\Installations\\pic\\include\\xc.h" 2 3
+# 23 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 2 3
 
-# 1 "D:\\Installations\\pic\\include\\builtins.h" 1 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\builtins.h" 1 3
 
 
 
-# 1 "D:\\Installations\\pic\\include\\c99\\stdint.h" 1 3
-# 26 "D:\\Installations\\pic\\include\\c99\\stdint.h" 3
-# 1 "D:\\Installations\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 133 "D:\\Installations\\pic\\include\\c99\\bits/alltypes.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdint.h" 1 3
+# 26 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 133 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned short uintptr_t;
-# 148 "D:\\Installations\\pic\\include\\c99\\bits/alltypes.h" 3
+# 148 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef short intptr_t;
-# 164 "D:\\Installations\\pic\\include\\c99\\bits/alltypes.h" 3
+# 164 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef signed char int8_t;
 
 
 
 
 typedef short int16_t;
-# 179 "D:\\Installations\\pic\\include\\c99\\bits/alltypes.h" 3
+# 179 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long int32_t;
-# 192 "D:\\Installations\\pic\\include\\c99\\bits/alltypes.h" 3
+# 192 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef int32_t intmax_t;
 
 
@@ -312,11 +160,11 @@ typedef unsigned char uint8_t;
 
 
 typedef unsigned short uint16_t;
-# 215 "D:\\Installations\\pic\\include\\c99\\bits/alltypes.h" 3
+# 215 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned long uint32_t;
-# 233 "D:\\Installations\\pic\\include\\c99\\bits/alltypes.h" 3
+# 233 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef uint32_t uintmax_t;
-# 27 "D:\\Installations\\pic\\include\\c99\\stdint.h" 2 3
+# 27 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdint.h" 2 3
 
 typedef int8_t int_fast8_t;
 
@@ -346,25 +194,25 @@ typedef uint24_t uint_least24_t;
 typedef uint24_t uint_fast24_t;
 
 typedef uint32_t uint_least32_t;
-# 148 "D:\\Installations\\pic\\include\\c99\\stdint.h" 3
-# 1 "D:\\Installations\\pic\\include\\c99\\bits/stdint.h" 1 3
+# 148 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/stdint.h" 1 3
 typedef int16_t int_fast16_t;
 typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
-# 149 "D:\\Installations\\pic\\include\\c99\\stdint.h" 2 3
-# 4 "D:\\Installations\\pic\\include\\builtins.h" 2 3
+# 149 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdint.h" 2 3
+# 4 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\builtins.h" 2 3
 
 
 
 #pragma intrinsic(__nop)
 extern void __nop(void);
-# 19 "D:\\Installations\\pic\\include\\builtins.h" 3
+# 19 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\builtins.h" 3
 #pragma intrinsic(_delay)
 extern __attribute__((nonreentrant)) void _delay(uint32_t);
 #pragma intrinsic(_delaywdt)
 extern __attribute__((nonreentrant)) void _delaywdt(uint32_t);
-# 24 "D:\\Installations\\pic\\include\\xc.h" 2 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 2 3
 
 
 
@@ -374,12 +222,12 @@ extern __attribute__((nonreentrant)) void _delaywdt(uint32_t);
 
 
 
-# 1 "D:\\Installations\\pic\\include\\htc.h" 1 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\htc.h" 1 3
 
 
 
-# 1 "D:\\Installations\\pic\\include\\xc.h" 1 3
-# 4 "D:\\Installations\\pic\\include\\htc.h" 2 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 1 3
+# 4 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\htc.h" 2 3
 # 6 "D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic.h" 2 3
 
 
@@ -393,7 +241,7 @@ extern unsigned char __osccal_val(void);
 # 223 "D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic_chip_select.h" 3
 # 1 "D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 1 3
 # 44 "D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
-# 1 "D:\\Installations\\pic\\include\\__at.h" 1 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\__at.h" 1 3
 # 45 "D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 2 3
 
 
@@ -1332,8 +1180,8 @@ __attribute__((__unsupported__("The " "FLASH_ERASE" " macro function is no longe
 
 
 
-# 1 "D:\\Installations\\pic\\include\\eeprom_routines.h" 1 3
-# 114 "D:\\Installations\\pic\\include\\eeprom_routines.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\eeprom_routines.h" 1 3
+# 114 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\eeprom_routines.h" 3
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 # 84 "D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic.h" 2 3
@@ -1341,9 +1189,14 @@ extern unsigned char eeprom_read(unsigned char addr);
 extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
-# 28 "D:\\Installations\\pic\\include\\xc.h" 2 3
+# 28 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 2 3
 # 10 "main.c" 2
-# 19 "main.c"
+
+
+
+
+
+
 #pragma config FOSC = INTRCIO
 #pragma config WDTE = ON
 #pragma config PWRTE = OFF
@@ -1357,7 +1210,8 @@ extern __bank0 __bit __timeout;
 int buttonpressed = 0;
 volatile int ledtimer = 0;
 volatile int buttonstimer = 0;
-int adtimer = 0;
+
+volatile int adtimer = 0;
 volatile unsigned char start = 0;
 volatile unsigned char startbutton = 0;
 volatile unsigned int adc_value = 0;
@@ -1382,48 +1236,38 @@ int currentadc= 0;
 int d1 = 0;
 int d2 = 0;
 int d3 = 0;
+int last_adc_state = 0;
 
 
 unsigned int Read_Adc(void) {
     ADCON0bits.GO_nDONE = 1;
     while (ADCON0bits.GO_nDONE);
-
     return ((unsigned int)ADRESH << 8) | ADRESL;
 }
 
 
 void __attribute__((picinterrupt(("")))) ISR() {
-
-
     if (T0IF) {
-
-
 
         ledtimer++;
         buttonstimer++;
         adtimer++;
 
-
         if (starttimer == 1) {
             counttime++;
-
             if ((finalquantity - counttime) < 1) {
                 counttime = 0;
                 longtimecounter++;
                 if(longtimecounter >= 144){
                     finalquantity = 0;
                     starttimer = 0;
-
-                if (processstarted == 1) {
-                    finalbuzzer = 1;
-                    processstarted = 0;
+                    if (processstarted == 1) {
+                        finalbuzzer = 1;
+                        processstarted = 0;
+                    }
                 }
-                }
-
-
             }
         }
-
 
         if (finalbuzzer == 1) {
             finalbuzzercounter++;
@@ -1432,63 +1276,53 @@ void __attribute__((picinterrupt(("")))) ISR() {
                 buzzeron = 1;
             } else {
                 buzzeron = 0;
-
-                starttimer = 1;
-
-
-
                 processbuttonclicks = 0;
                 processstarted = 0;
                 finalbuzzercounter = 0;
                 finalbuzzer = 0;
-                while(1){
-                }
+                while(1);
             }
         }
 
-
         if (ledtimer >= 200 && processbuttonclicks > 0 && canstartblinking == 1) {
             processbuttonclicks--;
-            if (start == 1) {
+            ledtimer = 0;
+
+            if (processbuttonclicks % 2 == 0) {
                 start = 0;
                 buzzeron = 0;
             } else {
                 start = 1;
-                buzzeron= 1;
+                buzzeron = 1;
             }
-            ledtimer = 0;
         } else if (processbuttonclicks <= 0 && canstartblinking == 1) {
 
-            if (timecontrol == 4) {
-                finalquantity = 30000;
-            } else if (timecontrol == 3) {
-                finalquantity = 22500;
-            } else if (timecontrol == 2) {
-                finalquantity = 15000;
-            } else if (timecontrol == 1) {
-                finalquantity = 7500;
-            } else {
-                finalquantity = 0;
-            }
+            start = 0;
+            buzzeron = 0;
 
+
+
+
+
+            if (timecontrol == 4) finalquantity = 25000;
+            else if (timecontrol == 3) finalquantity = 18750;
+            else if (timecontrol == 2) finalquantity = 12500;
+            else if (timecontrol == 1) finalquantity = 6250;
+            else finalquantity = 0;
             if (starttimer == 0 && finalbuzzer == 0) {
                 starttimer = 1;
                 canstartblinking = 0;
             }
         }
 
-
         if ((start == 1 && starttimer == 0) || (starttimer == 1 && finalquantity != 0) || buzzeron == 1) {
-
             GP5 = 1;
-
             if (buzzeron == 1) {
                 GP2 = 1;
             } else {
                 GP2 = 0;
             }
         } else {
-
             GP5 = 0;
             GP2 = 0;
         }
@@ -1498,89 +1332,78 @@ void __attribute__((picinterrupt(("")))) ISR() {
     }
 }
 
-
 void main(void) {
 
-
     CMCON = 0x07;
-# 186 "main.c"
+
     ANSEL = 0b00100001;
-
-
-
-
-
-
-
     ADCON0 = 0b10000001;
 
-
     WPU = 0X00;
-
-
     TMR0 = 0;
 
 
-    OSCCAL = 0XFF;
-# 214 "main.c"
-    OPTION_REG = 0X81;
-# 226 "main.c"
-    INTCON = 0XE0;
-# 235 "main.c"
-    TRISIO = 0X03;
 
+
+    OSCCAL = 0x80;
+
+    OPTION_REG = 0X81;
+    INTCON = 0XE0;
+    TRISIO = 0X03;
 
     for (;;) {
         __asm("clrwdt");
 
-
         if(adtimer >= 20){
-            adtimer= 0;
-            thirdadc= secondadc;
-            secondadc= currentadc;
+            adtimer = 0;
+            thirdadc = secondadc;
+            secondadc = currentadc;
             currentadc = Read_Adc();
 
 
 
+            if ((currentadc >= secondadc && currentadc <= thirdadc) ||
+                (currentadc >= thirdadc && currentadc <= secondadc))
+                adc_value = currentadc;
+            else if ((secondadc >= currentadc && secondadc <= thirdadc) ||
+                     (secondadc >= thirdadc && secondadc <= currentadc))
+                adc_value = secondadc;
+            else
+                adc_value = thirdadc;
 
-            d1= currentadc - secondadc;
-            d2= currentadc - thirdadc;
-            d3= secondadc - thirdadc;
 
-            if(d1 >= d2 && d1 >= d3){
-                adc_value= (currentadc + secondadc) / 2;
-            }else if(d2 >= d1 && d2 >= d3){
-                adc_value= (currentadc + thirdadc) / 2;
-            }else{
-                adc_value= (secondadc + thirdadc) / 2;
+
+            int current_adc_state = (adc_value > 70) ? 1 : 0;
+
+            if (adc_value > 20 && adc_value <= 100) {
+                dothemagicofreset = 1;
             }
 
+            if (current_adc_state == 1 && last_adc_state == 0) {
 
+                if (canstartblinking == 0 && starttimer == 0 && adc_value > 100) {
+                    buttonclicks++;
+                    processstarted = 1;
+
+
+                    if (buttonclicks == 1) {
+                        enterbuttontimercounter = 1;
+                        buttontimercounter = 0;
+                    }
+                    if (buttonclicks > 4) buttonclicks = 4;
+                }
+            }
+            last_adc_state = current_adc_state;
         }
+
         if (buttonstimer >= 300) {
             buttonstimer = 0;
 
 
-
-            if (adc_value > 90 && adc_value <= 1023 && canstartblinking == 0 && starttimer == 0) {
-                buttonclicks++;
-                processstarted = 1;
-
-                if (buttonclicks == 1) {
-                    enterbuttontimercounter = 1;
-                } else if (buttonclicks > 4) {
-                    buttonclicks = 4;
-                }
-            }else if(adc_value <= 90 && adc_value > 20){
-                while(1){
-
-                }
-            }
-
-
             if (enterbuttontimercounter == 1) {
                 buttontimercounter++;
-                if (buttontimercounter > 15) {
+
+                if (buttontimercounter > 20) {
                     enterbuttontimercounter = 0;
                     buttontimercounter = 0;
                     processbuttonclicks = 2 * buttonclicks;
@@ -1590,29 +1413,11 @@ void main(void) {
                 }
             }
         }
-        if(dothemagicofreset == 1){
 
-            buttonpressed = 0;
-            ledtimer = 0;
-            buttonstimer = 0;
-            start = 0;
-            startbutton = 0;
-            adc_value = 0;
-            canstartblinking = 0;
-            processbuttonclicks = 0;
-            buttonclicks = 0;
-            enterbuttontimercounter = 0;
-            buttontimercounter = 0;
-            starttimer = 0;
-            counttime = 0;
-            timecontrol = 0;
-            finalquantity = 2000;
-            finalbuzzer = 0;
-            finalbuzzercounter = 0;
-            buzzeron = 0;
-            processstarted = 0;
-            longtimecounter= 0;
-            dothemagicofreset= 0;
+        if(dothemagicofreset == 1) {
+
+
+            while(1);
         }
     }
 }

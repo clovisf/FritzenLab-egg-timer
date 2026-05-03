@@ -3,21 +3,19 @@
 [d edition pro ]
 [d chip 12F675 ]
 [d frameptr 0 ]
-"5 D:\Installations\pic\sources\c99\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
-"10 D:\Installations\pic\sources\c99\common\sprcadd.c
+"10 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"4 D:\Installations\pic\sources\c99\common\Umul8_16.c
+"4 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"6 D:\Installations\pic\sources\c99\pic\__eeprom.c
+"6 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"59 C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+"58 C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
 [v _Read_Adc Read_Adc `(ui  1 e 2 0 ]
-"67
+"65
 [v _ISR ISR `II(v  1 e 1 0 ]
-"174
+"151
 [v _main main `(v  1 e 1 0 ]
 "72 D:/Installations/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
@@ -68,87 +66,70 @@
 [v _GP5 GP5 `VEb  1 e 0 @45 ]
 "1709
 [v _T0IF T0IF `VEb  1 e 0 @90 ]
-"29 C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
-[v _buttonpressed buttonpressed `i  1 e 2 0 ]
-"30
+"27 C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
 [v _ledtimer ledtimer `VEi  1 e 2 0 ]
-"31
+"28
 [v _buttonstimer buttonstimer `VEi  1 e 2 0 ]
-"32
-[v _adtimer adtimer `i  1 e 2 0 ]
-"33
+"30
+[v _adtimer adtimer `VEi  1 e 2 0 ]
+"31
 [v _start start `VEuc  1 e 1 0 ]
-"34
+"32
 [v _startbutton startbutton `VEuc  1 e 1 0 ]
-"35
+"33
 [v _adc_value adc_value `VEui  1 e 2 0 ]
-"36
+"34
 [v _canstartblinking canstartblinking `VEuc  1 e 1 0 ]
-"37
+"35
 [v _processbuttonclicks processbuttonclicks `VEi  1 e 2 0 ]
-"38
+"36
 [v _buttonclicks buttonclicks `VEi  1 e 2 0 ]
-"39
+"37
 [v _enterbuttontimercounter enterbuttontimercounter `i  1 e 2 0 ]
-"40
+"38
 [v _buttontimercounter buttontimercounter `VEi  1 e 2 0 ]
-"41
+"39
 [v _starttimer starttimer `VEuc  1 e 1 0 ]
-"42
+"40
 [v _counttime counttime `VEi  1 e 2 0 ]
-"43
+"41
 [v _timecontrol timecontrol `VEuc  1 e 1 0 ]
-"44
+"42
 [v _finalquantity finalquantity `VEi  1 e 2 0 ]
-"45
+"43
 [v _finalbuzzer finalbuzzer `VEuc  1 e 1 0 ]
-"46
+"44
 [v _finalbuzzercounter finalbuzzercounter `VEi  1 e 2 0 ]
-"47
+"45
 [v _buzzeron buzzeron `VEuc  1 e 1 0 ]
-"48
+"46
 [v _processstarted processstarted `VEuc  1 e 1 0 ]
-"49
+"47
 [v _longtimecounter longtimecounter `VEi  1 e 2 0 ]
-"50
+"48
 [v _dothemagicofreset dothemagicofreset `VEi  1 e 2 0 ]
-"51
+"49
 [v _thirdadc thirdadc `i  1 e 2 0 ]
-"52
+"50
 [v _secondadc secondadc `i  1 e 2 0 ]
-"53
+"51
 [v _currentadc currentadc `i  1 e 2 0 ]
-"54
-[v _d1 d1 `i  1 e 2 0 ]
 "55
-[v _d2 d2 `i  1 e 2 0 ]
-"56
-[v _d3 d3 `i  1 e 2 0 ]
-"174
+[v _last_adc_state last_adc_state `i  1 e 2 0 ]
+"151
 [v _main main `(v  1 e 1 0 ]
 {
-"323
+"192
+[v main@current_adc_state current_adc_state `i  1 a 2 9 ]
+"239
 } 0
-"5 D:\Installations\pic\sources\c99\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
-{
-"10
-[v ___awdiv@quotient quotient `i  1 a 2 11 ]
-"11
-[v ___awdiv@sign sign `uc  1 a 1 10 ]
-[v ___awdiv@counter counter `uc  1 a 1 9 ]
-"5
-[v ___awdiv@divisor divisor `i  1 p 2 5 ]
-[v ___awdiv@dividend dividend `i  1 p 2 7 ]
-"41
-} 0
-"59 C:\Users\Clovisf\Documents\GitHub\FritzenLab-egg-timer\egg-timer-2.X\main.c
+"58
 [v _Read_Adc Read_Adc `(ui  1 e 2 0 ]
 {
-"64
+"62
 } 0
-"67
+"65
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"171
+"149
 } 0
